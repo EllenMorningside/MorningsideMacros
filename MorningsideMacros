@@ -1,0 +1,1317 @@
+Sub M2F()
+'
+' M2F Macro
+'
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Mr"
+        .Replacement.Text = "Ms"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "he"
+        .Replacement.Text = "she"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "him"
+        .Replacement.Text = "her"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "his"
+        .Replacement.Text = "her"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+
+Sub ReplaceFNU()
+'
+' ReplaceFNU Macro
+'
+    
+    With Selection.Find
+        .Text = "FNU "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ", FNU"
+        .Replacement.Text = ""
+        .Forward = False
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceOne
+    
+End Sub
+Sub ReplaceFirstName()
+'
+' ReplaceFirstName Macro
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Candidate's First Name:" & vbTab & "FIRSTNAME" & vbCr
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Candidate's Last Name:"
+        .Replacement.Text = "Candidate's Name" & vbTab
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "FirstName"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "  "
+        .Replacement.Text = " "
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+End Sub
+
+Sub PublishPDF()
+'
+' PublishPDF Macro
+'
+'
+pdfFileName = ActiveDocument.FullName ' get the current file name
+lengthFileName = Len(pdfFileName) ' get the length of the current file name (includes the path)
+If Right(lengthFileName, 3) = "doc" Then
+pdfFileName = Left(pdfFileName, lengthFileName - 3) + "pdf" ' changes the extension (shave off last three characters - DOC - and add three new ones.)
+Else: pdfFileName = Left(pdfFileName, lengthFileName - 4) + "pdf" ' changes the extension (shave off last four characters - DOCX - and add three new ones.)
+End If
+ 
+ActiveDocument.ExportAsFixedFormat OutputFileName:=pdfFileName, ExportFormat:=wdExportFormatPDF, OpenAfterExport:=True, OptimizeFor:= _
+wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, TO:=1, _
+Item:=wdExportDocumentContent, IncludeDocProps:=False, KeepIRM:=True, _
+CreateBookmarks:=wdExportCreateNoBookmarks, DocStructureTags:=True, _
+BitmapMissingFonts:=True, UseISO19005_1:=False
+
+If ActiveDocument.Saved = False Then ActiveDocument.Save
+
+End Sub
+
+Sub ReplaceFNUandPublishPDF()
+'
+' ReplaceFNUandPublishPDF Macro
+'
+'
+     Call ReplaceFNU
+     Call PublishPDF
+
+End Sub
+
+Sub posWevReplace()
+
+    poswevreplaceForm.Show
+
+End Sub
+
+Sub wevReplace()
+
+    wevreplaceForm.Show
+
+End Sub
+
+
+Sub posSpecReplace()
+
+    pospecreplaceForm.Show
+
+End Sub
+
+Sub posRelReplace()
+
+    posrelreplaceForm.Show
+
+End Sub
+
+Sub posSpecRelReplace()
+
+    pospecrelreplaceForm.Show
+
+End Sub
+
+Sub SemiColon()
+'
+' SemiColon Macro
+'
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "."
+        .Replacement.Text = ";"
+        .Forward = True
+        .Wrap = wdFindAsk
+    End With
+    With Selection
+        If .Find.Forward = True Then
+            .Collapse Direction:=wdCollapseStart
+        Else
+            .Collapse Direction:=wdCollapseEnd
+        End If
+        .Find.Execute Replace:=wdReplaceOne
+        If .Find.Forward = True Then
+            .Collapse Direction:=wdCollapseEnd
+        Else
+            .Collapse Direction:=wdCollapseStart
+        End If
+        .Find.Execute
+    End With
+End Sub
+
+Sub TemplateCheck()
+
+Set myRange = ActiveDocument.Content
+
+Dim x As Integer
+x = 0
+
+''FirstName
+myRange.Find.Execute FindText:="FirstName", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "FirstName"
+        .Replacement.Text = "FirstName"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''LastName
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="LastName", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "LastName"
+        .Replacement.Text = "LastName"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''PositionOne
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="PositionOne", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "PositionOne"
+        .Replacement.Text = "PositionOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''CompanyOne
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="CompanyOne", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "CompanyOne"
+        .Replacement.Text = "CompanyOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+''CaseNumber
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="CaseNumber", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "CaseNumber"
+        .Replacement.Text = "CaseNumber"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''DegreeIn
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="DegreeIn", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "DegreeIn"
+        .Replacement.Text = "DegreeIn"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+''FieldOne
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="FieldOne", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "FieldOne"
+        .Replacement.Text = "FieldOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+
+''Company Info
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT COMPANY INFORMATION", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT COMPANY INFORMATION"
+        .Replacement.Text = "INSERT COMPANY INFORMATION"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Relevant Job Duties
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT RELEVANT JOB DUTIES HERE", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT RELEVANT JOB DUTIES HERE"
+        .Replacement.Text = "INSERT RELEVANT JOB DUTIES HERE"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Related Coursework
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT RELATED COURSEWORK", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT RELATED COURSEWORK"
+        .Replacement.Text = "INSERT RELATED COURSEWORK"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+    
+''Bachelor's Degree Paragraph
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="ADD PARAGRAPH ABOUT WHY A BACHELOR'S DEGREE IS NECESSARY TO PERFORM THIS JOB EFFECTIVELY", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "ADD PARAGRAPH ABOUT WHY A BACHELOR'S DEGREE IS NECESSARY TO PERFORM THIS JOB EFFECTIVELY"
+        .Replacement.Text = "ADD PARAGRAPH ABOUT WHY A BACHELOR'S DEGREE IS NECESSARY TO PERFORM THIS JOB EFFECTIVELY"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="USE FILESEARCH EX TO FIND AN APPROPRIATE BACHELOR'S PARAGRAPH THAT MATCHES THE FIELDS", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "USE FILESEARCH EX TO FIND AN APPROPRIATE BACHELOR'S PARAGRAPH THAT MATCHES THE FIELDS"
+        .Replacement.Text = "USE FILESEARCH EX TO FIND AN APPROPRIATE BACHELOR'S PARAGRAPH THAT MATCHES THE FIELDS"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''OOH
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INCLUDE SOMETHING FROM THE OOH?????", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INCLUDE SOMETHING FROM THE OOH?????"
+        .Replacement.Text = "INCLUDE SOMETHING FROM THE OOH?????"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Field Two
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="FIELDTWO", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "FIELDTWO"
+        .Replacement.Text = "FIELDTWO"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Rel Paragraph
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="EXPLAIN HOW…..the degree is relevant……..", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "EXPLAIN HOW…..the degree is relevant…….."
+        .Replacement.Text = "EXPLAIN HOW…..the degree is relevant…….."
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="year(S)", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "year(S)"
+        .Replacement.Text = "year(S)"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+    
+''Fakhoury O*Net Duties
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT SIMILAR JOB DUTIES TO THE O*Net DUTIES", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT SIMILAR JOB DUTIES TO THE O*Net DUTIES"
+        .Replacement.Text = "INSERT SIMILAR JOB DUTIES TO THE O*Net DUTIES"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+''List Courses from Uniquely Qualified
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="ListCourses", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "ListCourses"
+        .Replacement.Text = "ListCourses"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Recognition of Expertise INSERT PROGRAMS HERE
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT PROGRAMS HERE", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT PROGRAMS HERE"
+        .Replacement.Text = "INSERT PROGRAMS HERE"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+'wev/poswev academics
+''Foreign Degree
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="inforeigndegree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "InForeignDegree"
+        .Replacement.Text = "InForeignDegree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="titleforeigndegree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "TitleForeignDegree"
+        .Replacement.Text = "TitleForeignDegree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+''Major
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="majorthree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "MajorThree"
+        .Replacement.Text = "MajorThree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+      
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="majortwo", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "MajorTwo"
+        .Replacement.Text = "MajorTwo"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="majorone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "MajorOne"
+        .Replacement.Text = "MajorOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Year
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="yearthree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "YearThree"
+        .Replacement.Text = "YearThree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="yeartwo", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "YearTwo"
+        .Replacement.Text = "YearTwo"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="yearone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "YearOne"
+        .Replacement.Text = "YearOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''DegreeRecieved
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="degreereceivedthree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "DegreeReceivedThree"
+        .Replacement.Text = "DegreeReceivedThree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="degreereceivedtwo", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "DegreeReceivedTwo"
+        .Replacement.Text = "DegreeReceivedTwo"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="degreereceivedone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "DegreeReceivedOne"
+        .Replacement.Text = "DegreeReceivedOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="degreerecievedone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "DegreeRecievedOne"
+        .Replacement.Text = "DegreeRecievedOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''Country
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="thecountrythree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "theCountryThree"
+        .Replacement.Text = "theCountryThree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="thecountrytwo", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "theCountryTwo"
+        .Replacement.Text = "theCountryTwo"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="thecountryone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "theCountryOne"
+        .Replacement.Text = "theCountryOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''School Name
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="schoolnamethree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "SchoolNameThree"
+        .Replacement.Text = "SchoolNameThree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="schoolnametwo", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "SchoolNameTwo"
+        .Replacement.Text = "SchoolNameTwo"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="schoolnameone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "SchoolNameOne"
+        .Replacement.Text = "SchoolNameOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+''Years of Coursework
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="yearsofcourseworkthree", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "yearsofCourseworkThree"
+        .Replacement.Text = "yearsofCourseworkThree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="yearsofcourseworktwo", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "yearsofCourseworkTwo"
+        .Replacement.Text = "yearsofCourseworkTwo"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="yearsofcourseworkone", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "yearsofCourseworkOne"
+        .Replacement.Text = "yearsofCourseworkOne"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+''INSERT EXPERIENCE HERE
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT EXPERIENCE HERE", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT EXPERIENCE HERE"
+        .Replacement.Text = "INSERT EXPERIENCE HERE"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+''XXXXXXX
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="XX", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "XX"
+        .Replacement.Text = "XX"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    
+''INSERT
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="INSERT", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "INSERT"
+        .Replacement.Text = "INSERT"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchCase = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    
+    If x > 0 Then
+    MsgBox ("Check for templated language!")
+    
+    Else
+    MsgBox ("All good!")
+    
+    End If
+
+End Sub
+
+Sub JanitorMacro()
+
+'' Apostrophe Macro
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "'"
+        .Replacement.Text = "'"
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = """"
+        .Replacement.Text = """"
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+''BulletReplace Macro
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "•" & vbTab
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "• "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "-" & vbTab
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "o" & vbTab
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+''Punctuation Macro
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " ,"
+        .Replacement.Text = ","
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "}"
+        .Replacement.Text = ")"
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "{"
+        .Replacement.Text = "("
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " ."
+        .Replacement.Text = "."
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ".."
+        .Replacement.Text = "."
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " :"
+        .Replacement.Text = ":"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " / "
+        .Replacement.Text = "/"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = " /"
+        .Replacement.Text = "/"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "/ "
+        .Replacement.Text = "/"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "\"
+        .Replacement.Text = "/"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "$ "
+        .Replacement.Text = "$"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+''CommaParenthesesMacro
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ","
+        .Replacement.Text = ", "
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "("
+        .Replacement.Text = " ("
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+''DoubleSpace Macro
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "  "
+        .Replacement.Text = " "
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+End Sub
