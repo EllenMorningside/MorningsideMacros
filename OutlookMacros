@@ -1,0 +1,52 @@
+Sub allThree()
+    Dim nameSpace As Outlook.nameSpace
+    Dim Item As Outlook.MailItem
+    Dim oAttachment As Outlook.Attachment
+    Dim sSaveFolder As String
+    Dim name As String
+    Dim attachmentName As String
+    
+    Set nameSpace = Application.GetNamespace("MAPI")
+    
+    Set Item = Application.ActiveExplorer.Selection.Item(1)
+    sSaveFolder = "C:\Users\ecooper\Downloads\"
+    For Each oAttachment In Item.Attachments
+        attachmentName = RemoveSpecials(oAttachment.DisplayName)
+        oAttachment.SaveAsFile sSaveFolder & attachmentName
+    Next
+    Item.Categories = "Green Category"
+    Item.Save
+    name = RemoveSpecials(Item.Subject)
+    Item.SaveAs sSaveFolder & name & ".msg", olMSG
+    Set nameSpace = Nothing
+End Sub
+
+Function RemoveSpecials(strInput As String) As String
+    Dim strChars As String
+    strChars = "!£$%^&*()_+{}@~:<>?,/;'#[]-=`¦" & Chr(34)
+    Dim intIndex As Integer
+    For intIndex = 1 To Len(strChars)
+        strInput = Replace(strInput, Mid(strChars, intIndex, 1), "")
+    Next
+    RemoveSpecials = strInput
+End Function
+
+
+Sub YanofskyAppt()
+Dim Items As Outlook.Items
+  Dim Item As Object
+  Set Items = Application.ActiveExplorer.CurrentFolder.Items
+  Set Item = Items.Add("ipm.appointment.ProfYanofskyAppt")
+  Item.Display
+
+End Sub
+
+Sub CaseCompletedEmail()
+Dim Items As Outlook.Items
+  Dim Item As Object
+  Set Items = Application.ActiveExplorer.CurrentFolder.Items
+  Set Item = Items.Add("ipm.note.CaseCompleted")
+  Item.Display
+
+End Sub
+
