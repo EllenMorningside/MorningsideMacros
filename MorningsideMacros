@@ -10,53 +10,35 @@ Sub M2F()
         .Replacement.Text = "Ms"
         .Forward = True
         .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
+       .MatchWholeWord = True
+   End With
     Selection.Find.Execute Replace:=wdReplaceAll
     With Selection.Find
         .Text = "he"
         .Replacement.Text = "she"
         .Forward = True
         .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
         .MatchWholeWord = True
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
+   End With
     Selection.Find.Execute Replace:=wdReplaceAll
     With Selection.Find
         .Text = "him"
         .Replacement.Text = "her"
         .Forward = True
         .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
+       .MatchWholeWord = True
+   End With
     Selection.Find.Execute Replace:=wdReplaceAll
     With Selection.Find
         .Text = "his"
         .Replacement.Text = "her"
         .Forward = True
         .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
+       .MatchWholeWord = True
+   End With
     Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+
 End Sub
 
 Sub ReplaceFNU()
@@ -69,12 +51,6 @@ Sub ReplaceFNU()
         .Replacement.Text = ""
         .Forward = True
         .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     
@@ -85,16 +61,12 @@ Sub ReplaceFNU()
         .Replacement.Text = ""
         .Forward = False
         .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceOne
+    Selection.Find.ClearFormatting
     
 End Sub
+
 Sub ReplaceFirstName()
 '
 ' ReplaceFirstName Macro
@@ -122,22 +94,23 @@ Sub ReplaceFirstName()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "FirstName"
+        .Text = "FirstName "
         .Replacement.Text = ""
         .Forward = True
         .Wrap = wdFindContinue
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     
-    Selection.Find.ClearFormatting
+        Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "  "
-        .Replacement.Text = " "
-        .Forward = True
+        .Text = ", FirstName"
+        .Replacement.Text = ""
+        .Forward = False
         .Wrap = wdFindContinue
     End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    Selection.Find.Execute Replace:=wdReplaceOne
+    Selection.Find.ClearFormatting
     
 End Sub
 
@@ -202,35 +175,6 @@ Sub posSpecRelReplace()
 
     pospecrelreplaceForm.Show
 
-End Sub
-
-Sub SemiColon()
-'
-' SemiColon Macro
-'
-'
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "."
-        .Replacement.Text = ";"
-        .Forward = True
-        .Wrap = wdFindAsk
-    End With
-    With Selection
-        If .Find.Forward = True Then
-            .Collapse Direction:=wdCollapseStart
-        Else
-            .Collapse Direction:=wdCollapseEnd
-        End If
-        .Find.Execute Replace:=wdReplaceOne
-        If .Find.Forward = True Then
-            .Collapse Direction:=wdCollapseEnd
-        Else
-            .Collapse Direction:=wdCollapseStart
-        End If
-        .Find.Execute
-    End With
 End Sub
 
 Sub TemplateCheck()
