@@ -1,0 +1,202 @@
+''These macros appear on all computers at the moment
+Sub M2F()
+'
+' M2F Macro
+'
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Mr"
+        .Replacement.Text = "Ms"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "he"
+        .Replacement.Text = "she"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "him"
+        .Replacement.Text = "her"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "his"
+        .Replacement.Text = "her"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+
+Sub F2M()
+'
+' F2M Macro
+'
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Ms"
+        .Replacement.Text = "Mr"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "she"
+        .Replacement.Text = "he"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "her"
+        .Replacement.Text = "him"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+
+Sub ReplaceFNU()
+'
+' ReplaceFNU Macro
+'
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ", FNU"
+        .Replacement.Text = ""
+        .Forward = False
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceOne
+    With Selection.Find
+        .Text = "FNU "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+Sub ReplaceFirstName()
+
+
+Sub PublishPDF()
+'
+' PublishPDF Macro
+'
+'
+pdfFileName = ActiveDocument.FullName ' get the current file name
+lengthFileName = Len(pdfFileName) ' get the length of the current file name (includes the path)
+If Right(lengthFileName, 3) = "doc" Then
+pdfFileName = Left(pdfFileName, lengthFileName - 3) + "pdf" ' changes the extension (shave off last three characters - DOC - and add three new ones.)
+Else: pdfFileName = Left(pdfFileName, lengthFileName - 4) + "pdf" ' changes the extension (shave off last four characters - DOCX - and add three new ones.)
+End If
+ 
+ActiveDocument.ExportAsFixedFormat OutputFileName:=pdfFileName, ExportFormat:=wdExportFormatPDF, OpenAfterExport:=True, OptimizeFor:= _
+wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, To:=1, _
+Item:=wdExportDocumentContent, IncludeDocProps:=True, KeepIRM:=True, _
+CreateBookmarks:=wdExportCreateNoBookmarks, DocStructureTags:=True, _
+BitmapMissingFonts:=True, UseISO19005_1:=False
+ 
+End Sub
+Sub PrintEvalM601()
+With ActiveDocument.PageSetup
+.FirstPageTray = 261
+.OtherPagesTray = 262
+End With
+Options.PrintDrawingObjects = False
+ActiveDocument.PrintOut
+Options.PrintDrawingObjects = True
+End Sub
+Sub ReplaceFNUandPublishPDF()
+'
+' ReplaceFNUandPublishPDF Macro
+'
+'
+     Call ReplaceFNU
+     Call PublishPDF
+
+End Sub
+Sub ReplaceFNUandPrintEvalM601()
+'
+' ReplaceFNUandPrintEvalM601 Macro
+'
+'
+     Call ReplaceFNU
+     Call PrintEvalM601
+
+End Sub
+Sub TransCert()
+With ActiveDocument.PageSetup
+.FirstPageTray = 260
+.OtherPagesTray = 260
+End With
+Options.PrintDrawingObjects = False
+ActiveDocument.PrintOut
+Options.PrintDrawingObjects = True
+End Sub
