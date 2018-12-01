@@ -14,6 +14,7 @@ This module consists of macros that only I use because they're probably too comp
 They may even be too risky for me, but I'm trying them anyway.
 - VerbTense 1, 2, 3 to put verbs into the infinitive form
 - MegaMacro to make riskier grammar and spelling corrections
+- Semicolon macro that converts periods to semi-colons one at a time, making it much quicker to edit a bulleted list of sentences.
 
 ##OutlookMacros
 These are all macros I use on Outlook.
