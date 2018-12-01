@@ -1970,12 +1970,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "baseline of "
-        .Replacement.Text = "baseline "
+        .Text = "baseline of"
+        .Replacement.Text = "baseline"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -1983,12 +1983,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "configuration of "
-        .Replacement.Text = "configure "
+        .Text = "configuration of"
+        .Replacement.Text = "configure"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -1996,12 +1996,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Coordination with "
-        .Replacement.Text = "Coordinate with "
+        .Text = "Coordination with"
+        .Replacement.Text = "Coordinate with"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2009,12 +2009,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Creation of "
-        .Replacement.Text = "Create "
+        .Text = "Creation of"
+        .Replacement.Text = "Create"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2022,12 +2022,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Deployment of "
-        .Replacement.Text = "Deploy "
+        .Text = "Deployment of"
+        .Replacement.Text = "Deploy"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2035,12 +2035,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Development of "
-        .Replacement.Text = "develop "
+        .Text = "Development of"
+        .Replacement.Text = "develop"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2048,12 +2048,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Fixing of "
-        .Replacement.Text = "Fix "
+        .Text = "Fixing of"
+        .Replacement.Text = "Fix"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2061,12 +2061,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Interaction with "
-        .Replacement.Text = "Interact with "
+        .Text = "Interaction with"
+        .Replacement.Text = "Interact with"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2074,12 +2074,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Involve in "
-        .Replacement.Text = "Be involved in "
+        .Text = "Involve in"
+        .Replacement.Text = "Be involved in"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2087,12 +2087,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Participation in "
-        .Replacement.Text = "Participate in "
+        .Text = "Participation in"
+        .Replacement.Text = "Participate in"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2100,12 +2100,12 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Preparation of "
-        .Replacement.Text = "Prepare "
+        .Text = "Preparation of"
+        .Replacement.Text = "Prepare"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
@@ -2113,25 +2113,25 @@ Sub VerbTense3()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Prioritization of "
-        .Replacement.Text = "Prioritize "
+        .Text = "Prioritization of"
+        .Replacement.Text = "Prioritize"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
 
-        Selection.Find.Clearormatting
+        Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Review of "
-        .Replacement.Text = "Review "
+        .Text = "Review of"
+        .Replacement.Text = "Review"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
-        .MatchWholeWord = False
+        .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
