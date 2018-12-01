@@ -119,8 +119,6 @@ Sub SemiColon()
 End Sub
 
 Sub VerbTense1()
-
-    Sub VerbTense1()
     
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
 
@@ -2702,7 +2700,5 @@ Selection.Find.ClearFormatting
         .Wrap = wdFindContinue
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    
-    ''Working on general INSERT, currently it bleeds into other macros
 
 End Sub
