@@ -66,7 +66,6 @@ Sub ReplaceFNU()
     Selection.Find.ClearFormatting
     
 End Sub
-
 Sub ReplaceFirstName()
 '
 ' ReplaceFirstName Macro
@@ -952,72 +951,92 @@ If myRange.Find.Found = True Then
     
 ''First Person Language
 
-    myRange.Find.Execute FindText:=" our ", Forward:=True
+    myRange.Find.Execute FindText:="us", MatchCase:=True, Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     Selection.Find.Replacement.Highlight = True
     With Selection.Find
-        .Text = " our "
-        .Replacement.Text = " our "
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-         x = x + 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-        myRange.Find.Execute FindText:=" we ", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = " we "
-        .Replacement.Text = " we "
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-         x = x + 1
-        End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-         
-         
-    myRange.Find.Execute FindText:=" we hereby affirm ", Forward:=True
-    If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdNoHighlight
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = " we hereby affirm "
-        .Replacement.Text = " we hereby affirm "
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-         x = x - 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-        myRange.Find.Execute FindText:=" us ", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = " us "
-        .Replacement.Text = " us "
+        .Text = "us"
+        .Replacement.Text = "us"
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
         .MatchCase = True
+        .MatchWholeWord = True
          x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+    myRange.Find.Execute FindText:="our", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "our"
+        .Replacement.Text = "our"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+        myRange.Find.Execute FindText:="ours", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "ours"
+        .Replacement.Text = "ours"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+        myRange.Find.Execute FindText:="we", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "we"
+        .Replacement.Text = "we"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = True
+         x = x + 1
+        End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+            myRange.Find.Execute FindText:="we hereby affirm", Forward:=True
+    If myRange.Find.Found = True Then
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = False
+    With Selection.Find
+        .Text = "we hereby affirm"
+        .Replacement.Text = "we hereby affirm"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = True
+         x = x - 1
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
@@ -1372,41 +1391,72 @@ Sub JanitorMacro()
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-
-''CommaParenthesesMacro
-    'Selection.Find.ClearFormatting
-    'Selection.Find.Replacement.ClearFormatting
-    'With Selection.Find
-     '   .Text = ","
-      '  .Replacement.Text = ", "
-       ' .Forward = True
-        '.Wrap = wdFindContinue
-       ' .Format = False
-       ' .MatchCase = True
-       ' .MatchWholeWord = False
-       ' .MatchWildcards = False
-       ' .MatchSoundsLike = False
-       ' .MatchAllWordForms = False
-    'End With
-    'Selection.Find.Execute Replace:=wdReplaceAll
     
-   '   Selection.Find.ClearFormatting
-   ' Selection.Find.Replacement.ClearFormatting
-   ' With Selection.Find
-   '     .Text = "("
-   '     .Replacement.Text = " ("
-   '     .Forward = True
-   '     .Wrap = wdFindContinue
-   '     .Format = False
-   '     .MatchCase = True
-   '     .MatchWholeWord = False
-   '     .MatchWildcards = False
-   '     .MatchSoundsLike = False
-   '     .MatchAllWordForms = False
-   ' End With
-   ' Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = ","
+        .Replacement.Text = ", "
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
     
-''DoubleSpace Macro
+    ''CommaParentheses Spacing
+    
+      Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "("
+        .Replacement.Text = " ("
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+   Selection.Find.Execute Replace:=wdReplaceAll
+   
+       Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " “"
+        .Replacement.Text = "”"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+           Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " ”"
+        .Replacement.Text = "”"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    'DoubleSpace Macro
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
@@ -1422,5 +1472,5 @@ Sub JanitorMacro()
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    
+
 End Sub
