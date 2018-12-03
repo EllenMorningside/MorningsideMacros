@@ -39,7 +39,6 @@ Sub M2F()
     Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
 
-End Sub
 
 Sub ReplaceFNU()
 '
@@ -948,191 +947,7 @@ If myRange.Find.Found = True Then
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
-    
-''First Person Language
 
-    myRange.Find.Execute FindText:="us", MatchCase:=True, Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = "us"
-        .Replacement.Text = "us"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-        .MatchCase = True
-        .MatchWholeWord = True
-         x = x + 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-
-    myRange.Find.Execute FindText:="our", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = "our"
-        .Replacement.Text = "our"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-        .MatchWholeWord = True
-         x = x + 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-        myRange.Find.Execute FindText:="ours", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = "ours"
-        .Replacement.Text = "ours"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-        .MatchWholeWord = True
-         x = x + 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-        myRange.Find.Execute FindText:="we", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = "we"
-        .Replacement.Text = "we"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-        .MatchWholeWord = True
-         x = x + 1
-        End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-            myRange.Find.Execute FindText:="we hereby affirm", Forward:=True
-    If myRange.Find.Found = True Then
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = False
-    With Selection.Find
-        .Text = "we hereby affirm"
-        .Replacement.Text = "we hereby affirm"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-        .MatchWholeWord = True
-         x = x - 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-''Vowel for Job Position
-
-'    Set myRange = ActiveDocument.Content
-'myRange.Find.Execute FindText:="a A", Forward:=True
-'If myRange.Find.Found = True Then
-'    Options.DefaultHighlightColorIndex = wdYellow
-'    Selection.Find.ClearFormatting
-'    Selection.Find.Replacement.ClearFormatting
-'    Selection.Find.Replacement.Highlight = True
-'    With Selection.Find
-'        .Text = "a A"
-'        .Replacement.Text = "a A"
-'        .Forward = True
-'        .Wrap = wdFindContinue
-'        .Format = True
-'         x = x + 1
-'    End With
-'    Selection.Find.Execute Replace:=wdReplaceAll
-'    End If
-    
-'        Set myRange = ActiveDocument.Content
-'myRange.Find.Execute FindText:="a E", Forward:=True
-'If myRange.Find.Found = True Then
-'    Options.DefaultHighlightColorIndex = wdYellow
-'    Selection.Find.ClearFormatting
-'    Selection.Find.Replacement.ClearFormatting
-'    Selection.Find.Replacement.Highlight = True
-'    With Selection.Find
-'        .Text = "a E"
-'        .Replacement.Text = "a E"
-'        .Forward = True
-'        .Wrap = wdFindContinue
-'        .Format = True
-'         x = x + 1
-'    End With
-'    Selection.Find.Execute Replace:=wdReplaceAll
-'    End If
-    
-'        Set myRange = ActiveDocument.Content
-'myRange.Find.Execute FindText:="a I", Forward:=True
-'If myRange.Find.Found = True Then
-'    Options.DefaultHighlightColorIndex = wdYellow
-'    Selection.Find.ClearFormatting
-'    Selection.Find.Replacement.ClearFormatting
-'    Selection.Find.Replacement.Highlight = True
-'    With Selection.Find
-'        .Text = "a I"
-'        .Replacement.Text = "a I"
-'       .Forward = True
-'        .Wrap = wdFindContinue
-'        .Format = True
-'         x = x + 1
-'    End With
-'    Selection.Find.Execute Replace:=wdReplaceAll
-'    End If
-    
-'        Set myRange = ActiveDocument.Content
-'myRange.Find.Execute FindText:="a O", Forward:=True
-'If myRange.Find.Found = True Then
-'    Options.DefaultHighlightColorIndex = wdYellow
-'    Selection.Find.ClearFormatting
-'    Selection.Find.Replacement.ClearFormatting
-'    Selection.Find.Replacement.Highlight = True
-'    With Selection.Find
-'        .Text = "a O"
-'        .Replacement.Text = "a O"
-'        .Forward = True
-'        .Wrap = wdFindContinue
-'        .Format = True
-'         x = x + 1
-'    End With
-'    Selection.Find.Execute Replace:=wdReplaceAll
-'    End If
-    
-'        Set myRange = ActiveDocument.Content
-'myRange.Find.Execute FindText:="a U", Forward:=True
-'If myRange.Find.Found = True Then
-'    Options.DefaultHighlightColorIndex = wdYellow
-'    Selection.Find.ClearFormatting
-'    Selection.Find.Replacement.ClearFormatting
-'    Selection.Find.Replacement.Highlight = True
-'    With Selection.Find
-'        .Text = "a U"
-'        .Replacement.Text = "a U"
-'        .Forward = True
-'        .Wrap = wdFindContinue
-'        .Format = True
-'         x = x + 1
-'    End With
-'    Selection.Find.Execute Replace:=wdReplaceAll
-'    End If
-    
 ''XXXXXXX
 Set myRange = ActiveDocument.Content
 myRange.Find.Execute FindText:="XX", Forward:=True
@@ -1157,7 +972,7 @@ If myRange.Find.Found = True Then
     
 ''INSERT
 Set myRange = ActiveDocument.Content
-myRange.Find.Execute FindText:="INSERT", Forward:=True
+myRange.Find.Execute FindText:="INSERT", MatchCase:=True, Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
     Selection.Find.ClearFormatting
@@ -1174,9 +989,6 @@ If myRange.Find.Found = True Then
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
     
     If x > 0 Then
     MsgBox ("Check for templated language!")
@@ -1186,6 +998,18 @@ If myRange.Find.Found = True Then
     
     End If
 
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
 
 End Sub
 
@@ -1423,22 +1247,22 @@ Sub JanitorMacro()
         .MatchAllWordForms = False
     End With
    Selection.Find.Execute Replace:=wdReplaceAll
-   
-       Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " “"
-        .Replacement.Text = "”"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = True
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+   '
+  '     Selection.Find.ClearFormatting
+  '  Selection.Find.Replacement.ClearFormatting
+  '  With Selection.Find
+  '      .Text = " “"
+  '      .Replacement.Text = "”"
+  '      .Forward = True
+  '      .Wrap = wdFindContinue
+  '      .Format = False
+  '      .MatchCase = True
+  '      .MatchWholeWord = False
+  '      .MatchWildcards = False
+  '      .MatchSoundsLike = False
+  '      .MatchAllWordForms = False
+  '  End With
+  '  Selection.Find.Execute Replace:=wdReplaceAll
     
            Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -1469,6 +1293,20 @@ Sub JanitorMacro()
         .MatchWholeWord = False
         .MatchWildcards = False
         .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    ''Cleanup Find and Replace
+        Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
