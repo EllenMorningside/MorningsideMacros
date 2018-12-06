@@ -166,7 +166,7 @@ Sub GenericLetter()
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = "The skills Mr. LastName possesses"
-        .Replacement.Text = "The required skills"
+        .Replacement.Text = "The skills CompanyOne necessitates"
         .Forward = True
         .Wrap = wdFindContinue
     End With
