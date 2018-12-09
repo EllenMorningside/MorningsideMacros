@@ -477,33 +477,15 @@ If myRange.Find.Found = True Then
     
 ''Bachelor's Degree Paragraph
 Set myRange = ActiveDocument.Content
-myRange.Find.Execute FindText:="ADD PARAGRAPH ABOUT WHY A BACHELOR'S DEGREE IS NECESSARY TO PERFORM THIS JOB EFFECTIVELY", Forward:=True
+myRange.Find.Execute FindText:="ADD PARAGRAPH", Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     Selection.Find.Replacement.Highlight = True
     With Selection.Find
-        .Text = "ADD PARAGRAPH ABOUT WHY A BACHELOR'S DEGREE IS NECESSARY TO PERFORM THIS JOB EFFECTIVELY"
-        .Replacement.Text = "ADD PARAGRAPH ABOUT WHY A BACHELOR'S DEGREE IS NECESSARY TO PERFORM THIS JOB EFFECTIVELY"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-         x = x + 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
-    
-Set myRange = ActiveDocument.Content
-myRange.Find.Execute FindText:="USE FILESEARCH EX TO FIND AN APPROPRIATE BACHELOR'S PARAGRAPH THAT MATCHES THE FIELDS", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = "USE FILESEARCH EX TO FIND AN APPROPRIATE BACHELOR'S PARAGRAPH THAT MATCHES THE FIELDS"
-        .Replacement.Text = "USE FILESEARCH EX TO FIND AN APPROPRIATE BACHELOR'S PARAGRAPH THAT MATCHES THE FIELDS"
+        .Text = "ADD PARAGRAPH"
+        .Replacement.Text = "ADD PARAGRAPH"
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
@@ -626,17 +608,18 @@ If myRange.Find.Found = True Then
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
     
-''Recognition of Expertise INSERT PROGRAMS HERE
+'wev/poswev
+''DegreeTitle
 Set myRange = ActiveDocument.Content
-myRange.Find.Execute FindText:="INSERT PROGRAMS HERE", Forward:=True
+myRange.Find.Execute FindText:="DegreeTitle", Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     Selection.Find.Replacement.Highlight = True
     With Selection.Find
-        .Text = "INSERT PROGRAMS HERE"
-        .Replacement.Text = "INSERT PROGRAMS HERE"
+        .Text = "DegreeTitle"
+        .Replacement.Text = "DegreeTitle"
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
@@ -645,7 +628,26 @@ If myRange.Find.Found = True Then
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
     
-'wev/poswev academics
+''NumberOfYears
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="numberOfYears", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "numberOfYears"
+        .Replacement.Text = "numberOfYears"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchCase = False
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
 ''Foreign Degree
 Set myRange = ActiveDocument.Content
 myRange.Find.Execute FindText:="inforeigndegree", Forward:=True
@@ -1030,27 +1032,8 @@ If myRange.Find.Found = True Then
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
-
-''INSERT EXPERIENCE HERE
-Set myRange = ActiveDocument.Content
-myRange.Find.Execute FindText:="INSERT EXPERIENCE HERE", Forward:=True
-If myRange.Find.Found = True Then
-    Options.DefaultHighlightColorIndex = wdYellow
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Highlight = True
-    With Selection.Find
-        .Text = "INSERT EXPERIENCE HERE"
-        .Replacement.Text = "INSERT EXPERIENCE HERE"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-         x = x + 1
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    End If
     
-    'University without 'the'
+'University without 'the'
         Set myRange = ActiveDocument.Content
 myRange.Find.Execute FindText:="at University of", Forward:=True
 If myRange.Find.Found = True Then
@@ -1213,10 +1196,9 @@ If myRange.Find.Found = True Then
     End If
     
     'Our
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
+Selection.Find.ClearFormatting
+Selection.Find.Replacement.ClearFormatting
+With Selection.Find
         .Text = "Our conversation"
         .Replacement.Text = "ZOur conversation"
         .Forward = True
@@ -1227,7 +1209,6 @@ If myRange.Find.Found = True Then
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     
-Set myRange = ActiveDocument.Content
 myRange.Find.Execute FindText:="our", MatchWholeWord:=True, Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
@@ -1267,10 +1248,10 @@ If myRange.Find.Found = True Then
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
     
-    'Repairing the template
-         Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
+'Repairing the template
+Selection.Find.ClearFormatting
+Selection.Find.Replacement.ClearFormatting
+With Selection.Find
         .Text = "zwe hereby affirm"
         .Replacement.Text = "we hereby affirm"
         .Forward = True
@@ -1281,9 +1262,9 @@ If myRange.Find.Found = True Then
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
+Selection.Find.ClearFormatting
+Selection.Find.Replacement.ClearFormatting
+With Selection.Find
         .Text = "ZOur conversation"
         .Replacement.Text = "Our conversation"
         .Forward = True
@@ -1315,15 +1296,15 @@ If myRange.Find.Found = True Then
     End If
     
 Set myRange = ActiveDocument.Content
-myRange.Find.Execute FindText:="seeking to hire a A", Forward:=True
+myRange.Find.Execute FindText:="to hire a A", Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     Selection.Find.Replacement.Highlight = True
     With Selection.Find
-        .Text = "seeking to hire a A"
-        .Replacement.Text = "seeking to hire a A"
+        .Text = "to hire a A"
+        .Replacement.Text = "to hire a A"
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
@@ -1332,7 +1313,7 @@ If myRange.Find.Found = True Then
     Selection.Find.Execute Replace:=wdReplaceAll
     End If
 
- Set myRange = ActiveDocument.Content
+Set myRange = ActiveDocument.Content
 myRange.Find.Execute FindText:="It is apparent that a A", Forward:=True
 If myRange.Find.Found = True Then
     Options.DefaultHighlightColorIndex = wdYellow
@@ -1342,6 +1323,222 @@ If myRange.Find.Found = True Then
     With Selection.Find
         .Text = "It is apparent that a A"
         .Replacement.Text = "It is apparent that a A"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to employ a E", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to employ a E"
+        .Replacement.Text = "to employ a E"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to hire a E", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to hire a E"
+        .Replacement.Text = "to hire a E"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="It is apparent that a E", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "It is apparent that a E"
+        .Replacement.Text = "It is apparent that a E"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to employ a I", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to employ a I"
+        .Replacement.Text = "to employ a I"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to hire a I", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to hire a I"
+        .Replacement.Text = "to hire a I"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="It is apparent that a I", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "It is apparent that a I"
+        .Replacement.Text = "It is apparent that a I"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to employ a O", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to employ a O"
+        .Replacement.Text = "to employ a O"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to hire a A", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to hire a O"
+        .Replacement.Text = "to hire a O"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="It is apparent that a O", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "It is apparent that a O"
+        .Replacement.Text = "It is apparent that a O"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to employ a U", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to employ a U"
+        .Replacement.Text = "to employ a U"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+    
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="to hire a U", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "to hire a U"
+        .Replacement.Text = "to hire a U"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+         x = x + 1
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    End If
+
+Set myRange = ActiveDocument.Content
+myRange.Find.Execute FindText:="It is apparent that a U", Forward:=True
+If myRange.Find.Found = True Then
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = "It is apparent that a U"
+        .Replacement.Text = "It is apparent that a U"
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
