@@ -1,76 +1,3 @@
-Sub ReplaceName()
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "provided by Mr. LastName"
-        .Replacement.Text = "provided by the company"
-        .Forward = False
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "represented by Mr. LastName"
-        .Replacement.Text = "represented by the company"
-        .Forward = False
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " on behalf of Mr. LastName"
-        .Replacement.Text = ""
-        .Forward = False
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Candidate's Last Name:"
-        .Replacement.Text = ""
-        .Forward = False
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "LASTNAME"
-        .Replacement.Text = ""
-        .Forward = False
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Candidate's First Name:"
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "FIRSTNAME"
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-End Sub
 
 Sub Apostrophe()
 '
@@ -122,11 +49,38 @@ Sub VerbTense1()
     
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
 
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Accomplishes"
+        .Replacement.Text = "Accomplish"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = "Acts"
         .Replacement.Text = "Act"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Administers"
+        .Replacement.Text = "Administer"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
@@ -542,6 +496,19 @@ Sub VerbTense1()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
+        .Text = "Facilitates"
+        .Replacement.Text = "Facilitate"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
         .Text = "Generates"
         .Replacement.Text = "Generate"
         .Forward = True
@@ -633,6 +600,19 @@ Sub VerbTense1()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
+        .Text = "Investigates"
+        .Replacement.Text = "Investigate"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
         .Text = "Leads"
         .Replacement.Text = "Lead"
         .Forward = True
@@ -698,6 +678,19 @@ Sub VerbTense1()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
+        .Text = "Moves"
+        .Replacement.Text = "Move"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
         .Text = "Organizes"
         .Replacement.Text = "Organize"
         .Forward = True
@@ -737,8 +730,34 @@ Sub VerbTense1()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
+        .Text = "Partners"
+        .Replacement.Text = "Partner"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAl
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
         .Text = "Performs"
         .Replacement.Text = "Perform"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Plays"
+        .Replacement.Text = "Play"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
@@ -791,6 +810,19 @@ Sub VerbTense1()
     With Selection.Find
         .Text = "Provides"
         .Replacement.Text = "Provide"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Replicates"
+        .Replacement.Text = "Replicate"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
@@ -1019,6 +1051,19 @@ Sub VerbTense2()
     With Selection.Find
         .Text = "Analyzing"
         .Replacement.Text = "Analyze"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Answering"
+        .Replacement.Text = "Answer"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
@@ -1496,6 +1541,32 @@ Sub VerbTense2()
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Highlighting"
+        .Replacement.Text = "Highlight"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Installing"
+        .Replacement.Text = "Install"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -1645,6 +1716,19 @@ Sub VerbTense2()
     With Selection.Find
         .Text = "Mentoring"
         .Replacement.Text = "Mentor"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Migrating"
+        .Replacement.Text = "Migrate"
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = True
@@ -1940,6 +2024,19 @@ Sub VerbTense2()
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Troubleshooting"
+        .Replacement.Text = "Troubleshoot"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -2053,6 +2150,19 @@ End Sub
 Sub VerbTense3()
 
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Automation of"
+        .Replacement.Text = "Automate"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -2127,6 +2237,35 @@ Sub VerbTense3()
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+''"   Don't put execution of, it's in the template!!!!!!
+
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Experience in"
+        .Replacement.Text = "Apply experience in"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Expertise in"
+        .Replacement.Text = "Apply expertise in"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
         .MatchWholeWord = True
         .MatchAllWordForms = False
     End With
@@ -2210,7 +2349,7 @@ Sub VerbTense3()
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
 
-        Selection.Find.ClearFormatting
+    Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = "Review of"
@@ -2238,6 +2377,77 @@ Sub VerbTense3()
     Selection.Find.Execute Replace:=wdReplaceAll
 
 
+End Sub
+Sub VerbTense4()
+
+    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Automated"
+        .Replacement.Text = "Automate"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "built"
+        .Replacement.Text = "build"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Migrated"
+        .Replacement.Text = "Migrate"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Worked"
+        .Replacement.Text = "Work"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+        .MatchWholeWord = True
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    ''Cleanup Find and Replace
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
 End Sub
     
 Sub MegaMacro()
@@ -2721,6 +2931,29 @@ Selection.Find.ClearFormatting
     Selection.Find.Execute Replace:=wdReplaceAll
     
 'Do not correct capitalization for degree! It fucks up the WEVs.
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Bachelor's Degree"
+        .Replacement.Text = "Bachelor's degree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Master's Degree"
+        .Replacement.Text = "Master's degree"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = True
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
     
     
 ''Spelling Macro
