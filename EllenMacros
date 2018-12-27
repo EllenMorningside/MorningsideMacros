@@ -46,2407 +46,296 @@ Sub SemiColon()
 End Sub
 
 Sub VerbTense1()
-    
+
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Accomplishes"
-        .Replacement.Text = "Accomplish"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Acts"
-        .Replacement.Text = "Act"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Administers"
-        .Replacement.Text = "Administer"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    Dim verbTense(200, 3) As String
+    Dim x As Integer
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Advises"
-        .Replacement.Text = "Advise"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+verbTense(1, 1) = "accomplishes": verbTense(1, 2) = "accomplish": verbTense(1, 3) = "N"
+verbTense(2, 1) = "acts": verbTense(2, 2) = "act": verbTense(2, 3) = "N"
+verbTense(3, 1) = "administers": verbTense(3, 2) = "administer": verbTense(3, 3) = "N"
+verbTense(4, 1) = "advises": verbTense(4, 2) = "advise": verbTense(4, 3) = "N"
+verbTense(5, 1) = "analyzes": verbTense(5, 2) = "analyze": verbTense(5, 3) = "N"
+verbTense(6, 1) = "anticipates": verbTense(6, 2) = "anticipate": verbTense(6, 3) = "N"
+verbTense(7, 1) = "applies": verbTense(7, 2) = "apply": verbTense(7, 3) = "N"
+verbTense(8, 1) = "assesses": verbTense(8, 2) = "assess": verbTense(8, 3) = "N"
+verbTense(9, 1) = "assigns": verbTense(9, 2) = "assign": verbTense(9, 3) = "N"
+verbTense(10, 1) = "assists": verbTense(10, 2) = "assist": verbTense(10, 3) = "N"
+verbTense(11, 1) = "attends": verbTense(11, 2) = "attend": verbTense(11, 3) = "N"
+verbTense(12, 1) = "builds": verbTense(12, 2) = "build": verbTense(12, 3) = "N"
+verbTense(13, 1) = "carries": verbTense(13, 2) = "carry": verbTense(13, 3) = "N"
+verbTense(14, 1) = "checks": verbTense(14, 2) = "check": verbTense(14, 3) = "N"
+verbTense(15, 1) = "collaborates": verbTense(15, 2) = "collaborate": verbTense(15, 3) = "N"
+verbTense(16, 1) = "completes": verbTense(16, 2) = "complete": verbTense(16, 3) = "N"
+verbTense(17, 1) = "conducts": verbTense(17, 2) = "conduct": verbTense(17, 3) = "N"
+verbTense(18, 1) = "connects": verbTense(18, 2) = "connect": verbTense(18, 3) = "N"
+verbTense(19, 1) = "consults": verbTense(19, 2) = "consult": verbTense(19, 3) = "N"
+verbTense(20, 1) = "contributes": verbTense(20, 2) = "contribute": verbTense(20, 3) = "N"
+verbTense(21, 1) = "converts": verbTense(21, 2) = "convert": verbTense(21, 3) = "N"
+verbTense(22, 1) = "coordinates": verbTense(22, 2) = "coordinate": verbTense(22, 3) = "N"
+verbTense(23, 1) = "creates": verbTense(23, 2) = "create": verbTense(23, 3) = "N"
+verbTense(24, 1) = "delivers": verbTense(24, 2) = "deliver": verbTense(24, 3) = "N"
+verbTense(25, 1) = "demonstrates": verbTense(25, 2) = "demonstrate": verbTense(25, 3) = "N"
+verbTense(26, 1) = "designs": verbTense(26, 2) = "design": verbTense(26, 3) = "N"
+verbTense(27, 1) = "determines": verbTense(27, 2) = "determine": verbTense(27, 3) = "N"
+verbTense(28, 1) = "develops": verbTense(28, 2) = "develop": verbTense(28, 3) = "N"
+verbTense(29, 1) = "directs": verbTense(29, 2) = "direct": verbTense(29, 3) = "N"
+verbTense(30, 1) = "drives": verbTense(30, 2) = "drive": verbTense(30, 3) = "N"
+verbTense(31, 1) = "ensures": verbTense(31, 2) = "ensure": verbTense(31, 3) = "N"
+verbTense(32, 1) = "establishes": verbTense(32, 2) = "establish": verbTense(32, 3) = "N"
+verbTense(33, 1) = "executes": verbTense(33, 2) = "execute": verbTense(33, 3) = "N"
+verbTense(34, 1) = "generates": verbTense(34, 2) = "generate": verbTense(34, 3) = "N"
+verbTense(35, 1) = "identifies": verbTense(35, 2) = "identify": verbTense(35, 3) = "N"
+verbTense(36, 1) = "implements": verbTense(36, 2) = "implement": verbTense(36, 3) = "N"
+verbTense(37, 1) = "initiates": verbTense(37, 2) = "initiate": verbTense(37, 3) = "N"
+verbTense(38, 1) = "installs": verbTense(38, 2) = "install": verbTense(38, 3) = "N"
+verbTense(39, 1) = "interacts": verbTense(39, 2) = "interact": verbTense(39, 3) = "N"
+verbTense(40, 1) = "interprets": verbTense(40, 2) = "interpret": verbTense(40, 3) = "N"
+verbTense(41, 1) = "investigates": verbTense(41, 2) = "investigate": verbTense(41, 3) = "N"
+verbTense(42, 1) = "leads": verbTense(42, 2) = "lead": verbTense(42, 3) = "N"
+verbTense(43, 1) = "maintains": verbTense(43, 2) = "maintain": verbTense(43, 3) = "N"
+verbTense(44, 1) = "manages": verbTense(44, 2) = "manage": verbTense(44, 3) = "N"
+verbTense(45, 1) = "mentors": verbTense(45, 2) = "mentor": verbTense(45, 3) = "N"
+verbTense(46, 1) = "monitors": verbTense(46, 2) = "monitor": verbTense(46, 3) = "N"
+verbTense(47, 1) = "moves": verbTense(47, 2) = "move": verbTense(47, 3) = "N"
+verbTense(48, 1) = "organizes": verbTense(48, 2) = "organize": verbTense(48, 3) = "N"
+verbTense(49, 1) = "oversees": verbTense(49, 2) = "oversee": verbTense(49, 3) = "N"
+verbTense(50, 1) = "participates": verbTense(50, 2) = "participate": verbTense(50, 3) = "N"
+verbTense(51, 1) = "partners": verbTense(51, 2) = "partner": verbTense(51, 3) = "Y"
+verbTense(52, 1) = "performs": verbTense(52, 2) = "perform": verbTense(52, 3) = "N"
+verbTense(53, 1) = "plays": verbTense(53, 2) = "play": verbTense(53, 3) = "N"
+verbTense(54, 1) = "prepares": verbTense(54, 2) = "prepare": verbTense(54, 3) = "N"
+verbTense(55, 1) = "presents": verbTense(55, 2) = "present": verbTense(55, 3) = "N"
+verbTense(56, 1) = "protects": verbTense(56, 2) = "protect": verbTense(56, 3) = "N"
+verbTense(57, 1) = "provides": verbTense(57, 2) = "provide": verbTense(57, 3) = "N"
+verbTense(58, 1) = "replicates": verbTense(58, 2) = "replicate": verbTense(58, 3) = "N"
+verbTense(59, 1) = "resolves": verbTense(59, 2) = "resolve": verbTense(59, 3) = "N"
+verbTense(60, 1) = "reviews": verbTense(60, 2) = "review": verbTense(60, 3) = "Y"
+verbTense(61, 1) = "runs": verbTense(61, 2) = "run": verbTense(61, 3) = "Y"
+verbTense(62, 1) = "serves": verbTense(62, 2) = "serve": verbTense(62, 3) = "N"
+verbTense(63, 1) = "specifies": verbTense(63, 2) = "specify": verbTense(63, 3) = "N"
+verbTense(64, 1) = "supports": verbTense(64, 2) = "support": verbTense(64, 3) = "N"
+verbTense(65, 1) = "translates": verbTense(65, 2) = "translate": verbTense(65, 3) = "N"
+verbTense(66, 1) = "understands": verbTense(66, 2) = "understand": verbTense(66, 3) = "N"
+verbTense(67, 1) = "uses": verbTense(67, 2) = "use": verbTense(67, 3) = "N"
+verbTense(68, 1) = "utilizes": verbTense(68, 2) = "utilize": verbTense(68, 3) = "N"
+verbTense(69, 1) = "validates": verbTense(69, 2) = "validate": verbTense(69, 3) = "N"
+verbTense(70, 1) = "works": verbTense(70, 2) = "work": verbTense(70, 3) = "N"
+verbTense(71, 1) = "writes": verbTense(71, 2) = "write": verbTense(71, 3) = "N"
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Analyzes"
-        .Replacement.Text = "Analyze"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    For x = 1 To 200
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Anticipates"
-        .Replacement.Text = "Anticipate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Applies"
-        .Replacement.Text = "Apply"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Assesses"
-        .Replacement.Text = "Assess"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Assigns"
-        .Replacement.Text = "Assign"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Assists"
-        .Replacement.Text = "Assist"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Attends"
-        .Replacement.Text = "Attend"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Builds"
-        .Replacement.Text = "Build"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Carries"
-        .Replacement.Text = "Carry"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Checks"
-        .Replacement.Text = "Check"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Collaborates"
-        .Replacement.Text = "Collaborate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Completes"
-        .Replacement.Text = "Complete"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Conducts"
-        .Replacement.Text = "Conduct"
+        .Text = verbTense(x, 1)
+        .Replacement.Text = verbTense(x, 2)
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
         .MatchWholeWord = True
-        .MatchAllWordForms = False
+        If verbTense(x, 3) = "Y" Then
+            .MatchCase = True
+        Else
+            .MatchCase = False
+        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Connects"
-        .Replacement.Text = "Connect"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Contributes"
-        .Replacement.Text = "Contribute"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Constructs"
-        .Replacement.Text = "Construct"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Consults"
-        .Replacement.Text = "Consult"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Converts"
-        .Replacement.Text = "Convert"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Coordinates"
-        .Replacement.Text = "Coordinate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Creates"
-        .Replacement.Text = "Create"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Delivers"
-        .Replacement.Text = "Deliver"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Demonstrates"
-        .Replacement.Text = "Demonstrate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Designs"
-        .Replacement.Text = "Design"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Determines"
-        .Replacement.Text = "Determine"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Develops"
-        .Replacement.Text = "Develop"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Directs"
-        .Replacement.Text = "Direct"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Drives"
-        .Replacement.Text = "Drive"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Establishes"
-        .Replacement.Text = "Establish"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Ensures"
-        .Replacement.Text = "Ensure"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Executes"
-        .Replacement.Text = "Execute"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Facilitates"
-        .Replacement.Text = "Facilitate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Generates"
-        .Replacement.Text = "Generate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Identifies"
-        .Replacement.Text = "Identify"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Implements"
-        .Replacement.Text = "Implement"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Initiates"
-        .Replacement.Text = "Initiate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Installs"
-        .Replacement.Text = "Installs"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Interacts"
-        .Replacement.Text = "Interact"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Interprets"
-        .Replacement.Text = "Interpret"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Investigates"
-        .Replacement.Text = "Investigate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Leads"
-        .Replacement.Text = "Lead"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Maintains"
-        .Replacement.Text = "Maintain"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Manages"
-        .Replacement.Text = "Manage"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Mentors"
-        .Replacement.Text = "Mentor"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Monitors"
-        .Replacement.Text = "Monitor"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Moves"
-        .Replacement.Text = "Move"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Organizes"
-        .Replacement.Text = "Organize"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Oversees"
-        .Replacement.Text = "Oversee"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Participates"
-        .Replacement.Text = "Participate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Partners"
-        .Replacement.Text = "Partner"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAl
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Performs"
-        .Replacement.Text = "Perform"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Plays"
-        .Replacement.Text = "Play"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Prepares"
-        .Replacement.Text = "Prepare"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Presents"
-        .Replacement.Text = "Present"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Protects"
-        .Replacement.Text = "Protect"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Provides"
-        .Replacement.Text = "Provide"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Replicates"
-        .Replacement.Text = "Replicate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Resolves"
-        .Replacement.Text = "Resolve"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Reviews"
-        .Replacement.Text = "Review"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Runs"
-        .Replacement.Text = "Run"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Serves"
-        .Replacement.Text = "Serve"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Specifies"
-        .Replacement.Text = "Specify"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Supports"
-        .Replacement.Text = "Support"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Translates"
-        .Replacement.Text = "Translate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Understands"
-        .Replacement.Text = "Understand"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Uses"
-        .Replacement.Text = "Use"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Utilizes"
-        .Replacement.Text = "Utilize"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Validates"
-        .Replacement.Text = "Validate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Works"
-        .Replacement.Text = "Work"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Writes"
-        .Replacement.Text = "Write"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    ''Cleanup Find and Replace
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = ""
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
 
 End Sub
 
 Sub VerbTense2()
 
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Achieving"
-        .Replacement.Text = "Achieve"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Administering"
-        .Replacement.Text = "Administer"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Analyzing"
-        .Replacement.Text = "Analyze"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Answering"
-        .Replacement.Text = "Answer"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Applying"
-        .Replacement.Text = "Apply"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Assisting"
-        .Replacement.Text = "Assist"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Attending"
-        .Replacement.Text = "Attend"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Automating"
-        .Replacement.Text = "Automate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Building"
-        .Replacement.Text = "Build"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Calculating"
-        .Replacement.Text = "Calculate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Capturing"
-        .Replacement.Text = "Capture"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Checking"
-        .Replacement.Text = "Check"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Collaborating"
-        .Replacement.Text = "Collaborate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Communicating"
-        .Replacement.Text = "Communicate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Conducting"
-        .Replacement.Text = "Conduct"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Configuring"
-        .Replacement.Text = "Configure"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    Dim verbTense(200, 3) As String
+    Dim x As Integer
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Contributing"
-        .Replacement.Text = "Contribute"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Conveying"
-        .Replacement.Text = "Convey"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Coming"
-        .Replacement.Text = "Come"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Coordinating"
-        .Replacement.Text = "Coordinate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Creating"
-        .Replacement.Text = "Create"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Designing"
-        .Replacement.Text = "Design"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Determining"
-        .Replacement.Text = "Determine"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Developing"
-        .Replacement.Text = "Develop"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Discussing"
-        .Replacement.Text = "Discuss"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Documenting"
-        .Replacement.Text = "Document"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Drafting"
-        .Replacement.Text = "Draft"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Driving"
-        .Replacement.Text = "Drive"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Engaging"
-        .Replacement.Text = "Engage"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Ensuring"
-        .Replacement.Text = "Ensure"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Establishing"
-        .Replacement.Text = "Establish"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Estimating"
-        .Replacement.Text = "Estimate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Evaluating"
-        .Replacement.Text = "Evaluate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Finding"
-        .Replacement.Text = "Find"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Focusing"
-        .Replacement.Text = "Focus"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Following"
-        .Replacement.Text = "Follow"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Forecasting"
-        .Replacement.Text = "Forecast"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    ''Don't correct Gathering, it shows up with Requirements Gathering!!!
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Generating"
-        .Replacement.Text = "Generate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Getting"
-        .Replacement.Text = "Get"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Handling"
-        .Replacement.Text = "Handle"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Highlighting"
-        .Replacement.Text = "Highlight"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Installing"
-        .Replacement.Text = "Install"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Integrating"
-        .Replacement.Text = "Integrate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Identifying"
-        .Replacement.Text = "Identify"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Implementing"
-        .Replacement.Text = "Implement"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Interacting"
-        .Replacement.Text = "Interact"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Interpreting"
-        .Replacement.Text = "Interpret"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Leading"
-        .Replacement.Text = "Lead"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Leveraging"
-        .Replacement.Text = "Leverage"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Liaising"
-        .Replacement.Text = "Liaise"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Making"
-        .Replacement.Text = "Make"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Looking"
-        .Replacement.Text = "Look"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Managing"
-        .Replacement.Text = "Manage"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Mentoring"
-        .Replacement.Text = "Mentor"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Migrating"
-        .Replacement.Text = "Migrate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Modeling"
-        .Replacement.Text = "Model"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Monitoring"
-        .Replacement.Text = "Monitor"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Organizing"
-        .Replacement.Text = "Organize"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Overseeing"
-        .Replacement.Text = "Oversee"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Participating"
-        .Replacement.Text = "Participate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Patching"
-        .Replacement.Text = "Patch"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Performing"
-        .Replacement.Text = "Perform"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Playing"
-        .Replacement.Text = "Play"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Preparing"
-        .Replacement.Text = "Prepare"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Presenting"
-        .Replacement.Text = "Present"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Prioritizing"
-        .Replacement.Text = "Prioritize"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Prototyping"
-        .Replacement.Text = "Prototype"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Providing"
-        .Replacement.Text = "Provide"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Reporting"
-        .Replacement.Text = "Report"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Representing"
-        .Replacement.Text = "Represent"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Researching"
-        .Replacement.Text = "Research"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Resolving"
-        .Replacement.Text = "Resolve"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Securing"
-        .Replacement.Text = "Secure"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Setting"
-        .Replacement.Text = "Set"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Sharing"
-        .Replacement.Text = "Share"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    '' DON'T PUT TESTING! It is too prone to error.
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Tracking"
-        .Replacement.Text = "Track"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Translating"
-        .Replacement.Text = "Translate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Troubleshooting"
-        .Replacement.Text = "Troubleshoot"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Understanding"
-        .Replacement.Text = "Understand"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Updating"
-        .Replacement.Text = "Update"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Uploading"
-        .Replacement.Text = "Upload"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Using"
-        .Replacement.Text = "Use"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Validating"
-        .Replacement.Text = "Validate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Working"
-        .Replacement.Text = "Work"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Writing"
-        .Replacement.Text = "Write"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-
-    ''Cleanup Find and Replace
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = ""
-        .Replacement.Text = ""
+verbTense(1, 1) = "achieving": verbTense(1, 2) = "achieve": verbTense(1, 3) = "N"
+verbTense(2, 1) = "administering": verbTense(2, 2) = "administer": verbTense(2, 3) = "N"
+verbTense(3, 1) = "analyzing": verbTense(3, 2) = "analyze": verbTense(3, 3) = "N"
+verbTense(4, 1) = "answering": verbTense(4, 2) = "answer": verbTense(4, 3) = "N"
+verbTense(5, 1) = "applying": verbTense(5, 2) = "apply": verbTense(5, 3) = "N"
+verbTense(6, 1) = "assisting": verbTense(6, 2) = "assist": verbTense(6, 3) = "N"
+verbTense(7, 1) = "attending": verbTense(7, 2) = "attend": verbTense(7, 3) = "N"
+verbTense(8, 1) = "automating": verbTense(8, 2) = "automate": verbTense(8, 3) = "N"
+verbTense(9, 1) = "building": verbTense(9, 2) = "build": verbTense(9, 3) = "N"
+verbTense(10, 1) = "calculating": verbTense(10, 2) = "calculate": verbTense(10, 3) = "N"
+verbTense(11, 1) = "capturing": verbTense(11, 2) = "capture": verbTense(11, 3) = "N"
+verbTense(12, 1) = "checking": verbTense(12, 2) = "check": verbTense(12, 3) = "N"
+verbTense(13, 1) = "collaborating": verbTense(13, 2) = "collaborate": verbTense(13, 3) = "N"
+verbTense(14, 1) = "coming": verbTense(14, 2) = "come": verbTense(14, 3) = "N"
+verbTense(15, 1) = "communicating": verbTense(15, 2) = "communicate": verbTense(15, 3) = "N"
+verbTense(16, 1) = "conducting": verbTense(16, 2) = "conduct": verbTense(16, 3) = "N"
+verbTense(17, 1) = "configuring": verbTense(17, 2) = "configure": verbTense(17, 3) = "N"
+verbTense(18, 1) = "coordinating": verbTense(18, 2) = "coordinate": verbTense(18, 3) = "N"
+verbTense(19, 1) = "creating": verbTense(19, 2) = "create": verbTense(19, 3) = "N"
+verbTense(20, 1) = "designing": verbTense(20, 2) = "design": verbTense(20, 3) = "N"
+verbTense(21, 1) = "determining": verbTense(21, 2) = "determine": verbTense(21, 3) = "N"
+verbTense(22, 1) = "developing": verbTense(22, 2) = "develop": verbTense(22, 3) = "N"
+verbTense(23, 1) = "discussing": verbTense(23, 2) = "discuss": verbTense(23, 3) = "N"
+verbTense(24, 1) = "documenting": verbTense(24, 2) = "document": verbTense(24, 3) = "N"
+verbTense(25, 1) = "drafting": verbTense(25, 2) = "draft": verbTense(25, 3) = "N"
+verbTense(26, 1) = "driving": verbTense(26, 2) = "drive": verbTense(26, 3) = "N"
+verbTense(27, 1) = "engaging": verbTense(27, 2) = "engage": verbTense(27, 3) = "N"
+verbTense(28, 1) = "ensuring": verbTense(28, 2) = "ensure": verbTense(28, 3) = "N"
+verbTense(29, 1) = "establishing": verbTense(29, 2) = "establish": verbTense(29, 3) = "N"
+verbTense(30, 1) = "estimating": verbTense(30, 2) = "estimate": verbTense(30, 3) = "N"
+verbTense(31, 1) = "evaluating": verbTense(31, 2) = "evaluate": verbTense(31, 3) = "N"
+verbTense(32, 1) = "finding": verbTense(32, 2) = "find": verbTense(32, 3) = "N"
+verbTense(33, 1) = "focusing": verbTense(33, 2) = "focus": verbTense(33, 3) = "N"
+verbTense(34, 1) = "following": verbTense(34, 2) = "follow": verbTense(34, 3) = "N"
+verbTense(35, 1) = "forecasting": verbTense(35, 2) = "forecast": verbTense(35, 3) = "N"
+verbTense(36, 1) = "generating": verbTense(36, 2) = "generate": verbTense(36, 3) = "N"
+verbTense(37, 1) = "getting": verbTense(37, 2) = "get": verbTense(37, 3) = "N"
+verbTense(38, 1) = "handling": verbTense(38, 2) = "handle": verbTense(38, 3) = "N"
+verbTense(39, 1) = "highlighting": verbTense(39, 2) = "highlight": verbTense(39, 3) = "N"
+verbTense(40, 1) = "identifying": verbTense(40, 2) = "identify": verbTense(40, 3) = "N"
+verbTense(41, 1) = "implementing": verbTense(41, 2) = "implement": verbTense(41, 3) = "N"
+verbTense(42, 1) = "installing": verbTense(42, 2) = "install": verbTense(42, 3) = "N"
+verbTense(43, 1) = "integrating": verbTense(43, 2) = "integrate": verbTense(43, 3) = "N"
+verbTense(44, 1) = "interacting": verbTense(44, 2) = "interact": verbTense(44, 3) = "N"
+verbTense(45, 1) = "interpreting": verbTense(45, 2) = "interpret": verbTense(45, 3) = "N"
+verbTense(46, 1) = "leading": verbTense(46, 2) = "lead": verbTense(46, 3) = "N"
+verbTense(47, 1) = "leveraging": verbTense(47, 2) = "leverage": verbTense(47, 3) = "N"
+verbTense(48, 1) = "liaising": verbTense(48, 2) = "liaise": verbTense(48, 3) = "N"
+verbTense(49, 1) = "looking": verbTense(49, 2) = "look": verbTense(49, 3) = "N"
+verbTense(50, 1) = "making": verbTense(50, 2) = "make": verbTense(50, 3) = "N"
+verbTense(51, 1) = "managing": verbTense(51, 2) = "manage": verbTense(51, 3) = "N"
+verbTense(52, 1) = "mentoring": verbTense(52, 2) = "mentor": verbTense(52, 3) = "N"
+verbTense(53, 1) = "migrating": verbTense(53, 2) = "migrate": verbTense(53, 3) = "N"
+verbTense(54, 1) = "modeling": verbTense(54, 2) = "model": verbTense(54, 3) = "N"
+verbTense(55, 1) = "monitoring": verbTense(55, 2) = "monitor": verbTense(55, 3) = "N"
+verbTense(56, 1) = "organizing": verbTense(56, 2) = "organize": verbTense(56, 3) = "N"
+verbTense(57, 1) = "overseeing": verbTense(57, 2) = "oversee": verbTense(57, 3) = "N"
+verbTense(58, 1) = "participating": verbTense(58, 2) = "participate": verbTense(58, 3) = "N"
+verbTense(59, 1) = "patching": verbTense(59, 2) = "patch": verbTense(59, 3) = "N"
+verbTense(60, 1) = "performing": verbTense(60, 2) = "perform": verbTense(60, 3) = "N"
+verbTense(61, 1) = "playing": verbTense(61, 2) = "play": verbTense(61, 3) = "N"
+verbTense(62, 1) = "preparing": verbTense(62, 2) = "prepare": verbTense(62, 3) = "N"
+verbTense(63, 1) = "presenting": verbTense(63, 2) = "present": verbTense(63, 3) = "N"
+verbTense(64, 1) = "prioritizing": verbTense(64, 2) = "prioritize": verbTense(64, 3) = "N"
+verbTense(65, 1) = "prototyping": verbTense(65, 2) = "prototype": verbTense(65, 3) = "N"
+verbTense(66, 1) = "providing": verbTense(66, 2) = "provide": verbTense(66, 3) = "N"
+verbTense(67, 1) = "reporting": verbTense(67, 2) = "report": verbTense(67, 3) = "N"
+verbTense(68, 1) = "representing": verbTense(68, 2) = "represent": verbTense(68, 3) = "N"
+verbTense(69, 1) = "researching": verbTense(69, 2) = "research": verbTense(69, 3) = "N"
+verbTense(70, 1) = "resolving": verbTense(70, 2) = "resolve": verbTense(70, 3) = "N"
+verbTense(71, 1) = "securing": verbTense(71, 2) = "secure": verbTense(71, 3) = "N"
+verbTense(72, 1) = "setting": verbTense(72, 2) = "set": verbTense(72, 3) = "N"
+verbTense(73, 1) = "sharing": verbTense(73, 2) = "share": verbTense(73, 3) = "N"
+verbTense(74, 1) = "tracking": verbTense(74, 2) = "track": verbTense(74, 3) = "N"
+verbTense(75, 1) = "translating": verbTense(75, 2) = "translate": verbTense(75, 3) = "N"
+verbTense(76, 1) = "troubleshooting": verbTense(76, 2) = "troubleshoot": verbTense(76, 3) = "N"
+verbTense(77, 1) = "understanding": verbTense(77, 2) = "understand": verbTense(77, 3) = "N"
+verbTense(78, 1) = "updating": verbTense(78, 2) = "update": verbTense(78, 3) = "N"
+verbTense(79, 1) = "uploading": verbTense(79, 2) = "upload": verbTense(79, 3) = "N"
+verbTense(80, 1) = "using": verbTense(80, 2) = "use": verbTense(80, 3) = "N"
+verbTense(81, 1) = "validating": verbTense(81, 2) = "validate": verbTense(81, 3) = "N"
+verbTense(82, 1) = "working": verbTense(82, 2) = "work": verbTense(82, 3) = "N"
+verbTense(83, 1) = "writing": verbTense(83, 2) = "write": verbTense(83, 3) = "N"
+
+For x = 1 To 200
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = verbTense(x, 1)
+        .Replacement.Text = verbTense(x, 2)
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
+        .MatchWholeWord = True
+        If verbTense(x, 3) = "Y" Then
+            .MatchCase = True
+        Else
+            .MatchCase = False
+        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-
-
-End Sub
+    Next
+    
+    End Sub
 
 Sub VerbTense3()
-
-    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Automation of"
-        .Replacement.Text = "Automate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "baseline of"
-        .Replacement.Text = "baseline"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "configuration of"
-        .Replacement.Text = "configure"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Coordination with"
-        .Replacement.Text = "Coordinate with"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Creation of"
-        .Replacement.Text = "Create"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Deployment of"
-        .Replacement.Text = "Deploy"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Development of"
-        .Replacement.Text = "develop"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-''"   Don't put execution of, it's in the template!!!!!!
-
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Experience in"
-        .Replacement.Text = "Apply experience in"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+        ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Expertise in"
-        .Replacement.Text = "Apply expertise in"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Fixing of"
-        .Replacement.Text = "Fix"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Interaction with"
-        .Replacement.Text = "Interact with"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Involve in"
-        .Replacement.Text = "Be involved in"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Participation in"
-        .Replacement.Text = "Participate in"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Preparation of"
-        .Replacement.Text = "Prepare"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Prioritization of"
-        .Replacement.Text = "Prioritize"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Review of"
-        .Replacement.Text = "Review"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    Dim verbTense(200, 3) As String
+    Dim x As Integer
     
-    ''Cleanup Find and Replace
+verbTense(1, 1) = "automation of": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
+verbTense(2, 1) = "baseline of": verbTense(2, 2) = "baseline": verbTense(2, 3) = "N"
+verbTense(3, 1) = "configuration of": verbTense(3, 2) = "configure": verbTense(3, 3) = "N"
+verbTense(4, 1) = "coordination with": verbTense(4, 2) = "coordinate with": verbTense(4, 3) = "N"
+verbTense(5, 1) = "creation of": verbTense(5, 2) = "create": verbTense(5, 3) = "N"
+verbTense(6, 1) = "deployment of": verbTense(6, 2) = "deploy": verbTense(6, 3) = "N"
+verbTense(7, 1) = "development of": verbTense(7, 2) = "develop": verbTense(7, 3) = "N"
+verbTense(8, 1) = "experience in": verbTense(8, 2) = "apply experience in": verbTense(8, 3) = "Y"
+verbTense(9, 1) = "expertise in": verbTense(9, 2) = "apply expertise in": verbTense(9, 3) = "Y"
+verbTense(10, 1) = "fixing of": verbTense(10, 2) = "fix": verbTense(10, 3) = "N"
+verbTense(11, 1) = "interaction with": verbTense(11, 2) = "interact with": verbTense(11, 3) = "N"
+verbTense(12, 1) = "involve in": verbTense(12, 2) = "be involved in": verbTense(12, 3) = "N"
+verbTense(13, 1) = "involved in": verbTense(13, 2) = "be involved in": verbTense(13, 3) = "N"
+verbTense(14, 1) = "participation in": verbTense(14, 2) = "participate in": verbTense(14, 3) = "N"
+verbTense(15, 1) = "preparation of": verbTense(15, 2) = "prepare": verbTense(15, 3) = "N"
+verbTense(16, 1) = "prioritization of": verbTense(16, 2) = "prioritize": verbTense(16, 3) = "N"
+verbTense(17, 1) = "review of": verbTense(17, 2) = "review": verbTense(17, 3) = "N"
+
+For x = 1 To 200
+
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = ""
-        .Replacement.Text = ""
+        .Text = verbTense(x, 1)
+        .Replacement.Text = verbTense(x, 2)
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-
-End Sub
-Sub VerbTense4()
-
-    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Automated"
-        .Replacement.Text = "Automate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
         .MatchWholeWord = True
-        .MatchAllWordForms = False
+        If verbTense(x, 3) = "Y" Then
+            .MatchCase = True
+        Else
+            .MatchCase = False
+        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
+    Next
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "built"
-        .Replacement.Text = "build"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    End Sub
     
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Migrated"
-        .Replacement.Text = "Migrate"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+Sub verbTense4()
+
+        ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+    
+    Dim verbTense(200, 3) As String
+    Dim x As Integer
+
+verbTense(1, 1) = "automated": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
+verbTense(2, 1) = "built": verbTense(2, 2) = "build": verbTense(2, 3) = "N"
+verbTense(3, 1) = "worked": verbTense(3, 2) = "work": verbTense(3, 3) = "N"
+
+For x = 1 To 200
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "Worked"
-        .Replacement.Text = "Work"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-        .MatchWholeWord = True
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    ''Cleanup Find and Replace
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = ""
-        .Replacement.Text = ""
+        .Text = verbTense(x, 1)
+        .Replacement.Text = verbTense(x, 2)
         .Forward = True
         .Wrap = wdFindContinue
         .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
+        .MatchWholeWord = True
+        If verbTense(x, 3) = "Y" Then
+            .MatchCase = True
+        Else
+            .MatchCase = False
+        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
+    Next
     
 End Sub
     
