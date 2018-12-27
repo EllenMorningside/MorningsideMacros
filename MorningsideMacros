@@ -484,287 +484,46 @@ End Sub
 
 Sub JanitorMacro()
 
-'' Apostrophe Macro
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "'"
-        .Replacement.Text = "'"
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = """"
-        .Replacement.Text = """"
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+     Dim cleanUp(50, 2) As String
+     Dim x As Integer
 
-''BulletReplace Macro
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "•" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+cleanUp(1, 1) = "'": cleanUp(1, 2) = "'"
+cleanUp(2, 1) = """": cleanUp(2, 2) = """"
+cleanUp(3, 1) = "•" & vbTab: cleanUp(3, 2) = ""
+cleanUp(4, 1) = "• ": cleanUp(4, 2) = ""
+cleanUp(5, 1) = "-" & vbTab: cleanUp(5, 2) = ""
+cleanUp(6, 1) = "o" & vbTab: cleanUp(6, 2) = ""
+cleanUp(7, 1) = " ,": cleanUp(7, 2) = ","
+cleanUp(8, 1) = "}": cleanUp(8, 2) = ")"
+cleanUp(9, 1) = "{": cleanUp(9, 2) = "("
+cleanUp(10, 1) = " .": cleanUp(10, 2) = "."
+cleanUp(11, 1) = "..": cleanUp(11, 2) = "."
+cleanUp(12, 1) = " :": cleanUp(12, 2) = ":"
+cleanUp(13, 1) = " / ": cleanUp(13, 2) = "/"
+cleanUp(14, 1) = " /": cleanUp(14, 2) = "/"
+cleanUp(15, 1) = "/ ": cleanUp(15, 2) = "/"
+cleanUp(16, 1) = "\": cleanUp(16, 2) = "/"
+cleanUp(17, 1) = "$ ": cleanUp(17, 2) = "$"
+cleanUp(18, 1) = ",": cleanUp(18, 2) = ", "
+cleanUp(19, 1) = "(": cleanUp(19, 2) = " ("
+cleanUp(20, 1) = " ”": cleanUp(20, 2) = "”"
+cleanUp(21, 1) = "  ": cleanUp(21, 2) = " "
 
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "• "
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "-" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "o" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-''Punctuation Macro
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " ,"
-        .Replacement.Text = ","
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "}"
-        .Replacement.Text = ")"
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "{"
-        .Replacement.Text = "("
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " ."
-        .Replacement.Text = "."
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = ".."
-        .Replacement.Text = "."
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " :"
-        .Replacement.Text = ":"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " / "
-        .Replacement.Text = "/"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    With Selection.Find
-        .Text = " /"
-        .Replacement.Text = "/"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    With Selection.Find
-        .Text = "/ "
-        .Replacement.Text = "/"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    With Selection.Find
-        .Text = "\"
-        .Replacement.Text = "/"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "$ "
-        .Replacement.Text = "$"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    With Selection.Find
-        .Text = ","
-        .Replacement.Text = ", "
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = True
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    ''CommaParentheses Spacing
-    
+For x = 1 To 50
+ 
       Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "("
-        .Replacement.Text = " ("
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = True
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-   Selection.Find.Execute Replace:=wdReplaceAll
-   '
-  '     Selection.Find.ClearFormatting
-  '  Selection.Find.Replacement.ClearFormatting
-  '  With Selection.Find
-  '      .Text = " “"
-  '      .Replacement.Text = "”"
-  '      .Forward = True
-  '      .Wrap = wdFindContinue
-  '      .Format = False
-  '      .MatchCase = True
-  '      .MatchWholeWord = False
-  '      .MatchWildcards = False
-  '      .MatchSoundsLike = False
-  '      .MatchAllWordForms = False
-  '  End With
-  '  Selection.Find.Execute Replace:=wdReplaceAll
-    
-           Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " ”"
-        .Replacement.Text = "”"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = True
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    'DoubleSpace Macro
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "  "
-        .Replacement.Text = " "
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+     Selection.Find.Replacement.ClearFormatting
+     With Selection.Find
+         .Text = cleanUp(x, 1)
+         .Replacement.Text = cleanUp(x, 2)
+         .Forward = True
+         .Wrap = wdFindContinue
+         .MatchCase = False
+         .MatchWholeWord = True
+         .MatchAllWordForms = False
+     End With
+     Selection.Find.Execute Replace:=wdReplaceAll
+     Next
     
     ''Cleanup Find and Replace
         Selection.Find.ClearFormatting
@@ -781,4 +540,3 @@ Sub JanitorMacro()
     Selection.Find.Execute Replace:=wdReplaceAll
 
 End Sub
-
