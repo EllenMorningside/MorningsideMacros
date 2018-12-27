@@ -279,38 +279,16 @@ End Sub
 
 Sub TemplateCheck()
 
+'Declarations
 Set myRange = ActiveDocument.Content
-
 Dim x As Integer
 x = 0
-
 Dim phrase(200, 2) As String
 Dim y As Integer
-
-''Template Prepass to Protect Phrases
+Dim TemplateErrors(100) As String
+Dim ErrorMessage As String
 Dim protectedPhrase(5) As String
 Dim z As Integer
-protectedPhrase(1) = "we hereby affirm"
-protectedPhrase(2) = "Our conversation"
-protectedPhrase(3) = "We represent the foregoing"
-protectedPhrase(4) = "best of our knowledge"
-protectedPhrase(5) = "apparent grounds for us"
-
-For z = 1 To 5
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = protectedPhrase(z)
-        .Replacement.Text = "z" + protectedPhrase(z)
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    Next
 
 ''Template Check
 'Column 1 = Phrase
@@ -396,11 +374,38 @@ phrase(68, 1) = "our": phrase(68, 2) = "N"
 phrase(69, 1) = "ours": phrase(69, 2) = "N"
 phrase(70, 1) = "us": phrase(70, 2) = "Y"
 
-For y = 1 To 200
 
-    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True
+
+'Template Prepass to Protect Phrases
+protectedPhrase(1) = "we hereby affirm"
+protectedPhrase(2) = "Our conversation"
+protectedPhrase(3) = "We represent the foregoing"
+protectedPhrase(4) = "our knowledge"
+protectedPhrase(5) = "us to disbelieve"
+
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = protectedPhrase(z)
+        .Replacement.Text = "z" + protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+'Template Check
+For y = 1 To 70
+
+    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True, Wrap:=wdFindContinue, MatchWholeWord:=True, MatchCase:=(phrase(y, 2) = "Y")
     If myRange.Find.Found = True Then
     x = x + 1
+    TemplateErrors(x) = phrase(y, 1)
+    ErrorMessage = ErrorMessage & TemplateErrors(x) & Chr(13)
     End If
     
     Options.DefaultHighlightColorIndex = wdYellow
@@ -421,13 +426,13 @@ For y = 1 To 200
         End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-Next
+    Next
 
+''Message Box
     If x > 0 Then
-    MsgBox ("Check for templated language!")
+    MsgBox ("Check for templated language!" & Chr(13) & Chr(13) & "Errors:" & Chr(13) & ErrorMessage)
     
     Else
-    
     Selection.Find.ClearFormatting
     Selection.Find.Highlight = True
     Selection.Find.Replacement.ClearFormatting
@@ -438,17 +443,28 @@ Next
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     
     MsgBox ("All good!")
     
     End If
+
+''PostPass to Restore Template
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "z" + protectedPhrase(z)
+        .Replacement.Text = protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
 
 ''Restore Find and Replace formatting
     Selection.Find.ClearFormatting
@@ -463,23 +479,6 @@ Next
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    
-'PostPass
-For z = 1 To 5
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "z" + protectedPhrase(z)
-        .Replacement.Text = protectedPhrase(z)
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    Next
 
 End Sub
 
