@@ -123,6 +123,7 @@ verbTense(68, 1) = "utilizes": verbTense(68, 2) = "utilize": verbTense(68, 3) = 
 verbTense(69, 1) = "validates": verbTense(69, 2) = "validate": verbTense(69, 3) = "N"
 verbTense(70, 1) = "works": verbTense(70, 2) = "work": verbTense(70, 3) = "N"
 verbTense(71, 1) = "writes": verbTense(71, 2) = "write": verbTense(71, 3) = "N"
+verbTense(72, 1) = "" : verbTense(72, 2) = "" : verbTense(72, 3) = "N"
     
     For x = 1 To 200
 
@@ -236,6 +237,7 @@ verbTense(80, 1) = "using": verbTense(80, 2) = "use": verbTense(80, 3) = "N"
 verbTense(81, 1) = "validating": verbTense(81, 2) = "validate": verbTense(81, 3) = "N"
 verbTense(82, 1) = "working": verbTense(82, 2) = "work": verbTense(82, 3) = "N"
 verbTense(83, 1) = "writing": verbTense(83, 2) = "write": verbTense(83, 3) = "N"
+verbTense(84, 1) = "" : verbTense(84, 2) = "" : verbTense(84, 3) = "N"
 
 For x = 1 To 200
 
@@ -283,6 +285,7 @@ verbTense(14, 1) = "participation in": verbTense(14, 2) = "participate in": verb
 verbTense(15, 1) = "preparation of": verbTense(15, 2) = "prepare": verbTense(15, 3) = "N"
 verbTense(16, 1) = "prioritization of": verbTense(16, 2) = "prioritize": verbTense(16, 3) = "N"
 verbTense(17, 1) = "review of": verbTense(17, 2) = "review": verbTense(17, 3) = "N"
+verbTense(18, 1) = "" : verbTense(18, 2) = "" : verbTense(18, 3) = "N"
 
 For x = 1 To 200
 
@@ -316,6 +319,7 @@ Sub verbTense4()
 verbTense(1, 1) = "automated": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
 verbTense(2, 1) = "built": verbTense(2, 2) = "build": verbTense(2, 3) = "N"
 verbTense(3, 1) = "worked": verbTense(3, 2) = "work": verbTense(3, 3) = "N"
+verbTense(4, 1) = "" : verbTense(4, 2) = "" : verbTense(4, 3) = "N"
 
 For x = 1 To 200
 
