@@ -340,594 +340,99 @@ For x = 1 To 200
 End Sub
     
 Sub MegaMacro()
-'
-' MegaMacro Macro
-'
 
-'' AndSymbol Macro
-Selection.Find.ClearFormatting
-Selection.Find.Replacement.ClearFormatting
-With Selection.Find
-        .Text = " & "
-        .Replacement.Text = " and "
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-With Selection.Find
-        .Text = "Russ College of Engineering and"
-        .Replacement.Text = "Russ College of Engineering &"
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-With Selection.Find
-        .Text = "Larsen and Toubro"
-        .Replacement.Text = "Larsen & Toubro"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+Dim megaMacro(200, 4) As String
+    Dim x As Integer
 
-With Selection.Find
-        .Text = "Larsen and Toubro Infotech Limited"
-        .Replacement.Text = "Larsen & Toubro Infotech Limited"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-With Selection.Find
-        .Text = "LARSEN and TOUBRO"
-        .Replacement.Text = "LARSEN & TOUBRO"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = True
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    With Selection.Find
-        .Text = "Deloitte and Touche"
-        .Replacement.Text = "Deloitte & Touche"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    With Selection.Find
-        .Text = "DELOITTE and TOUCHE"
-        .Replacement.Text = "DELOITTE & TOUCHE"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-''BulletNumber Macro
+megaMacro(1, 1) = "&": megaMacro(1, 2) = "and": megaMacro(1, 3) = "N": megaMacro(1, 4) = "Y"
+megaMacro(2, 1) = "Russ College of Engineering and": megaMacro(2, 2) = "Russ College of Engineering &": megaMacro(2, 3) = "N": megaMacro(2, 4) = "Y"
+megaMacro(3, 1) = "Larsen and Toubro": megaMacro(3, 2) = "Larsen & Toubro": megaMacro(3, 3) = "Y": megaMacro(3, 4) = "Y"
+megaMacro(4, 1) = "LARSEN and TOUBRO": megaMacro(4, 2) = "LARSEN & TOUBRO": megaMacro(4, 3) = "Y": megaMacro(4, 4) = "Y"
+megaMacro(5, 1) = "Deloitte and Touche": megaMacro(5, 2) = "Deloitte & Touche": megaMacro(5, 3) = "Y": megaMacro(5, 4) = "Y"
+megaMacro(6, 1) = "DELOITTE and TOUCHE": megaMacro(6, 2) = "DELOITTE & TOUCHE": megaMacro(6, 3) = "Y": megaMacro(6, 4) = "Y"
+megaMacro(7, 1) = "11)" & vbTab: megaMacro(7, 2) = "": megaMacro(7, 3) = "N": megaMacro(7, 4) = "N"
+megaMacro(8, 1) = "1)" & vbTab: megaMacro(8, 2) = "": megaMacro(8, 3) = "N": megaMacro(8, 4) = "N"
+megaMacro(9, 1) = "2)" & vbTab: megaMacro(9, 2) = "": megaMacro(9, 3) = "N": megaMacro(9, 4) = "N"
+megaMacro(10, 1) = "3)" & vbTab: megaMacro(10, 2) = "": megaMacro(10, 3) = "N": megaMacro(10, 4) = "N"
+megaMacro(11, 1) = "4)" & vbTab: megaMacro(11, 2) = "": megaMacro(11, 3) = "N": megaMacro(11, 4) = "N"
+megaMacro(12, 1) = "5)" & vbTab: megaMacro(12, 2) = "": megaMacro(12, 3) = "N": megaMacro(12, 4) = "N"
+megaMacro(13, 1) = "6)" & vbTab: megaMacro(13, 2) = "": megaMacro(13, 3) = "N": megaMacro(13, 4) = "N"
+megaMacro(14, 1) = "7)" & vbTab: megaMacro(14, 2) = "": megaMacro(14, 3) = "N": megaMacro(14, 4) = "N"
+megaMacro(15, 1) = "8)" & vbTab: megaMacro(15, 2) = "": megaMacro(15, 3) = "N": megaMacro(15, 4) = "N"
+megaMacro(16, 1) = "9)" & vbTab: megaMacro(16, 2) = "": megaMacro(16, 3) = "N": megaMacro(16, 4) = "N"
+megaMacro(17, 1) = "10)" & vbTab: megaMacro(17, 2) = "": megaMacro(17, 3) = "N": megaMacro(17, 4) = "N"
+megaMacro(18, 1) = "11." & vbTab: megaMacro(18, 2) = "": megaMacro(18, 3) = "N": megaMacro(18, 4) = "N"
+megaMacro(19, 1) = "12." & vbTab: megaMacro(19, 2) = "": megaMacro(19, 3) = "N": megaMacro(19, 4) = "N"
+megaMacro(20, 1) = "13." & vbTab: megaMacro(20, 2) = "": megaMacro(20, 3) = "N": megaMacro(20, 4) = "N"
+megaMacro(21, 1) = "14." & vbTab: megaMacro(21, 2) = "": megaMacro(21, 3) = "N": megaMacro(21, 4) = "N"
+megaMacro(22, 1) = "15." & vbTab: megaMacro(22, 2) = "": megaMacro(22, 3) = "N": megaMacro(22, 4) = "N"
+megaMacro(23, 1) = "16." & vbTab: megaMacro(23, 2) = "": megaMacro(23, 3) = "N": megaMacro(23, 4) = "N"
+megaMacro(24, 1) = "17." & vbTab: megaMacro(24, 2) = "": megaMacro(24, 3) = "N": megaMacro(24, 4) = "N"
+megaMacro(25, 1) = "18." & vbTab: megaMacro(25, 2) = "": megaMacro(25, 3) = "N": megaMacro(25, 4) = "N"
+megaMacro(26, 1) = "19." & vbTab: megaMacro(26, 2) = "": megaMacro(26, 3) = "N": megaMacro(26, 4) = "N"
+megaMacro(27, 1) = "20." & vbTab: megaMacro(27, 2) = "": megaMacro(27, 3) = "N": megaMacro(27, 4) = "N"
+megaMacro(28, 1) = "1." & vbTab: megaMacro(28, 2) = "": megaMacro(28, 3) = "N": megaMacro(28, 4) = "N"
+megaMacro(29, 1) = "2." & vbTab: megaMacro(29, 2) = "": megaMacro(29, 3) = "N": megaMacro(29, 4) = "N"
+megaMacro(30, 1) = "3." & vbTab: megaMacro(30, 2) = "": megaMacro(30, 3) = "N": megaMacro(30, 4) = "N"
+megaMacro(31, 1) = "4." & vbTab: megaMacro(31, 2) = "": megaMacro(31, 3) = "N": megaMacro(31, 4) = "N"
+megaMacro(32, 1) = "5." & vbTab: megaMacro(32, 2) = "": megaMacro(32, 3) = "N": megaMacro(32, 4) = "N"
+megaMacro(33, 1) = "6." & vbTab: megaMacro(33, 2) = "": megaMacro(33, 3) = "N": megaMacro(33, 4) = "N"
+megaMacro(34, 1) = "7." & vbTab: megaMacro(34, 2) = "": megaMacro(34, 3) = "N": megaMacro(34, 4) = "N"
+megaMacro(35, 1) = "8." & vbTab: megaMacro(35, 2) = "": megaMacro(35, 3) = "N": megaMacro(35, 4) = "N"
+megaMacro(36, 1) = "9." & vbTab: megaMacro(36, 2) = "": megaMacro(36, 3) = "N": megaMacro(36, 4) = "N"
+megaMacro(37, 1) = "10." & vbTab: megaMacro(37, 2) = "": megaMacro(37, 3) = "N": megaMacro(37, 4) = "N"
+megaMacro(38, 1) = "ix." & vbTab: megaMacro(38, 2) = "": megaMacro(38, 3) = "N": megaMacro(38, 4) = "N"
+megaMacro(39, 1) = "x." & vbTab: megaMacro(39, 2) = "": megaMacro(39, 3) = "N": megaMacro(39, 4) = "N"
+megaMacro(40, 1) = "iv." & vbTab: megaMacro(40, 2) = "": megaMacro(40, 3) = "N": megaMacro(40, 4) = "N"
+megaMacro(41, 1) = "v." & vbTab: megaMacro(41, 2) = "": megaMacro(41, 3) = "N": megaMacro(41, 4) = "N"
+megaMacro(42, 1) = "viii." & vbTab: megaMacro(42, 2) = "": megaMacro(42, 3) = "N": megaMacro(42, 4) = "N"
+megaMacro(43, 1) = "vii." & vbTab: megaMacro(43, 2) = "": megaMacro(43, 3) = "N": megaMacro(43, 4) = "N"
+megaMacro(44, 1) = "vi." & vbTab: megaMacro(44, 2) = "": megaMacro(44, 3) = "N": megaMacro(44, 4) = "N"
+megaMacro(45, 1) = "iii." & vbTab: megaMacro(45, 2) = "": megaMacro(45, 3) = "N": megaMacro(45, 4) = "N"
+megaMacro(46, 1) = "ii." & vbTab: megaMacro(46, 2) = "": megaMacro(46, 3) = "N": megaMacro(46, 4) = "N"
+megaMacro(47, 1) = "i." & vbTab: megaMacro(47, 2) = "": megaMacro(47, 3) = "N": megaMacro(47, 4) = "N"
+megaMacro(48, 1) = "INSERT DUTIES HERE" & vbCr: megaMacro(48, 2) = "": megaMacro(48, 3) = "Y": megaMacro(48, 4) = "N"
+megaMacro(49, 1) = "INSERT JOB DUTIES" & vbCr: megaMacro(49, 2) = "": megaMacro(49, 3) = "Y": megaMacro(49, 4) = "N"
+megaMacro(50, 1) = "Batchelor's": megaMacro(50, 2) = "Bachelor's": megaMacro(50, 3) = "N": megaMacro(50, 4) = "N"
+megaMacro(51, 1) = "masters": megaMacro(51, 2) = "Master's": megaMacro(51, 3) = "N": megaMacro(51, 4) = "N"
+megaMacro(52, 1) = "bachelors": megaMacro(52, 2) = "Bachelor's": megaMacro(52, 3) = "N": megaMacro(52, 4) = "N"
+megaMacro(53, 1) = "bachelor's": megaMacro(53, 2) = "Bachelor's": megaMacro(53, 3) = "Y": megaMacro(53, 4) = "N"
+megaMacro(54, 1) = "master's": megaMacro(54, 2) = "Master's": megaMacro(54, 3) = "Y": megaMacro(54, 4) = "N"
+megaMacro(55, 1) = "Bachelor's Degree": megaMacro(55, 2) = "Bachelor's degree": megaMacro(55, 3) = "Y": megaMacro(55, 4) = "N"
+megaMacro(56, 1) = "Master's Degree": megaMacro(56, 2) = "Master's degree": megaMacro(56, 3) = "Y": megaMacro(56, 4) = "N"
+megaMacro(57, 1) = "APl": megaMacro(57, 2) = "API": megaMacro(57, 3) = "N": megaMacro(57, 4) = "Y"
+megaMacro(58, 1) = "etc": megaMacro(58, 2) = "etc.": megaMacro(58, 3) = "N": megaMacro(58, 4) = "Y"
+megaMacro(59, 1) = "i.e": megaMacro(59, 2) = "i.e.": megaMacro(59, 3) = "N": megaMacro(59, 4) = "Y"
+megaMacro(60, 1) = "ie": megaMacro(60, 2) = "i.e.": megaMacro(60, 3) = "N": megaMacro(60, 4) = "Y"
+megaMacro(61, 1) = "java": megaMacro(61, 2) = "Java": megaMacro(61, 3) = "Y": megaMacro(61, 4) = "Y"
+megaMacro(62, 1) = "Jquery": megaMacro(62, 2) = "jQuery": megaMacro(62, 3) = "Y": megaMacro(62, 4) = "Y"
+megaMacro(63, 1) = "KPl": megaMacro(63, 2) = "KPI": megaMacro(63, 3) = "N": megaMacro(63, 4) = "Y"
+megaMacro(64, 1) = "VOiP": megaMacro(64, 2) = "VOIP": megaMacro(64, 3) = "Y": megaMacro(64, 4) = "Y"
+megaMacro(65, 1) = "Location of Training:" & vbTab & "XXXX" & vbCr: megaMacro(65, 2) = "": megaMacro(65, 3) = "N": megaMacro(65, 4) = "N"
+megaMacro(66, 1) = "": megaMacro(66, 2) = "": megaMacro(66, 3) = "N": megaMacro(66, 4) = "N"
 
-''At some point, it would also be good to add letters [i.e. a)  ]
-
-Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "11)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "1)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "2)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "3)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "4)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "5)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "6)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "7)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "8)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "9)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "10)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "11)" & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+For x = 1 To 200
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "11." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "12." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "13." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "14." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "15." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "16." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "17." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "18." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "19." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "20." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "1." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "2." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-            Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "3." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "4." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "5." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "6." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "7." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "8." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "9." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "10." & vbTab
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    
-''InsertDutiesHere Macro
-
-        With Selection.Find
-        .Text = "INSERT DUTIES HERE" & vbCr
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-        With Selection.Find
-        .Text = "INSERT JOB DUTIES" & vbCr
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-''ProfYanofksy Macro
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Batchelor's"
-        .Replacement.Text = "Bachelor's"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "masters"
-        .Replacement.Text = "Master's"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "bachelors"
-        .Replacement.Text = "Bachelor's"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Bachelors"
-        .Replacement.Text = "Bachelor's"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "bachelor's"
-        .Replacement.Text = "Bachelor's"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-'Do not correct capitalization for degree! It fucks up the WEVs.
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Bachelor's Degree"
-        .Replacement.Text = "Bachelor's degree"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = "Master's Degree"
-        .Replacement.Text = "Master's degree"
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    
-    
-''Spelling Macro
-    Selection.Find.Execute Replace:=wdReplaceAll
-    With Selection.Find
-        .Text = " APl"
-        .Replacement.Text = " API"
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    With Selection.Find
-        .Text = " etc "
-        .Replacement.Text = " etc. "
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    Selection.Find.Execute Replace:=wdReplaceAll
-    With Selection.Find
-        .Text = " KPl "
-        .Replacement.Text = " KPI "
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.Execute Replace:=wdReplaceAll
-    With Selection.Find
-        .Text = " ie "
-        .Replacement.Text = " i.e. "
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    With Selection.Find
-        .Text = " i.e "
-        .Replacement.Text = " i.e. "
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-
-    With Selection.Find
-        .Text = " VOiP "
-        .Replacement.Text = " VOIP "
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    With Selection.Find
-        .Text = "java"
-        .Replacement.Text = "Java"
+        .Text = megaMacro(x, 1)
+        .Replacement.Text = megaMacro(x, 2)
         .Forward = True
         .Wrap = wdFindContinue
         .MatchWholeWord = True
+        If megaMacro(x, 3) = "Y" Then
+            .MatchCase = True
+        Else
+            .MatchCase = False
+        End If
+        If megaMacro(x, 4) = "Y" Then
+            .MatchWholeWord = True
+        Else
+            .MatchWholeWord = False
+        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-
-
-''WEV
-        With Selection.Find
-        .Text = "Location of Training:" & vbTab & "XXXX" & vbCr
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    ''Cleanup Find and Replace
-        Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = ""
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
 
 End Sub
