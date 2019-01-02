@@ -227,7 +227,7 @@ Else: pdfFileName = Left(pdfFileName, lengthFileName - 4) + "pdf" ' changes the 
 End If
  
 ActiveDocument.ExportAsFixedFormat OutputFileName:=pdfFileName, ExportFormat:=wdExportFormatPDF, OpenAfterExport:=True, OptimizeFor:= _
-wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, TO:=1, _
+wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, To:=1, _
 Item:=wdExportDocumentContent, IncludeDocProps:=False, KeepIRM:=True, _
 CreateBookmarks:=wdExportCreateNoBookmarks, DocStructureTags:=True, _
 BitmapMissingFonts:=True, UseISO19005_1:=False
@@ -484,34 +484,36 @@ End Sub
 
 Sub JanitorMacro()
 
-     Dim cleanUp(50, 2) As String
+ Dim cleanUp(50, 2) As String
      Dim x As Integer
 
-cleanUp(1, 1) = "'" : cleanUp(1, 2) = "'"
-cleanUp(2, 1) = """" : cleanUp(2, 2) = """"
-cleanUp(3, 1) = " Brooklyn, NY 11210" : cleanUp(3, 2) = "x Brooklyn, NY 11210"
-cleanUp(4, 1) = " FAX 718-951-4842" : cleanUp(4, 2) = "x FAX 718-951-4842"
-cleanUp(5, 1) = "•" & vbTab : cleanUp(5, 2) = ""
-cleanUp(6, 1) = "• " : cleanUp(6, 2) = ""
-cleanUp(7, 1) = "x Brooklyn, NY 11210" : cleanUp(7, 2) = " Brooklyn, NY 11210"
-cleanUp(8, 1) = "x FAX 718-951-4842" : cleanUp(8, 2) = " FAX 718-951-4842"
-cleanUp(9, 1) = "-" & vbTab : cleanUp(9, 2) = ""
-cleanUp(10, 1) = "o" & vbTab : cleanUp(10, 2) = ""
-cleanUp(11, 1) = " ," : cleanUp(11, 2) = ","
-cleanUp(12, 1) = "}" : cleanUp(12, 2) = ")"
-cleanUp(13, 1) = "{" : cleanUp(13, 2) = "("
-cleanUp(14, 1) = " ." : cleanUp(14, 2) = "."
-cleanUp(15, 1) = ".." : cleanUp(15, 2) = "."
-cleanUp(16, 1) = " :" : cleanUp(16, 2) = ":"
-cleanUp(17, 1) = " / " : cleanUp(17, 2) = "/"
-cleanUp(18, 1) = " /" : cleanUp(18, 2) = "/"
-cleanUp(19, 1) = "/ " : cleanUp(19, 2) = "/"
-cleanUp(20, 1) = "\" : cleanUp(20, 2) = "/"
-cleanUp(21, 1) = "$ " : cleanUp(21, 2) = "$"
-cleanUp(22, 1) = "(" : cleanUp(22, 2) = " ("
-cleanUp(23, 1) = " ”" : cleanUp(23, 2) = "”"
-cleanUp(24, 1) = "  " : cleanUp(24, 2) = " "
-cleanUp(25, 1) = "" : cleanUp(25, 2) = ""
+cleanUp(1, 1) = "'": cleanUp(1, 2) = "'"
+''THIS CANT MATCH WHOLE WORD!!!!!!
+cleanUp(2, 1) = """": cleanUp(2, 2) = """"
+cleanUp(3, 1) = " Brooklyn, NY 11210": cleanUp(3, 2) = "x Brooklyn, NY 11210"
+cleanUp(4, 1) = " FAX 718-951-4842": cleanUp(4, 2) = "x FAX 718-951-4842"
+cleanUp(5, 1) = "•" & vbTab: cleanUp(5, 2) = ""
+cleanUp(6, 1) = "• ": cleanUp(6, 2) = ""
+cleanUp(7, 1) = "x Brooklyn, NY 11210": cleanUp(7, 2) = " Brooklyn, NY 11210"
+cleanUp(8, 1) = "x FAX 718-951-4842": cleanUp(8, 2) = " FAX 718-951-4842"
+''FIX FONT COLOR ON YANOFSKY TEMPLATE!!!!
+cleanUp(9, 1) = "-" & vbTab: cleanUp(9, 2) = ""
+cleanUp(10, 1) = "o" & vbTab: cleanUp(10, 2) = ""
+cleanUp(11, 1) = " ,": cleanUp(11, 2) = ","
+cleanUp(12, 1) = "}": cleanUp(12, 2) = ")"
+cleanUp(13, 1) = "{": cleanUp(13, 2) = "("
+cleanUp(14, 1) = " .": cleanUp(14, 2) = "."
+cleanUp(15, 1) = "..": cleanUp(15, 2) = "."
+cleanUp(16, 1) = " :": cleanUp(16, 2) = ":"
+cleanUp(17, 1) = " / ": cleanUp(17, 2) = "/"
+cleanUp(18, 1) = " /": cleanUp(18, 2) = "/"
+cleanUp(19, 1) = "/ ": cleanUp(19, 2) = "/"
+cleanUp(20, 1) = "\": cleanUp(20, 2) = "/"
+cleanUp(21, 1) = "$ ": cleanUp(21, 2) = "$"
+cleanUp(22, 1) = "(": cleanUp(22, 2) = " ("
+cleanUp(23, 1) = " ”": cleanUp(23, 2) = "”"
+cleanUp(24, 1) = "  ": cleanUp(24, 2) = " "
+cleanUp(25, 1) = "": cleanUp(25, 2) = ""
 
 For x = 1 To 50
  
