@@ -50,6 +50,8 @@ Sub VerbTense1()
 
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
+    Set myRange = Selection.Range
+    
     Dim verbTense(200, 3) As String
     Dim x As Integer
     
@@ -103,13 +105,13 @@ verbTense(47, 1) = "moves": verbTense(47, 2) = "move": verbTense(47, 3) = "N"
 verbTense(48, 1) = "organizes": verbTense(48, 2) = "organize": verbTense(48, 3) = "N"
 verbTense(49, 1) = "oversees": verbTense(49, 2) = "oversee": verbTense(49, 3) = "N"
 verbTense(50, 1) = "participates": verbTense(50, 2) = "participate": verbTense(50, 3) = "N"
-verbTense(51, 1) = "partners": verbTense(51, 2) = "partner": verbTense(51, 3) = "Y"
+verbTense(51, 1) = "Partners": verbTense(51, 2) = "partner": verbTense(51, 3) = "Y"
 verbTense(52, 1) = "performs": verbTense(52, 2) = "perform": verbTense(52, 3) = "N"
 verbTense(53, 1) = "plays": verbTense(53, 2) = "play": verbTense(53, 3) = "N"
 verbTense(54, 1) = "prepares": verbTense(54, 2) = "prepare": verbTense(54, 3) = "N"
 verbTense(55, 1) = "presents": verbTense(55, 2) = "present": verbTense(55, 3) = "N"
 verbTense(56, 1) = "protects": verbTense(56, 2) = "protect": verbTense(56, 3) = "N"
-verbTense(57, 1) = "provides": verbTense(57, 2) = "provide": verbTense(57, 3) = "N"
+verbTense(57, 1) = "Provides": verbTense(57, 2) = "provide": verbTense(57, 3) = "Y"
 verbTense(58, 1) = "replicates": verbTense(58, 2) = "replicate": verbTense(58, 3) = "N"
 verbTense(59, 1) = "resolves": verbTense(59, 2) = "resolve": verbTense(59, 3) = "N"
 verbTense(60, 1) = "reviews": verbTense(60, 2) = "review": verbTense(60, 3) = "Y"
@@ -128,20 +130,16 @@ verbTense(72, 1) = "": verbTense(72, 2) = "": verbTense(72, 3) = "N"
     
     For x = 1 To 200
 
+    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = verbTense(x, 1)
         .Replacement.Text = verbTense(x, 2)
         .Forward = True
-        .Wrap = wdFindContinue
+        .Wrap = wdFindStop
         .MatchCase = False
         .MatchWholeWord = True
-        If verbTense(x, 3) = "Y" Then
-            .MatchCase = True
-        Else
-            .MatchCase = False
-        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
@@ -270,93 +268,9 @@ End Sub
 
 Sub VerbTense3()
 
-        ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
-    Dim verbTense(200, 3) As String
-    Dim x As Integer
-    
-verbTense(1, 1) = "automation of": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
-verbTense(2, 1) = "baseline of": verbTense(2, 2) = "baseline": verbTense(2, 3) = "N"
-verbTense(3, 1) = "configuration of": verbTense(3, 2) = "configure": verbTense(3, 3) = "N"
-verbTense(4, 1) = "coordination with": verbTense(4, 2) = "coordinate with": verbTense(4, 3) = "N"
-verbTense(5, 1) = "creation of": verbTense(5, 2) = "create": verbTense(5, 3) = "N"
-verbTense(6, 1) = "deployment of": verbTense(6, 2) = "deploy": verbTense(6, 3) = "N"
-verbTense(7, 1) = "development of": verbTense(7, 2) = "develop": verbTense(7, 3) = "N"
-verbTense(8, 1) = "experience in": verbTense(8, 2) = "apply experience in": verbTense(8, 3) = "Y"
-verbTense(9, 1) = "expertise in": verbTense(9, 2) = "apply expertise in": verbTense(9, 3) = "Y"
-''IN TEMPLATE
-verbTense(10, 1) = "fixing of": verbTense(10, 2) = "fix": verbTense(10, 3) = "N"
-verbTense(11, 1) = "interaction with": verbTense(11, 2) = "interact with": verbTense(11, 3) = "N"
-verbTense(12, 1) = "involve in": verbTense(12, 2) = "be involved in": verbTense(12, 3) = "N"
-verbTense(13, 1) = "involved in": verbTense(13, 2) = "be involved in": verbTense(13, 3) = "N"
-''THIS IS PUTTING BE TWICE
-verbTense(14, 1) = "participation in": verbTense(14, 2) = "participate in": verbTense(14, 3) = "N"
-verbTense(15, 1) = "preparation of": verbTense(15, 2) = "prepare": verbTense(15, 3) = "N"
-verbTense(16, 1) = "prioritization of": verbTense(16, 2) = "prioritize": verbTense(16, 3) = "N"
-verbTense(17, 1) = "review of": verbTense(17, 2) = "review": verbTense(17, 3) = "N"
-''IN TEMPLATE
-
-verbTense(18, 1) = "": verbTense(18, 2) = "": verbTense(18, 3) = "N"
-
-For x = 1 To 200
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = verbTense(x, 1)
-        .Replacement.Text = verbTense(x, 2)
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        If verbTense(x, 3) = "Y" Then
-            .MatchCase = True
-        Else
-            .MatchCase = False
-        End If
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    Next
-    
-    End Sub
-    
-Sub verbTense4()
-
-        ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-    
-    Dim verbTense(200, 3) As String
-    Dim x As Integer
-
-verbTense(1, 1) = "automated": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
-verbTense(2, 1) = "built": verbTense(2, 2) = "build": verbTense(2, 3) = "N"
-verbTense(3, 1) = "worked": verbTense(3, 2) = "work": verbTense(3, 3) = "N"
-verbTense(4, 1) = "": verbTense(4, 2) = "": verbTense(4, 3) = "N"
-
-For x = 1 To 200
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = verbTense(x, 1)
-        .Replacement.Text = verbTense(x, 2)
-        .Forward = True
-        .Wrap = wdFindContinue
-        .MatchCase = False
-        .MatchWholeWord = True
-        If verbTense(x, 3) = "Y" Then
-            .MatchCase = True
-        Else
-            .MatchCase = False
-        End If
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    Next
-
-End Sub
-
-Sub VerbTense3()
-
-        ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+    Set myRange = Selection.Range
     
     Dim verbTense(200, 3) As String
     Dim x As Integer
@@ -372,8 +286,9 @@ verbTense(8, 1) = "experience in": verbTense(8, 2) = "apply experience in": verb
 verbTense(9, 1) = "expertise in": verbTense(9, 2) = "apply expertise in": verbTense(9, 3) = "Y"
 verbTense(10, 1) = "fixing of": verbTense(10, 2) = "fix": verbTense(10, 3) = "N"
 verbTense(11, 1) = "interaction with": verbTense(11, 2) = "interact with": verbTense(11, 3) = "N"
-verbTense(12, 1) = "involve in": verbTense(12, 2) = "be involved in": verbTense(12, 3) = "N"
-verbTense(13, 1) = "involved in": verbTense(13, 2) = "be involved in": verbTense(13, 3) = "N"
+verbTense(12, 1) = "involved in": verbTense(12, 2) = "be involved in": verbTense(12, 3) = "N"
+verbTense(13, 1) = "involve in": verbTense(13, 2) = "be involved in": verbTense(13, 3) = "N"
+''MUST BE IN THIS ORDER
 verbTense(14, 1) = "participation in": verbTense(14, 2) = "participate in": verbTense(14, 3) = "N"
 verbTense(15, 1) = "preparation of": verbTense(15, 2) = "prepare": verbTense(15, 3) = "N"
 verbTense(16, 1) = "prioritization of": verbTense(16, 2) = "prioritize": verbTense(16, 3) = "N"
@@ -382,20 +297,16 @@ verbTense(18, 1) = "": verbTense(18, 2) = "": verbTense(18, 3) = "N"
 
 For x = 1 To 200
 
+    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = verbTense(x, 1)
         .Replacement.Text = verbTense(x, 2)
         .Forward = True
-        .Wrap = wdFindContinue
+        .Wrap = wdFindStop
         .MatchCase = False
         .MatchWholeWord = True
-        If verbTense(x, 3) = "Y" Then
-            .MatchCase = True
-        Else
-            .MatchCase = False
-        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
@@ -404,7 +315,9 @@ For x = 1 To 200
     
 Sub verbTense4()
 
-        ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
+    
+    Set myRange = Selection.Range
     
     Dim verbTense(200, 3) As String
     Dim x As Integer
@@ -416,20 +329,16 @@ verbTense(4, 1) = "": verbTense(4, 2) = "": verbTense(4, 3) = "N"
 
 For x = 1 To 200
 
+    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = verbTense(x, 1)
         .Replacement.Text = verbTense(x, 2)
         .Forward = True
-        .Wrap = wdFindContinue
+        .Wrap = wdFindStop
         .MatchCase = False
         .MatchWholeWord = True
-        If verbTense(x, 3) = "Y" Then
-            .MatchCase = True
-        Else
-            .MatchCase = False
-        End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
