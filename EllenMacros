@@ -171,6 +171,7 @@ verbTense(13, 1) = "collaborating": verbTense(13, 2) = "collaborate": verbTense(
 verbTense(14, 1) = "coming": verbTense(14, 2) = "come": verbTense(14, 3) = "N"
 verbTense(15, 1) = "communicating": verbTense(15, 2) = "communicate": verbTense(15, 3) = "N"
 verbTense(16, 1) = "conducting": verbTense(16, 2) = "conduct": verbTense(16, 3) = "Y"
+''IN TEMPLATE
 verbTense(17, 1) = "configuring": verbTense(17, 2) = "configure": verbTense(17, 3) = "N"
 verbTense(18, 1) = "coordinating": verbTense(18, 2) = "coordinate": verbTense(18, 3) = "N"
 verbTense(19, 1) = "creating": verbTense(19, 2) = "create": verbTense(19, 3) = "N"
@@ -189,7 +190,9 @@ verbTense(31, 1) = "estimating": verbTense(31, 2) = "estimate": verbTense(31, 3)
 verbTense(32, 1) = "evaluating": verbTense(32, 2) = "evaluate": verbTense(32, 3) = "Y"
 verbTense(33, 1) = "finding": verbTense(33, 2) = "find": verbTense(33, 3) = "N"
 verbTense(34, 1) = "focusing": verbTense(34, 2) = "focus": verbTense(34, 3) = "Y"
+''IN TEMPLATE
 verbTense(35, 1) = "following": verbTense(35, 2) = "follow": verbTense(35, 3) = "Y"
+''IN TEMPLATE
 verbTense(36, 1) = "forecasting": verbTense(36, 2) = "forecast": verbTense(36, 3) = "N"
 verbTense(37, 1) = "generating": verbTense(37, 2) = "generate": verbTense(37, 3) = "N"
 verbTense(38, 1) = "getting": verbTense(38, 2) = "get": verbTense(38, 3) = "N"
@@ -206,6 +209,7 @@ verbTense(48, 1) = "leveraging": verbTense(48, 2) = "leverage": verbTense(48, 3)
 verbTense(49, 1) = "liaising": verbTense(49, 2) = "liaise": verbTense(49, 3) = "N"
 verbTense(50, 1) = "looking": verbTense(50, 2) = "look": verbTense(50, 3) = "N"
 verbTense(51, 1) = "making": verbTense(51, 2) = "make": verbTense(51, 3) = "Y"
+''IN TEMPLATE
 verbTense(52, 1) = "managing": verbTense(52, 2) = "manage": verbTense(52, 3) = "N"
 verbTense(53, 1) = "mentoring": verbTense(53, 2) = "mentor": verbTense(53, 3) = "N"
 verbTense(54, 1) = "migrating": verbTense(54, 2) = "migrate": verbTense(54, 3) = "N"
@@ -234,12 +238,14 @@ verbTense(76, 1) = "tracking": verbTense(76, 2) = "track": verbTense(76, 3) = "N
 verbTense(77, 1) = "translating": verbTense(77, 2) = "translate": verbTense(77, 3) = "N"
 verbTense(78, 1) = "troubleshooting": verbTense(78, 2) = "troubleshoot": verbTense(78, 3) = "N"
 verbTense(79, 1) = "understanding": verbTense(79, 2) = "understand": verbTense(79, 3) = "Y"
+''IN TEMPLATE
 verbTense(80, 1) = "updating": verbTense(80, 2) = "update": verbTense(80, 3) = "N"
 verbTense(81, 1) = "uploading": verbTense(81, 2) = "upload": verbTense(81, 3) = "N"
 verbTense(82, 1) = "using": verbTense(82, 2) = "use": verbTense(82, 3) = "N"
 verbTense(83, 1) = "validating": verbTense(83, 2) = "validate": verbTense(83, 3) = "N"
 verbTense(84, 1) = "working": verbTense(84, 2) = "work": verbTense(84, 3) = "N"
 verbTense(85, 1) = "writing": verbTense(85, 2) = "write": verbTense(85, 3) = "Y"
+''IN TEMPLATE
 verbTense(86, 1) = "": verbTense(86, 2) = "": verbTense(86, 3) = "N"
 
 For x = 1 To 200
