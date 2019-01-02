@@ -11,6 +11,7 @@ Sub Apostrophe()
         .Replacement.Text = "'"
         .Forward = True
         .Wrap = wdFindContinue
+        .MatchWholeWord = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
@@ -123,7 +124,7 @@ verbTense(68, 1) = "utilizes": verbTense(68, 2) = "utilize": verbTense(68, 3) = 
 verbTense(69, 1) = "validates": verbTense(69, 2) = "validate": verbTense(69, 3) = "N"
 verbTense(70, 1) = "works": verbTense(70, 2) = "work": verbTense(70, 3) = "N"
 verbTense(71, 1) = "writes": verbTense(71, 2) = "write": verbTense(71, 3) = "N"
-verbTense(72, 1) = "" : verbTense(72, 2) = "" : verbTense(72, 3) = "N"
+verbTense(72, 1) = "": verbTense(72, 2) = "": verbTense(72, 3) = "N"
     
     For x = 1 To 200
 
@@ -144,7 +145,7 @@ verbTense(72, 1) = "" : verbTense(72, 2) = "" : verbTense(72, 3) = "N"
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
-
+    
 End Sub
 
 Sub VerbTense2()
@@ -169,75 +170,77 @@ verbTense(12, 1) = "checking": verbTense(12, 2) = "check": verbTense(12, 3) = "N
 verbTense(13, 1) = "collaborating": verbTense(13, 2) = "collaborate": verbTense(13, 3) = "N"
 verbTense(14, 1) = "coming": verbTense(14, 2) = "come": verbTense(14, 3) = "N"
 verbTense(15, 1) = "communicating": verbTense(15, 2) = "communicate": verbTense(15, 3) = "N"
-verbTense(16, 1) = "conducting": verbTense(16, 2) = "conduct": verbTense(16, 3) = "N"
+verbTense(16, 1) = "conducting": verbTense(16, 2) = "conduct": verbTense(16, 3) = "Y"
 verbTense(17, 1) = "configuring": verbTense(17, 2) = "configure": verbTense(17, 3) = "N"
 verbTense(18, 1) = "coordinating": verbTense(18, 2) = "coordinate": verbTense(18, 3) = "N"
 verbTense(19, 1) = "creating": verbTense(19, 2) = "create": verbTense(19, 3) = "N"
 verbTense(20, 1) = "designing": verbTense(20, 2) = "design": verbTense(20, 3) = "N"
-verbTense(21, 1) = "determining": verbTense(21, 2) = "determine": verbTense(21, 3) = "N"
-verbTense(22, 1) = "developing": verbTense(22, 2) = "develop": verbTense(22, 3) = "N"
-verbTense(23, 1) = "discussing": verbTense(23, 2) = "discuss": verbTense(23, 3) = "N"
-verbTense(24, 1) = "documenting": verbTense(24, 2) = "document": verbTense(24, 3) = "N"
-verbTense(25, 1) = "drafting": verbTense(25, 2) = "draft": verbTense(25, 3) = "N"
-verbTense(26, 1) = "driving": verbTense(26, 2) = "drive": verbTense(26, 3) = "N"
-verbTense(27, 1) = "engaging": verbTense(27, 2) = "engage": verbTense(27, 3) = "N"
-verbTense(28, 1) = "ensuring": verbTense(28, 2) = "ensure": verbTense(28, 3) = "N"
-verbTense(29, 1) = "establishing": verbTense(29, 2) = "establish": verbTense(29, 3) = "N"
-verbTense(30, 1) = "estimating": verbTense(30, 2) = "estimate": verbTense(30, 3) = "N"
-verbTense(31, 1) = "evaluating": verbTense(31, 2) = "evaluate": verbTense(31, 3) = "N"
-verbTense(32, 1) = "finding": verbTense(32, 2) = "find": verbTense(32, 3) = "N"
-verbTense(33, 1) = "focusing": verbTense(33, 2) = "focus": verbTense(33, 3) = "N"
-verbTense(34, 1) = "following": verbTense(34, 2) = "follow": verbTense(34, 3) = "N"
-verbTense(35, 1) = "forecasting": verbTense(35, 2) = "forecast": verbTense(35, 3) = "N"
-verbTense(36, 1) = "generating": verbTense(36, 2) = "generate": verbTense(36, 3) = "N"
-verbTense(37, 1) = "getting": verbTense(37, 2) = "get": verbTense(37, 3) = "N"
-verbTense(38, 1) = "handling": verbTense(38, 2) = "handle": verbTense(38, 3) = "N"
-verbTense(39, 1) = "highlighting": verbTense(39, 2) = "highlight": verbTense(39, 3) = "N"
-verbTense(40, 1) = "identifying": verbTense(40, 2) = "identify": verbTense(40, 3) = "N"
-verbTense(41, 1) = "implementing": verbTense(41, 2) = "implement": verbTense(41, 3) = "N"
-verbTense(42, 1) = "installing": verbTense(42, 2) = "install": verbTense(42, 3) = "N"
-verbTense(43, 1) = "integrating": verbTense(43, 2) = "integrate": verbTense(43, 3) = "N"
-verbTense(44, 1) = "interacting": verbTense(44, 2) = "interact": verbTense(44, 3) = "N"
-verbTense(45, 1) = "interpreting": verbTense(45, 2) = "interpret": verbTense(45, 3) = "N"
-verbTense(46, 1) = "leading": verbTense(46, 2) = "lead": verbTense(46, 3) = "N"
-verbTense(47, 1) = "leveraging": verbTense(47, 2) = "leverage": verbTense(47, 3) = "N"
-verbTense(48, 1) = "liaising": verbTense(48, 2) = "liaise": verbTense(48, 3) = "N"
-verbTense(49, 1) = "looking": verbTense(49, 2) = "look": verbTense(49, 3) = "N"
-verbTense(50, 1) = "making": verbTense(50, 2) = "make": verbTense(50, 3) = "N"
-verbTense(51, 1) = "managing": verbTense(51, 2) = "manage": verbTense(51, 3) = "N"
-verbTense(52, 1) = "mentoring": verbTense(52, 2) = "mentor": verbTense(52, 3) = "N"
-verbTense(53, 1) = "migrating": verbTense(53, 2) = "migrate": verbTense(53, 3) = "N"
-verbTense(54, 1) = "modeling": verbTense(54, 2) = "model": verbTense(54, 3) = "N"
-verbTense(55, 1) = "monitoring": verbTense(55, 2) = "monitor": verbTense(55, 3) = "N"
-verbTense(56, 1) = "organizing": verbTense(56, 2) = "organize": verbTense(56, 3) = "N"
-verbTense(57, 1) = "overseeing": verbTense(57, 2) = "oversee": verbTense(57, 3) = "N"
-verbTense(58, 1) = "participating": verbTense(58, 2) = "participate": verbTense(58, 3) = "N"
-verbTense(59, 1) = "patching": verbTense(59, 2) = "patch": verbTense(59, 3) = "N"
-verbTense(60, 1) = "performing": verbTense(60, 2) = "perform": verbTense(60, 3) = "N"
-verbTense(61, 1) = "playing": verbTense(61, 2) = "play": verbTense(61, 3) = "N"
-verbTense(62, 1) = "preparing": verbTense(62, 2) = "prepare": verbTense(62, 3) = "N"
-verbTense(63, 1) = "presenting": verbTense(63, 2) = "present": verbTense(63, 3) = "N"
-verbTense(64, 1) = "prioritizing": verbTense(64, 2) = "prioritize": verbTense(64, 3) = "N"
-verbTense(65, 1) = "prototyping": verbTense(65, 2) = "prototype": verbTense(65, 3) = "N"
-verbTense(66, 1) = "providing": verbTense(66, 2) = "provide": verbTense(66, 3) = "N"
-verbTense(67, 1) = "reporting": verbTense(67, 2) = "report": verbTense(67, 3) = "N"
-verbTense(68, 1) = "representing": verbTense(68, 2) = "represent": verbTense(68, 3) = "N"
-verbTense(69, 1) = "researching": verbTense(69, 2) = "research": verbTense(69, 3) = "N"
-verbTense(70, 1) = "resolving": verbTense(70, 2) = "resolve": verbTense(70, 3) = "N"
-verbTense(71, 1) = "securing": verbTense(71, 2) = "secure": verbTense(71, 3) = "N"
-verbTense(72, 1) = "setting": verbTense(72, 2) = "set": verbTense(72, 3) = "N"
-verbTense(73, 1) = "sharing": verbTense(73, 2) = "share": verbTense(73, 3) = "N"
-verbTense(74, 1) = "tracking": verbTense(74, 2) = "track": verbTense(74, 3) = "N"
-verbTense(75, 1) = "translating": verbTense(75, 2) = "translate": verbTense(75, 3) = "N"
-verbTense(76, 1) = "troubleshooting": verbTense(76, 2) = "troubleshoot": verbTense(76, 3) = "N"
-verbTense(77, 1) = "understanding": verbTense(77, 2) = "understand": verbTense(77, 3) = "N"
-verbTense(78, 1) = "updating": verbTense(78, 2) = "update": verbTense(78, 3) = "N"
-verbTense(79, 1) = "uploading": verbTense(79, 2) = "upload": verbTense(79, 3) = "N"
-verbTense(80, 1) = "using": verbTense(80, 2) = "use": verbTense(80, 3) = "N"
-verbTense(81, 1) = "validating": verbTense(81, 2) = "validate": verbTense(81, 3) = "N"
-verbTense(82, 1) = "working": verbTense(82, 2) = "work": verbTense(82, 3) = "N"
-verbTense(83, 1) = "writing": verbTense(83, 2) = "write": verbTense(83, 3) = "N"
-verbTense(84, 1) = "" : verbTense(84, 2) = "" : verbTense(84, 3) = "N"
+verbTense(21, 1) = "deploying": verbTense(21, 2) = "deploy": verbTense(21, 3) = "N"
+verbTense(22, 1) = "determining": verbTense(22, 2) = "determine": verbTense(22, 3) = "Y"
+verbTense(23, 1) = "developing": verbTense(23, 2) = "develop": verbTense(23, 3) = "N"
+verbTense(24, 1) = "discussing": verbTense(24, 2) = "discuss": verbTense(24, 3) = "N"
+verbTense(25, 1) = "documenting": verbTense(25, 2) = "document": verbTense(25, 3) = "N"
+verbTense(26, 1) = "drafting": verbTense(26, 2) = "draft": verbTense(26, 3) = "N"
+verbTense(27, 1) = "driving": verbTense(27, 2) = "drive": verbTense(27, 3) = "N"
+verbTense(28, 1) = "engaging": verbTense(28, 2) = "engage": verbTense(28, 3) = "N"
+verbTense(29, 1) = "ensuring": verbTense(29, 2) = "ensure": verbTense(29, 3) = "N"
+verbTense(30, 1) = "establishing": verbTense(30, 2) = "establish": verbTense(30, 3) = "N"
+verbTense(31, 1) = "estimating": verbTense(31, 2) = "estimate": verbTense(31, 3) = "N"
+verbTense(32, 1) = "evaluating": verbTense(32, 2) = "evaluate": verbTense(32, 3) = "Y"
+verbTense(33, 1) = "finding": verbTense(33, 2) = "find": verbTense(33, 3) = "N"
+verbTense(34, 1) = "focusing": verbTense(34, 2) = "focus": verbTense(34, 3) = "Y"
+verbTense(35, 1) = "following": verbTense(35, 2) = "follow": verbTense(35, 3) = "Y"
+verbTense(36, 1) = "forecasting": verbTense(36, 2) = "forecast": verbTense(36, 3) = "N"
+verbTense(37, 1) = "generating": verbTense(37, 2) = "generate": verbTense(37, 3) = "N"
+verbTense(38, 1) = "getting": verbTense(38, 2) = "get": verbTense(38, 3) = "N"
+verbTense(39, 1) = "handling": verbTense(39, 2) = "handle": verbTense(39, 3) = "N"
+verbTense(40, 1) = "highlighting": verbTense(40, 2) = "highlight": verbTense(40, 3) = "N"
+verbTense(41, 1) = "identifying": verbTense(41, 2) = "identify": verbTense(41, 3) = "N"
+verbTense(42, 1) = "implementing": verbTense(42, 2) = "implement": verbTense(42, 3) = "Y"
+verbTense(43, 1) = "installing": verbTense(43, 2) = "install": verbTense(43, 3) = "N"
+verbTense(44, 1) = "integrating": verbTense(44, 2) = "integrate": verbTense(44, 3) = "N"
+verbTense(45, 1) = "interacting": verbTense(45, 2) = "interact": verbTense(45, 3) = "N"
+verbTense(46, 1) = "interpreting": verbTense(46, 2) = "interpret": verbTense(46, 3) = "N"
+verbTense(47, 1) = "leading": verbTense(47, 2) = "lead": verbTense(47, 3) = "Y"
+verbTense(48, 1) = "leveraging": verbTense(48, 2) = "leverage": verbTense(48, 3) = "N"
+verbTense(49, 1) = "liaising": verbTense(49, 2) = "liaise": verbTense(49, 3) = "N"
+verbTense(50, 1) = "looking": verbTense(50, 2) = "look": verbTense(50, 3) = "N"
+verbTense(51, 1) = "making": verbTense(51, 2) = "make": verbTense(51, 3) = "Y"
+verbTense(52, 1) = "managing": verbTense(52, 2) = "manage": verbTense(52, 3) = "N"
+verbTense(53, 1) = "mentoring": verbTense(53, 2) = "mentor": verbTense(53, 3) = "N"
+verbTense(54, 1) = "migrating": verbTense(54, 2) = "migrate": verbTense(54, 3) = "N"
+verbTense(55, 1) = "modeling": verbTense(55, 2) = "model": verbTense(55, 3) = "N"
+verbTense(56, 1) = "monitoring": verbTense(56, 2) = "monitor": verbTense(56, 3) = "N"
+verbTense(57, 1) = "organizing": verbTense(57, 2) = "organize": verbTense(57, 3) = "N"
+verbTense(58, 1) = "overseeing": verbTense(58, 2) = "oversee": verbTense(58, 3) = "N"
+verbTense(59, 1) = "participating": verbTense(59, 2) = "participate": verbTense(59, 3) = "N"
+verbTense(60, 1) = "patching": verbTense(60, 2) = "patch": verbTense(60, 3) = "N"
+verbTense(61, 1) = "performing": verbTense(61, 2) = "perform": verbTense(61, 3) = "N"
+verbTense(62, 1) = "playing": verbTense(62, 2) = "play": verbTense(62, 3) = "N"
+verbTense(63, 1) = "preparing": verbTense(63, 2) = "prepare": verbTense(63, 3) = "N"
+verbTense(64, 1) = "presenting": verbTense(64, 2) = "present": verbTense(64, 3) = "N"
+verbTense(65, 1) = "prioritizing": verbTense(65, 2) = "prioritize": verbTense(65, 3) = "N"
+verbTense(66, 1) = "prototyping": verbTense(66, 2) = "prototype": verbTense(66, 3) = "N"
+verbTense(67, 1) = "providing": verbTense(67, 2) = "provide": verbTense(67, 3) = "N"
+verbTense(68, 1) = "reporting": verbTense(68, 2) = "report": verbTense(68, 3) = "N"
+verbTense(69, 1) = "representing": verbTense(69, 2) = "represent": verbTense(69, 3) = "N"
+verbTense(70, 1) = "researching": verbTense(70, 2) = "research": verbTense(70, 3) = "N"
+verbTense(71, 1) = "resolving": verbTense(71, 2) = "resolve": verbTense(71, 3) = "N"
+verbTense(72, 1) = "securing": verbTense(72, 2) = "secure": verbTense(72, 3) = "N"
+verbTense(73, 1) = "setting": verbTense(73, 2) = "set": verbTense(73, 3) = "N"
+verbTense(74, 1) = "sharing": verbTense(74, 2) = "share": verbTense(74, 3) = "N"
+verbTense(75, 1) = "solving": verbTense(75, 2) = "solve": verbTense(75, 3) = "N"
+verbTense(76, 1) = "tracking": verbTense(76, 2) = "track": verbTense(76, 3) = "N"
+verbTense(77, 1) = "translating": verbTense(77, 2) = "translate": verbTense(77, 3) = "N"
+verbTense(78, 1) = "troubleshooting": verbTense(78, 2) = "troubleshoot": verbTense(78, 3) = "N"
+verbTense(79, 1) = "understanding": verbTense(79, 2) = "understand": verbTense(79, 3) = "Y"
+verbTense(80, 1) = "updating": verbTense(80, 2) = "update": verbTense(80, 3) = "N"
+verbTense(81, 1) = "uploading": verbTense(81, 2) = "upload": verbTense(81, 3) = "N"
+verbTense(82, 1) = "using": verbTense(82, 2) = "use": verbTense(82, 3) = "N"
+verbTense(83, 1) = "validating": verbTense(83, 2) = "validate": verbTense(83, 3) = "N"
+verbTense(84, 1) = "working": verbTense(84, 2) = "work": verbTense(84, 3) = "N"
+verbTense(85, 1) = "writing": verbTense(85, 2) = "write": verbTense(85, 3) = "Y"
+verbTense(86, 1) = "": verbTense(86, 2) = "": verbTense(86, 3) = "N"
 
 For x = 1 To 200
 
@@ -258,11 +261,11 @@ For x = 1 To 200
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
-    
-    End Sub
+
+End Sub
 
 Sub VerbTense3()
-    
+
         ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
     Dim verbTense(200, 3) As String
@@ -285,7 +288,7 @@ verbTense(14, 1) = "participation in": verbTense(14, 2) = "participate in": verb
 verbTense(15, 1) = "preparation of": verbTense(15, 2) = "prepare": verbTense(15, 3) = "N"
 verbTense(16, 1) = "prioritization of": verbTense(16, 2) = "prioritize": verbTense(16, 3) = "N"
 verbTense(17, 1) = "review of": verbTense(17, 2) = "review": verbTense(17, 3) = "N"
-verbTense(18, 1) = "" : verbTense(18, 2) = "" : verbTense(18, 3) = "N"
+verbTense(18, 1) = "": verbTense(18, 2) = "": verbTense(18, 3) = "N"
 
 For x = 1 To 200
 
@@ -319,7 +322,7 @@ Sub verbTense4()
 verbTense(1, 1) = "automated": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
 verbTense(2, 1) = "built": verbTense(2, 2) = "build": verbTense(2, 3) = "N"
 verbTense(3, 1) = "worked": verbTense(3, 2) = "work": verbTense(3, 3) = "N"
-verbTense(4, 1) = "" : verbTense(4, 2) = "" : verbTense(4, 3) = "N"
+verbTense(4, 1) = "": verbTense(4, 2) = "": verbTense(4, 3) = "N"
 
 For x = 1 To 200
 
@@ -340,15 +343,18 @@ For x = 1 To 200
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
-    
+
 End Sub
     
-Sub MegaMacro()
-
+Sub megaMacro()
+'
+' MegaMacro Macro
+'
 Dim megaMacro(200, 4) As String
     Dim x As Integer
 
-megaMacro(1, 1) = "&": megaMacro(1, 2) = "and": megaMacro(1, 3) = "N": megaMacro(1, 4) = "Y"
+megaMacro(1, 1) = " & ": megaMacro(1, 2) = " and ": megaMacro(1, 3) = "N": megaMacro(1, 4) = "Y"
+''THIS ISN'T WORKING RIGHT
 megaMacro(2, 1) = "Russ College of Engineering and": megaMacro(2, 2) = "Russ College of Engineering &": megaMacro(2, 3) = "N": megaMacro(2, 4) = "Y"
 megaMacro(3, 1) = "Larsen and Toubro": megaMacro(3, 2) = "Larsen & Toubro": megaMacro(3, 3) = "Y": megaMacro(3, 4) = "Y"
 megaMacro(4, 1) = "LARSEN and TOUBRO": megaMacro(4, 2) = "LARSEN & TOUBRO": megaMacro(4, 3) = "Y": megaMacro(4, 4) = "Y"
@@ -438,5 +444,5 @@ For x = 1 To 200
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
-
+    
 End Sub
