@@ -152,6 +152,8 @@ Sub VerbTense2()
 
     ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
+    Set myRange = (Selection.Start <> Selection.End)
+    
     Dim verbTense(200, 3) As String
     Dim x As Integer
     
@@ -248,15 +250,17 @@ verbTense(85, 1) = "writing": verbTense(85, 2) = "write": verbTense(85, 3) = "Y"
 ''IN TEMPLATE
 verbTense(86, 1) = "": verbTense(86, 2) = "": verbTense(86, 3) = "N"
 
-For x = 1 To 200
+For x = 1 To 100
 
+    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
+    
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = verbTense(x, 1)
         .Replacement.Text = verbTense(x, 2)
         .Forward = True
-        .Wrap = wdFindContinue
+        .Wrap = wdFindStop
         .MatchCase = False
         .MatchWholeWord = True
         If verbTense(x, 3) = "Y" Then
