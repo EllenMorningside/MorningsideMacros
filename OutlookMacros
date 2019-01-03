@@ -50,3 +50,17 @@ Dim Items As Outlook.Items
 
 End Sub
 
+Sub EvalsIntake()
+
+ Dim objOlApp As Outlook.Application
+ Dim objFolder As Outlook.Folder
+ Set objOlApp = CreateObject("Outlook.Application")
+
+ Set objFolder = Session.GetDefaultFolder(olPublicFoldersAllPublicFolders).Folders("Evals Intake")
+
+ Set objOlApp.ActiveExplorer.CurrentFolder = objFolder
+
+ Set objFolder = Nothing
+ Set objOlApp = Nothing
+
+End Sub
