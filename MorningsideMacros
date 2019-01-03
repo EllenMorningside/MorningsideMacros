@@ -401,7 +401,7 @@ phrase(70, 2) = "Y"
 
 For y = 1 To 70
 
-    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True
+    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True, Wrap:=wdFindContinue, MatchWholeWord:=True, MatchCase:=(phrase(y, 2) = "Y")
     If myRange.Find.Found = True Then
     x = x + 1
     End If
