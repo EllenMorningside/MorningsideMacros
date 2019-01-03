@@ -5,6 +5,7 @@ Various macros that I use for my evaluations job
 I'm preparing this module for use on all Morningside computers at some point. The module consists of
 - Gender change and PDF print macros (including the adapation where the PDF doens't have to be saved after printing).
 - Replace FNU and replace FirstName.
+- Turn a basic pos(spec) into a generic template.
 - All macro forms with the macros to open the forms.
 - A TemplateCheck macro that checks for any templated language or other issues.
 - A JanitorMacro that cleans up copy and pasted text.
@@ -22,3 +23,4 @@ These are all macros I use on Outlook.
 - All three macro for intaking cases and marking them green.
 - Case completed macro that loads a form with the case completed email.
 - Professor Yanofsky that automatically prepares a template with to schedule Yanofsky appointments.
+- A quick link to the Evals Intake folder.
