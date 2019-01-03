@@ -25,14 +25,6 @@ End Sub
 
 
 
-Public Sub cancelButton_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
-
-    If KeyAscii = 27 Then
-    Call cancelButton_Click
-    End If
-
-End Sub
-
 
 Public Sub okButton_Click()
    
