@@ -633,6 +633,7 @@ For y = 1 To 70
         .Forward = True
         .Wrap = wdFindContinue
         .Format = True
+        .MatchWholeWord = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     
