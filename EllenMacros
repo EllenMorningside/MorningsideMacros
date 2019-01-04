@@ -57,6 +57,7 @@ Sub VerbTense1()
     
 verbTense(1, 1) = "accomplishes": verbTense(1, 2) = "accomplish": verbTense(1, 3) = "N"
 verbTense(2, 1) = "acts": verbTense(2, 2) = "act": verbTense(2, 3) = "N"
+''THIS HAS TO MATCH FULL WORD OR ELSE IT WILL FIT IN contracts
 verbTense(3, 1) = "administers": verbTense(3, 2) = "administer": verbTense(3, 3) = "N"
 verbTense(4, 1) = "advises": verbTense(4, 2) = "advise": verbTense(4, 3) = "N"
 verbTense(5, 1) = "analyzes": verbTense(5, 2) = "analyze": verbTense(5, 3) = "N"
@@ -102,6 +103,7 @@ verbTense(44, 1) = "manages": verbTense(44, 2) = "manage": verbTense(44, 3) = "N
 verbTense(45, 1) = "mentors": verbTense(45, 2) = "mentor": verbTense(45, 3) = "N"
 verbTense(46, 1) = "monitors": verbTense(46, 2) = "monitor": verbTense(46, 3) = "N"
 verbTense(47, 1) = "moves": verbTense(47, 2) = "move": verbTense(47, 3) = "N"
+''THIS HAS TO MATCH FULL WORD OR ELSE IT WILL FIT IN remove
 verbTense(48, 1) = "organizes": verbTense(48, 2) = "organize": verbTense(48, 3) = "N"
 verbTense(49, 1) = "oversees": verbTense(49, 2) = "oversee": verbTense(49, 3) = "N"
 verbTense(50, 1) = "participates": verbTense(50, 2) = "participate": verbTense(50, 3) = "N"
@@ -125,6 +127,7 @@ verbTense(67, 1) = "uses": verbTense(67, 2) = "use": verbTense(67, 3) = "N"
 verbTense(68, 1) = "utilizes": verbTense(68, 2) = "utilize": verbTense(68, 3) = "N"
 verbTense(69, 1) = "validates": verbTense(69, 2) = "validate": verbTense(69, 3) = "N"
 verbTense(70, 1) = "works": verbTense(70, 2) = "work": verbTense(70, 3) = "N"
+''THIS HAS TO MATCH FULL WORD OR ELSE IT WILL FIT IN frameworks
 verbTense(71, 1) = "writes": verbTense(71, 2) = "write": verbTense(71, 3) = "N"
 verbTense(72, 1) = "": verbTense(72, 2) = "": verbTense(72, 3) = "N"
     
