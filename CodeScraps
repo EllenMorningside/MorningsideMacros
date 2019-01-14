@@ -1,0 +1,189 @@
+Sub TemplateCheck()
+
+Set myRange = ActiveDocument.Content
+
+Dim x As Integer
+Dim phrase(70, 2) As String
+Dim y As Integer
+
+x = 0
+
+''Template Prepass to Protect Phrases
+Dim protectedPhrase(5) As String
+Dim z As Integer
+protectedPhrase(1) = "we hereby affirm"
+protectedPhrase(2) = "Our conversation"
+protectedPhrase(3) = "We represent the foregoing"
+protectedPhrase(4) = "best of our knowledge"
+protectedPhrase(5) = "apparent grounds for us"
+
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = protectedPhrase(z)
+        .Replacement.Text = "z" + protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+''Template Check
+'Column 1 = Phrase
+'Column 2 = MatchCase True or False
+
+''Templated Language
+phrase(1, 1) = "FirstName"
+phrase(2, 1) = "LastName"
+phrase(3, 1) = "PositionOne"
+phrase(4, 1) = "CompanyOne"
+phrase(5, 1) = "CaseNumber"
+phrase(6, 1) = "DegreeIn"
+phrase(7, 1) = "FieldOne"
+phrase(8, 1) = "INSERT DATE"
+phrase(9, 1) = "INSERT COMPANY INFORMATION"
+phrase(10, 1) = "INSERT RELEVANT JOB DUTIES HERE"
+phrase(11, 1) = "INSERT RELATED COURSEWORK"
+phrase(12, 1) = "ADD PARAGRAPH"
+phrase(13, 1) = "INCLUDE SOMETHING FROM THE OOH?????"
+phrase(14, 1) = "FIELDTWO"
+phrase(15, 1) = "EXPLAIN HOW…..the degree is relevant…….."
+phrase(16, 1) = "year(S)"
+phrase(17, 1) = "INSERT SIMILAR JOB DUTIES TO THE O*Net DUTIES"
+phrase(18, 1) = "ListCourses"
+phrase(19, 1) = "DegreeTitle"
+phrase(20, 1) = "numberOfYears"
+phrase(21, 1) = "InForeignDegree"
+phrase(22, 1) = "TitleForeignDegree"
+phrase(23, 1) = "MajorThree"
+phrase(24, 1) = "MajorTwo"
+phrase(25, 1) = "MajorOne"
+phrase(26, 1) = "YearThree"
+phrase(27, 1) = "YearTwo"
+phrase(28, 1) = "YearOne"
+phrase(29, 1) = "DegreeReceivedThree"
+phrase(30, 1) = "DegreeReceivedTwo"
+phrase(31, 1) = "DegreeReceivedOne"
+phrase(32, 1) = "DegreeRecievedOne"
+phrase(33, 1) = "theCountryThree"
+phrase(34, 1) = "theCountryTwo"
+phrase(35, 1) = "theCountryOne"
+phrase(36, 1) = "SchoolNameThree"
+phrase(37, 1) = "SchoolNameTwo"
+phrase(38, 1) = "SchoolNameOne"
+phrase(39, 1) = "yearsofCourseworkThree"
+phrase(40, 1) = "yearsofCourseworkTwo"
+phrase(41, 1) = "yearsofCourseworkOne"
+phrase(42, 1) = "SpokenWith"
+
+''Preposition Mistakes
+phrase(43, 1) = "at University of"
+phrase(44, 1) = "at Institute of"
+phrase(45, 1) = "from University of"
+phrase(46, 1) = "from Institute of"
+phrase(47, 1) = "in University of"
+phrase(48, 1) = "in Institute of"
+phrase(49, 1) = "hereinafter"
+
+''Vowel Mistakes
+phrase(50, 1) = "to employ a A"
+phrase(51, 1) = "to hire a A"
+phrase(52, 1) = "that a A"
+phrase(53, 1) = "to employ a E"
+phrase(54, 1) = "to hire a E"
+phrase(55, 1) = "that a E"
+phrase(56, 1) = "to employ a I"
+phrase(57, 1) = "to hire a I"
+phrase(58, 1) = "that a I"
+phrase(59, 1) = "to employ a O"
+phrase(60, 1) = "to hire a O"
+phrase(61, 1) = "that a O"
+phrase(62, 1) = "to employ a U"
+phrase(63, 1) = "to hire a U"
+phrase(64, 1) = "that a U"
+
+''Punctuation and Blank Spots
+phrase(64, 1) = ".."
+phrase(65, 1) = "XXX"
+phrase(66, 1) = "INSERT"
+phrase(66, 2) = "Y"
+
+''First Person Language
+phrase(67, 1) = "we"
+phrase(68, 1) = "our"
+phrase(69, 1) = "ours"
+phrase(70, 1) = "us"
+phrase(70, 2) = "Y"
+
+For y = 1 To 70
+
+    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True, Wrap:=wdFindContinue, MatchWholeWord:=True, MatchCase:=(phrase(y, 2) = "Y")
+    If myRange.Find.Found = True Then
+    x = x + 1
+    End If
+    
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = phrase(y, 1)
+        .Replacement.Text = phrase(y, 1)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = True
+        If phrase(y, 2) = "Y" Then
+            .MatchCase = True
+        Else
+            .MatchCase = False
+        End If
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+Next
+
+    If x > 0 Then
+    MsgBox ("Check for templated language!")
+    
+    Else
+    MsgBox ("All good!")
+    
+    End If
+
+''Restore Find and Replace formatting
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+'PostPass
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "z" + protectedPhrase(z)
+        .Replacement.Text = protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+End Sub
