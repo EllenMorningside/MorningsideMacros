@@ -1,447 +1,874 @@
-
-Sub Apostrophe()
+Sub M2F()
 '
-' Apostrophe Macro
+' M2F Macro
 '
 '
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "'"
-        .Replacement.Text = "'"
+        .Text = "Mr"
+        .Replacement.Text = "Ms"
         .Forward = True
         .Wrap = wdFindContinue
+       .MatchWholeWord = True
+   End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "he"
+        .Replacement.Text = "she"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchWholeWord = True
+   End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "him"
+        .Replacement.Text = "her"
+        .Forward = True
+        .Wrap = wdFindContinue
+       .MatchWholeWord = True
+   End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "his"
+        .Replacement.Text = "her"
+        .Forward = True
+        .Wrap = wdFindContinue
+       .MatchWholeWord = True
+   End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+
+
+Sub ReplaceFNU()
+'
+' ReplaceFNU Macro
+'
+    
+    With Selection.Find
+        .Text = "FNU "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ", FNU"
+        .Replacement.Text = ""
+        .Forward = False
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceOne
+    Selection.Find.ClearFormatting
+    
+End Sub
+Sub ReplaceFirstName()
+'
+' ReplaceFirstName Macro
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Candidate's First Name:" & vbTab & "FIRSTNAME" & vbCr
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Candidate's Last Name:"
+        .Replacement.Text = "Candidate's Name"
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "FirstName "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+        Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ", FirstName"
+        .Replacement.Text = ""
+        .Forward = False
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceOne
+    Selection.Find.ClearFormatting
+    
+End Sub
+
+Sub GenericLetter()
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "provided by Mr. LastName"
+        .Replacement.Text = "provided by the company"
+        .Forward = False
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
         .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-End Sub
-
-
-Sub SemiColon()
-'
-' SemiColon Macro
-'
-'
+    
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "."
-        .Replacement.Text = ";"
-        .Forward = True
-        .Wrap = wdFindAsk
-    End With
-    With Selection
-        If .Find.Forward = True Then
-            .Collapse Direction:=wdCollapseStart
-        Else
-            .Collapse Direction:=wdCollapseEnd
-        End If
-        .Find.Execute Replace:=wdReplaceOne
-        If .Find.Forward = True Then
-            .Collapse Direction:=wdCollapseEnd
-        Else
-            .Collapse Direction:=wdCollapseStart
-        End If
-        .Find.Execute
-    End With
-End Sub
-
-Sub VerbTense1()
-
-    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-    
-    Set myRange = Selection.Range
-    
-    Dim verbTense(200, 3) As String
-    Dim x As Integer
-    
-verbTense(1, 1) = "accomplishes": verbTense(1, 2) = "accomplish": verbTense(1, 3) = "N"
-verbTense(2, 1) = "acts": verbTense(2, 2) = "act": verbTense(2, 3) = "N"
-verbTense(3, 1) = "administers": verbTense(3, 2) = "administer": verbTense(3, 3) = "N"
-verbTense(4, 1) = "advises": verbTense(4, 2) = "advise": verbTense(4, 3) = "N"
-verbTense(5, 1) = "analyzes": verbTense(5, 2) = "analyze": verbTense(5, 3) = "N"
-verbTense(6, 1) = "anticipates": verbTense(6, 2) = "anticipate": verbTense(6, 3) = "N"
-verbTense(7, 1) = "applies": verbTense(7, 2) = "apply": verbTense(7, 3) = "N"
-verbTense(8, 1) = "assesses": verbTense(8, 2) = "assess": verbTense(8, 3) = "N"
-verbTense(9, 1) = "assigns": verbTense(9, 2) = "assign": verbTense(9, 3) = "N"
-verbTense(10, 1) = "assists": verbTense(10, 2) = "assist": verbTense(10, 3) = "N"
-verbTense(11, 1) = "attends": verbTense(11, 2) = "attend": verbTense(11, 3) = "N"
-verbTense(12, 1) = "builds": verbTense(12, 2) = "build": verbTense(12, 3) = "N"
-verbTense(13, 1) = "carries": verbTense(13, 2) = "carry": verbTense(13, 3) = "N"
-verbTense(14, 1) = "checks": verbTense(14, 2) = "check": verbTense(14, 3) = "N"
-verbTense(15, 1) = "collaborates": verbTense(15, 2) = "collaborate": verbTense(15, 3) = "N"
-verbTense(16, 1) = "completes": verbTense(16, 2) = "complete": verbTense(16, 3) = "N"
-verbTense(17, 1) = "conducts": verbTense(17, 2) = "conduct": verbTense(17, 3) = "N"
-verbTense(18, 1) = "connects": verbTense(18, 2) = "connect": verbTense(18, 3) = "N"
-verbTense(19, 1) = "consults": verbTense(19, 2) = "consult": verbTense(19, 3) = "N"
-verbTense(20, 1) = "contributes": verbTense(20, 2) = "contribute": verbTense(20, 3) = "N"
-verbTense(21, 1) = "converts": verbTense(21, 2) = "convert": verbTense(21, 3) = "N"
-verbTense(22, 1) = "coordinates": verbTense(22, 2) = "coordinate": verbTense(22, 3) = "N"
-verbTense(23, 1) = "creates": verbTense(23, 2) = "create": verbTense(23, 3) = "N"
-verbTense(24, 1) = "delivers": verbTense(24, 2) = "deliver": verbTense(24, 3) = "N"
-verbTense(25, 1) = "demonstrates": verbTense(25, 2) = "demonstrate": verbTense(25, 3) = "N"
-verbTense(26, 1) = "designs": verbTense(26, 2) = "design": verbTense(26, 3) = "N"
-verbTense(27, 1) = "determines": verbTense(27, 2) = "determine": verbTense(27, 3) = "N"
-verbTense(28, 1) = "develops": verbTense(28, 2) = "develop": verbTense(28, 3) = "N"
-verbTense(29, 1) = "directs": verbTense(29, 2) = "direct": verbTense(29, 3) = "N"
-verbTense(30, 1) = "drives": verbTense(30, 2) = "drive": verbTense(30, 3) = "N"
-verbTense(31, 1) = "ensures": verbTense(31, 2) = "ensure": verbTense(31, 3) = "N"
-verbTense(32, 1) = "establishes": verbTense(32, 2) = "establish": verbTense(32, 3) = "N"
-verbTense(33, 1) = "executes": verbTense(33, 2) = "execute": verbTense(33, 3) = "N"
-verbTense(34, 1) = "generates": verbTense(34, 2) = "generate": verbTense(34, 3) = "N"
-verbTense(35, 1) = "identifies": verbTense(35, 2) = "identify": verbTense(35, 3) = "N"
-verbTense(36, 1) = "implements": verbTense(36, 2) = "implement": verbTense(36, 3) = "N"
-verbTense(37, 1) = "initiates": verbTense(37, 2) = "initiate": verbTense(37, 3) = "N"
-verbTense(38, 1) = "installs": verbTense(38, 2) = "install": verbTense(38, 3) = "N"
-verbTense(39, 1) = "interacts": verbTense(39, 2) = "interact": verbTense(39, 3) = "N"
-verbTense(40, 1) = "interprets": verbTense(40, 2) = "interpret": verbTense(40, 3) = "N"
-verbTense(41, 1) = "investigates": verbTense(41, 2) = "investigate": verbTense(41, 3) = "N"
-verbTense(42, 1) = "leads": verbTense(42, 2) = "lead": verbTense(42, 3) = "N"
-verbTense(43, 1) = "maintains": verbTense(43, 2) = "maintain": verbTense(43, 3) = "N"
-verbTense(44, 1) = "manages": verbTense(44, 2) = "manage": verbTense(44, 3) = "N"
-verbTense(45, 1) = "mentors": verbTense(45, 2) = "mentor": verbTense(45, 3) = "N"
-verbTense(46, 1) = "monitors": verbTense(46, 2) = "monitor": verbTense(46, 3) = "N"
-verbTense(47, 1) = "moves": verbTense(47, 2) = "move": verbTense(47, 3) = "N"
-verbTense(48, 1) = "organizes": verbTense(48, 2) = "organize": verbTense(48, 3) = "N"
-verbTense(49, 1) = "oversees": verbTense(49, 2) = "oversee": verbTense(49, 3) = "N"
-verbTense(50, 1) = "participates": verbTense(50, 2) = "participate": verbTense(50, 3) = "N"
-verbTense(51, 1) = "Partners": verbTense(51, 2) = "partner": verbTense(51, 3) = "Y"
-verbTense(52, 1) = "performs": verbTense(52, 2) = "perform": verbTense(52, 3) = "N"
-verbTense(53, 1) = "plays": verbTense(53, 2) = "play": verbTense(53, 3) = "N"
-verbTense(54, 1) = "prepares": verbTense(54, 2) = "prepare": verbTense(54, 3) = "N"
-verbTense(55, 1) = "presents": verbTense(55, 2) = "present": verbTense(55, 3) = "N"
-verbTense(56, 1) = "protects": verbTense(56, 2) = "protect": verbTense(56, 3) = "N"
-verbTense(57, 1) = "Provides": verbTense(57, 2) = "provide": verbTense(57, 3) = "Y"
-verbTense(58, 1) = "replicates": verbTense(58, 2) = "replicate": verbTense(58, 3) = "N"
-verbTense(59, 1) = "resolves": verbTense(59, 2) = "resolve": verbTense(59, 3) = "N"
-verbTense(60, 1) = "reviews": verbTense(60, 2) = "review": verbTense(60, 3) = "Y"
-verbTense(61, 1) = "runs": verbTense(61, 2) = "run": verbTense(61, 3) = "Y"
-verbTense(62, 1) = "serves": verbTense(62, 2) = "serve": verbTense(62, 3) = "N"
-verbTense(63, 1) = "specifies": verbTense(63, 2) = "specify": verbTense(63, 3) = "N"
-verbTense(64, 1) = "supports": verbTense(64, 2) = "support": verbTense(64, 3) = "N"
-verbTense(65, 1) = "translates": verbTense(65, 2) = "translate": verbTense(65, 3) = "N"
-verbTense(66, 1) = "understands": verbTense(66, 2) = "understand": verbTense(66, 3) = "N"
-verbTense(67, 1) = "uses": verbTense(67, 2) = "use": verbTense(67, 3) = "N"
-verbTense(68, 1) = "utilizes": verbTense(68, 2) = "utilize": verbTense(68, 3) = "N"
-verbTense(69, 1) = "validates": verbTense(69, 2) = "validate": verbTense(69, 3) = "N"
-verbTense(70, 1) = "works": verbTense(70, 2) = "work": verbTense(70, 3) = "N"
-verbTense(71, 1) = "writes": verbTense(71, 2) = "write": verbTense(71, 3) = "N"
-verbTense(72, 1) = "": verbTense(72, 2) = "": verbTense(72, 3) = "N"
-    
-    For x = 1 To 200
-
-    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = verbTense(x, 1)
-        .Replacement.Text = verbTense(x, 2)
-        .Forward = True
-        .Wrap = wdFindStop
+        .Text = "represented by Mr. LastName"
+        .Replacement.Text = "represented by the company"
+        .Forward = False
+        .Wrap = wdFindContinue
+        .Format = False
         .MatchCase = False
-        .MatchWholeWord = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    Next
-    
-End Sub
 
-Sub VerbTense2()
-
-    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-    
-    Set myRange = Selection.Range
-    
-    Dim verbTense(200, 3) As String
-    Dim x As Integer
-    
-verbTense(1, 1) = "achieving": verbTense(1, 2) = "achieve": verbTense(1, 3) = "N"
-verbTense(2, 1) = "administering": verbTense(2, 2) = "administer": verbTense(2, 3) = "N"
-verbTense(3, 1) = "analyzing": verbTense(3, 2) = "analyze": verbTense(3, 3) = "N"
-verbTense(4, 1) = "answering": verbTense(4, 2) = "answer": verbTense(4, 3) = "N"
-verbTense(5, 1) = "applying": verbTense(5, 2) = "apply": verbTense(5, 3) = "N"
-verbTense(6, 1) = "assisting": verbTense(6, 2) = "assist": verbTense(6, 3) = "N"
-verbTense(7, 1) = "attending": verbTense(7, 2) = "attend": verbTense(7, 3) = "N"
-verbTense(8, 1) = "automating": verbTense(8, 2) = "automate": verbTense(8, 3) = "N"
-verbTense(9, 1) = "building": verbTense(9, 2) = "build": verbTense(9, 3) = "N"
-verbTense(10, 1) = "calculating": verbTense(10, 2) = "calculate": verbTense(10, 3) = "N"
-verbTense(11, 1) = "capturing": verbTense(11, 2) = "capture": verbTense(11, 3) = "N"
-verbTense(12, 1) = "checking": verbTense(12, 2) = "check": verbTense(12, 3) = "N"
-verbTense(13, 1) = "collaborating": verbTense(13, 2) = "collaborate": verbTense(13, 3) = "N"
-verbTense(14, 1) = "coming": verbTense(14, 2) = "come": verbTense(14, 3) = "N"
-verbTense(15, 1) = "communicating": verbTense(15, 2) = "communicate": verbTense(15, 3) = "N"
-verbTense(16, 1) = "conducting": verbTense(16, 2) = "conduct": verbTense(16, 3) = "Y"
-''IN TEMPLATE
-verbTense(17, 1) = "configuring": verbTense(17, 2) = "configure": verbTense(17, 3) = "N"
-verbTense(18, 1) = "coordinating": verbTense(18, 2) = "coordinate": verbTense(18, 3) = "N"
-verbTense(19, 1) = "creating": verbTense(19, 2) = "create": verbTense(19, 3) = "N"
-verbTense(20, 1) = "designing": verbTense(20, 2) = "design": verbTense(20, 3) = "N"
-verbTense(21, 1) = "deploying": verbTense(21, 2) = "deploy": verbTense(21, 3) = "N"
-verbTense(22, 1) = "determining": verbTense(22, 2) = "determine": verbTense(22, 3) = "Y"
-verbTense(23, 1) = "developing": verbTense(23, 2) = "develop": verbTense(23, 3) = "N"
-verbTense(24, 1) = "discussing": verbTense(24, 2) = "discuss": verbTense(24, 3) = "N"
-verbTense(25, 1) = "documenting": verbTense(25, 2) = "document": verbTense(25, 3) = "N"
-verbTense(26, 1) = "drafting": verbTense(26, 2) = "draft": verbTense(26, 3) = "N"
-verbTense(27, 1) = "driving": verbTense(27, 2) = "drive": verbTense(27, 3) = "N"
-verbTense(28, 1) = "engaging": verbTense(28, 2) = "engage": verbTense(28, 3) = "N"
-verbTense(29, 1) = "ensuring": verbTense(29, 2) = "ensure": verbTense(29, 3) = "N"
-verbTense(30, 1) = "establishing": verbTense(30, 2) = "establish": verbTense(30, 3) = "N"
-verbTense(31, 1) = "estimating": verbTense(31, 2) = "estimate": verbTense(31, 3) = "N"
-verbTense(32, 1) = "evaluating": verbTense(32, 2) = "evaluate": verbTense(32, 3) = "Y"
-verbTense(33, 1) = "finding": verbTense(33, 2) = "find": verbTense(33, 3) = "N"
-verbTense(34, 1) = "focusing": verbTense(34, 2) = "focus": verbTense(34, 3) = "Y"
-''IN TEMPLATE
-verbTense(35, 1) = "following": verbTense(35, 2) = "follow": verbTense(35, 3) = "Y"
-''IN TEMPLATE
-verbTense(36, 1) = "forecasting": verbTense(36, 2) = "forecast": verbTense(36, 3) = "N"
-verbTense(37, 1) = "generating": verbTense(37, 2) = "generate": verbTense(37, 3) = "N"
-verbTense(38, 1) = "getting": verbTense(38, 2) = "get": verbTense(38, 3) = "N"
-verbTense(39, 1) = "handling": verbTense(39, 2) = "handle": verbTense(39, 3) = "N"
-verbTense(40, 1) = "highlighting": verbTense(40, 2) = "highlight": verbTense(40, 3) = "N"
-verbTense(41, 1) = "identifying": verbTense(41, 2) = "identify": verbTense(41, 3) = "N"
-verbTense(42, 1) = "implementing": verbTense(42, 2) = "implement": verbTense(42, 3) = "Y"
-verbTense(43, 1) = "installing": verbTense(43, 2) = "install": verbTense(43, 3) = "N"
-verbTense(44, 1) = "integrating": verbTense(44, 2) = "integrate": verbTense(44, 3) = "N"
-verbTense(45, 1) = "interacting": verbTense(45, 2) = "interact": verbTense(45, 3) = "N"
-verbTense(46, 1) = "interpreting": verbTense(46, 2) = "interpret": verbTense(46, 3) = "N"
-verbTense(47, 1) = "leading": verbTense(47, 2) = "lead": verbTense(47, 3) = "Y"
-verbTense(48, 1) = "leveraging": verbTense(48, 2) = "leverage": verbTense(48, 3) = "N"
-verbTense(49, 1) = "liaising": verbTense(49, 2) = "liaise": verbTense(49, 3) = "N"
-verbTense(50, 1) = "looking": verbTense(50, 2) = "look": verbTense(50, 3) = "N"
-verbTense(51, 1) = "making": verbTense(51, 2) = "make": verbTense(51, 3) = "Y"
-''IN TEMPLATE
-verbTense(52, 1) = "managing": verbTense(52, 2) = "manage": verbTense(52, 3) = "N"
-verbTense(53, 1) = "mentoring": verbTense(53, 2) = "mentor": verbTense(53, 3) = "N"
-verbTense(54, 1) = "migrating": verbTense(54, 2) = "migrate": verbTense(54, 3) = "N"
-verbTense(55, 1) = "modeling": verbTense(55, 2) = "model": verbTense(55, 3) = "N"
-verbTense(56, 1) = "monitoring": verbTense(56, 2) = "monitor": verbTense(56, 3) = "N"
-verbTense(57, 1) = "organizing": verbTense(57, 2) = "organize": verbTense(57, 3) = "N"
-verbTense(58, 1) = "overseeing": verbTense(58, 2) = "oversee": verbTense(58, 3) = "N"
-verbTense(59, 1) = "participating": verbTense(59, 2) = "participate": verbTense(59, 3) = "N"
-verbTense(60, 1) = "patching": verbTense(60, 2) = "patch": verbTense(60, 3) = "N"
-verbTense(61, 1) = "performing": verbTense(61, 2) = "perform": verbTense(61, 3) = "N"
-verbTense(62, 1) = "playing": verbTense(62, 2) = "play": verbTense(62, 3) = "N"
-verbTense(63, 1) = "preparing": verbTense(63, 2) = "prepare": verbTense(63, 3) = "N"
-verbTense(64, 1) = "presenting": verbTense(64, 2) = "present": verbTense(64, 3) = "N"
-verbTense(65, 1) = "prioritizing": verbTense(65, 2) = "prioritize": verbTense(65, 3) = "N"
-verbTense(66, 1) = "prototyping": verbTense(66, 2) = "prototype": verbTense(66, 3) = "N"
-verbTense(67, 1) = "providing": verbTense(67, 2) = "provide": verbTense(67, 3) = "N"
-verbTense(68, 1) = "reporting": verbTense(68, 2) = "report": verbTense(68, 3) = "N"
-verbTense(69, 1) = "representing": verbTense(69, 2) = "represent": verbTense(69, 3) = "N"
-verbTense(70, 1) = "researching": verbTense(70, 2) = "research": verbTense(70, 3) = "N"
-verbTense(71, 1) = "resolving": verbTense(71, 2) = "resolve": verbTense(71, 3) = "N"
-verbTense(72, 1) = "securing": verbTense(72, 2) = "secure": verbTense(72, 3) = "N"
-verbTense(73, 1) = "setting": verbTense(73, 2) = "set": verbTense(73, 3) = "N"
-verbTense(74, 1) = "sharing": verbTense(74, 2) = "share": verbTense(74, 3) = "N"
-verbTense(75, 1) = "solving": verbTense(75, 2) = "solve": verbTense(75, 3) = "N"
-verbTense(76, 1) = "tracking": verbTense(76, 2) = "track": verbTense(76, 3) = "N"
-verbTense(77, 1) = "translating": verbTense(77, 2) = "translate": verbTense(77, 3) = "N"
-verbTense(78, 1) = "troubleshooting": verbTense(78, 2) = "troubleshoot": verbTense(78, 3) = "N"
-verbTense(79, 1) = "understanding": verbTense(79, 2) = "understand": verbTense(79, 3) = "Y"
-''IN TEMPLATE
-verbTense(80, 1) = "updating": verbTense(80, 2) = "update": verbTense(80, 3) = "N"
-verbTense(81, 1) = "uploading": verbTense(81, 2) = "upload": verbTense(81, 3) = "N"
-verbTense(82, 1) = "using": verbTense(82, 2) = "use": verbTense(82, 3) = "N"
-verbTense(83, 1) = "validating": verbTense(83, 2) = "validate": verbTense(83, 3) = "N"
-verbTense(84, 1) = "working": verbTense(84, 2) = "work": verbTense(84, 3) = "N"
-verbTense(85, 1) = "writing": verbTense(85, 2) = "write": verbTense(85, 3) = "Y"
-''IN TEMPLATE
-verbTense(86, 1) = "": verbTense(86, 2) = "": verbTense(86, 3) = "N"
-
-For x = 1 To 100
-
-    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = verbTense(x, 1)
-        .Replacement.Text = verbTense(x, 2)
-        .Forward = True
-        .Wrap = wdFindStop
+        .Text = " on behalf of Mr. LastName"
+        .Replacement.Text = ""
+        .Forward = False
+        .Wrap = wdFindContinue
+        .Format = False
         .MatchCase = False
-        .MatchWholeWord = True
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    Next
-
-End Sub
-
-Sub VerbTense3()
-
-    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
     
-    Set myRange = Selection.Range
-    
-    Dim verbTense(200, 3) As String
-    Dim x As Integer
-    
-verbTense(1, 1) = "automation of": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
-verbTense(2, 1) = "baseline of": verbTense(2, 2) = "baseline": verbTense(2, 3) = "N"
-verbTense(3, 1) = "configuration of": verbTense(3, 2) = "configure": verbTense(3, 3) = "N"
-verbTense(4, 1) = "coordination with": verbTense(4, 2) = "coordinate with": verbTense(4, 3) = "N"
-verbTense(5, 1) = "creation of": verbTense(5, 2) = "create": verbTense(5, 3) = "N"
-verbTense(6, 1) = "deployment of": verbTense(6, 2) = "deploy": verbTense(6, 3) = "N"
-verbTense(7, 1) = "development of": verbTense(7, 2) = "develop": verbTense(7, 3) = "N"
-verbTense(8, 1) = "experience in": verbTense(8, 2) = "apply experience in": verbTense(8, 3) = "Y"
-verbTense(9, 1) = "expertise in": verbTense(9, 2) = "apply expertise in": verbTense(9, 3) = "Y"
-verbTense(10, 1) = "fixing of": verbTense(10, 2) = "fix": verbTense(10, 3) = "N"
-verbTense(11, 1) = "interaction with": verbTense(11, 2) = "interact with": verbTense(11, 3) = "N"
-verbTense(12, 1) = "involved in": verbTense(12, 2) = "be involved in": verbTense(12, 3) = "N"
-verbTense(13, 1) = "involve in": verbTense(13, 2) = "be involved in": verbTense(13, 3) = "N"
-''MUST BE IN THIS ORDER
-verbTense(14, 1) = "participation in": verbTense(14, 2) = "participate in": verbTense(14, 3) = "N"
-verbTense(15, 1) = "preparation of": verbTense(15, 2) = "prepare": verbTense(15, 3) = "N"
-verbTense(16, 1) = "prioritization of": verbTense(16, 2) = "prioritize": verbTense(16, 3) = "N"
-verbTense(17, 1) = "review of": verbTense(17, 2) = "review": verbTense(17, 3) = "N"
-verbTense(18, 1) = "": verbTense(18, 2) = "": verbTense(18, 3) = "N"
-
-For x = 1 To 200
-
-    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = verbTense(x, 1)
-        .Replacement.Text = verbTense(x, 2)
-        .Forward = True
-        .Wrap = wdFindStop
-        .MatchCase = False
-        .MatchWholeWord = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    Next
-    
-    End Sub
-    
-Sub verbTense4()
-
-    ActiveDocument.TrackRevisions = Not ActiveDocument.TrackRevisions
-    
-    Set myRange = Selection.Range
-    
-    Dim verbTense(200, 3) As String
-    Dim x As Integer
-
-verbTense(1, 1) = "automated": verbTense(1, 2) = "automate": verbTense(1, 3) = "N"
-verbTense(2, 1) = "built": verbTense(2, 2) = "build": verbTense(2, 3) = "N"
-verbTense(3, 1) = "worked": verbTense(3, 2) = "work": verbTense(3, 3) = "N"
-verbTense(4, 1) = "": verbTense(4, 2) = "": verbTense(4, 3) = "N"
-
-For x = 1 To 200
-
-    myRange.Find.Execute FindText:=verbTense(x, 1), Forward:=True, Wrap:=wdFindStop, MatchWholeWord:=True
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = verbTense(x, 1)
-        .Replacement.Text = verbTense(x, 2)
-        .Forward = True
-        .Wrap = wdFindStop
-        .MatchCase = False
-        .MatchWholeWord = True
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    Next
-
-End Sub
-    
-Sub megaMacro()
-'
-' MegaMacro Macro
-'
-Dim megaMacro(200, 4) As String
-    Dim x As Integer
-
-megaMacro(1, 1) = " & ": megaMacro(1, 2) = " and ": megaMacro(1, 3) = "N": megaMacro(1, 4) = "Y"
-''THIS ISN'T WORKING RIGHT
-megaMacro(2, 1) = "Russ College of Engineering and": megaMacro(2, 2) = "Russ College of Engineering &": megaMacro(2, 3) = "N": megaMacro(2, 4) = "Y"
-megaMacro(3, 1) = "Larsen and Toubro": megaMacro(3, 2) = "Larsen & Toubro": megaMacro(3, 3) = "Y": megaMacro(3, 4) = "Y"
-megaMacro(4, 1) = "LARSEN and TOUBRO": megaMacro(4, 2) = "LARSEN & TOUBRO": megaMacro(4, 3) = "Y": megaMacro(4, 4) = "Y"
-megaMacro(5, 1) = "Deloitte and Touche": megaMacro(5, 2) = "Deloitte & Touche": megaMacro(5, 3) = "Y": megaMacro(5, 4) = "Y"
-megaMacro(6, 1) = "DELOITTE and TOUCHE": megaMacro(6, 2) = "DELOITTE & TOUCHE": megaMacro(6, 3) = "Y": megaMacro(6, 4) = "Y"
-megaMacro(7, 1) = "11)" & vbTab: megaMacro(7, 2) = "": megaMacro(7, 3) = "N": megaMacro(7, 4) = "N"
-megaMacro(8, 1) = "1)" & vbTab: megaMacro(8, 2) = "": megaMacro(8, 3) = "N": megaMacro(8, 4) = "N"
-megaMacro(9, 1) = "2)" & vbTab: megaMacro(9, 2) = "": megaMacro(9, 3) = "N": megaMacro(9, 4) = "N"
-megaMacro(10, 1) = "3)" & vbTab: megaMacro(10, 2) = "": megaMacro(10, 3) = "N": megaMacro(10, 4) = "N"
-megaMacro(11, 1) = "4)" & vbTab: megaMacro(11, 2) = "": megaMacro(11, 3) = "N": megaMacro(11, 4) = "N"
-megaMacro(12, 1) = "5)" & vbTab: megaMacro(12, 2) = "": megaMacro(12, 3) = "N": megaMacro(12, 4) = "N"
-megaMacro(13, 1) = "6)" & vbTab: megaMacro(13, 2) = "": megaMacro(13, 3) = "N": megaMacro(13, 4) = "N"
-megaMacro(14, 1) = "7)" & vbTab: megaMacro(14, 2) = "": megaMacro(14, 3) = "N": megaMacro(14, 4) = "N"
-megaMacro(15, 1) = "8)" & vbTab: megaMacro(15, 2) = "": megaMacro(15, 3) = "N": megaMacro(15, 4) = "N"
-megaMacro(16, 1) = "9)" & vbTab: megaMacro(16, 2) = "": megaMacro(16, 3) = "N": megaMacro(16, 4) = "N"
-megaMacro(17, 1) = "10)" & vbTab: megaMacro(17, 2) = "": megaMacro(17, 3) = "N": megaMacro(17, 4) = "N"
-megaMacro(18, 1) = "11." & vbTab: megaMacro(18, 2) = "": megaMacro(18, 3) = "N": megaMacro(18, 4) = "N"
-megaMacro(19, 1) = "12." & vbTab: megaMacro(19, 2) = "": megaMacro(19, 3) = "N": megaMacro(19, 4) = "N"
-megaMacro(20, 1) = "13." & vbTab: megaMacro(20, 2) = "": megaMacro(20, 3) = "N": megaMacro(20, 4) = "N"
-megaMacro(21, 1) = "14." & vbTab: megaMacro(21, 2) = "": megaMacro(21, 3) = "N": megaMacro(21, 4) = "N"
-megaMacro(22, 1) = "15." & vbTab: megaMacro(22, 2) = "": megaMacro(22, 3) = "N": megaMacro(22, 4) = "N"
-megaMacro(23, 1) = "16." & vbTab: megaMacro(23, 2) = "": megaMacro(23, 3) = "N": megaMacro(23, 4) = "N"
-megaMacro(24, 1) = "17." & vbTab: megaMacro(24, 2) = "": megaMacro(24, 3) = "N": megaMacro(24, 4) = "N"
-megaMacro(25, 1) = "18." & vbTab: megaMacro(25, 2) = "": megaMacro(25, 3) = "N": megaMacro(25, 4) = "N"
-megaMacro(26, 1) = "19." & vbTab: megaMacro(26, 2) = "": megaMacro(26, 3) = "N": megaMacro(26, 4) = "N"
-megaMacro(27, 1) = "20." & vbTab: megaMacro(27, 2) = "": megaMacro(27, 3) = "N": megaMacro(27, 4) = "N"
-megaMacro(28, 1) = "1." & vbTab: megaMacro(28, 2) = "": megaMacro(28, 3) = "N": megaMacro(28, 4) = "N"
-megaMacro(29, 1) = "2." & vbTab: megaMacro(29, 2) = "": megaMacro(29, 3) = "N": megaMacro(29, 4) = "N"
-megaMacro(30, 1) = "3." & vbTab: megaMacro(30, 2) = "": megaMacro(30, 3) = "N": megaMacro(30, 4) = "N"
-megaMacro(31, 1) = "4." & vbTab: megaMacro(31, 2) = "": megaMacro(31, 3) = "N": megaMacro(31, 4) = "N"
-megaMacro(32, 1) = "5." & vbTab: megaMacro(32, 2) = "": megaMacro(32, 3) = "N": megaMacro(32, 4) = "N"
-megaMacro(33, 1) = "6." & vbTab: megaMacro(33, 2) = "": megaMacro(33, 3) = "N": megaMacro(33, 4) = "N"
-megaMacro(34, 1) = "7." & vbTab: megaMacro(34, 2) = "": megaMacro(34, 3) = "N": megaMacro(34, 4) = "N"
-megaMacro(35, 1) = "8." & vbTab: megaMacro(35, 2) = "": megaMacro(35, 3) = "N": megaMacro(35, 4) = "N"
-megaMacro(36, 1) = "9." & vbTab: megaMacro(36, 2) = "": megaMacro(36, 3) = "N": megaMacro(36, 4) = "N"
-megaMacro(37, 1) = "10." & vbTab: megaMacro(37, 2) = "": megaMacro(37, 3) = "N": megaMacro(37, 4) = "N"
-megaMacro(38, 1) = "ix." & vbTab: megaMacro(38, 2) = "": megaMacro(38, 3) = "N": megaMacro(38, 4) = "N"
-megaMacro(39, 1) = "x." & vbTab: megaMacro(39, 2) = "": megaMacro(39, 3) = "N": megaMacro(39, 4) = "N"
-megaMacro(40, 1) = "iv." & vbTab: megaMacro(40, 2) = "": megaMacro(40, 3) = "N": megaMacro(40, 4) = "N"
-megaMacro(41, 1) = "v." & vbTab: megaMacro(41, 2) = "": megaMacro(41, 3) = "N": megaMacro(41, 4) = "N"
-megaMacro(42, 1) = "viii." & vbTab: megaMacro(42, 2) = "": megaMacro(42, 3) = "N": megaMacro(42, 4) = "N"
-megaMacro(43, 1) = "vii." & vbTab: megaMacro(43, 2) = "": megaMacro(43, 3) = "N": megaMacro(43, 4) = "N"
-megaMacro(44, 1) = "vi." & vbTab: megaMacro(44, 2) = "": megaMacro(44, 3) = "N": megaMacro(44, 4) = "N"
-megaMacro(45, 1) = "iii." & vbTab: megaMacro(45, 2) = "": megaMacro(45, 3) = "N": megaMacro(45, 4) = "N"
-megaMacro(46, 1) = "ii." & vbTab: megaMacro(46, 2) = "": megaMacro(46, 3) = "N": megaMacro(46, 4) = "N"
-megaMacro(47, 1) = "i." & vbTab: megaMacro(47, 2) = "": megaMacro(47, 3) = "N": megaMacro(47, 4) = "N"
-megaMacro(48, 1) = "INSERT DUTIES HERE" & vbCr: megaMacro(48, 2) = "": megaMacro(48, 3) = "Y": megaMacro(48, 4) = "N"
-megaMacro(49, 1) = "INSERT JOB DUTIES" & vbCr: megaMacro(49, 2) = "": megaMacro(49, 3) = "Y": megaMacro(49, 4) = "N"
-megaMacro(50, 1) = "Batchelor's": megaMacro(50, 2) = "Bachelor's": megaMacro(50, 3) = "N": megaMacro(50, 4) = "N"
-megaMacro(51, 1) = "masters": megaMacro(51, 2) = "Master's": megaMacro(51, 3) = "N": megaMacro(51, 4) = "N"
-megaMacro(52, 1) = "bachelors": megaMacro(52, 2) = "Bachelor's": megaMacro(52, 3) = "N": megaMacro(52, 4) = "N"
-megaMacro(53, 1) = "bachelor's": megaMacro(53, 2) = "Bachelor's": megaMacro(53, 3) = "Y": megaMacro(53, 4) = "N"
-megaMacro(54, 1) = "master's": megaMacro(54, 2) = "Master's": megaMacro(54, 3) = "Y": megaMacro(54, 4) = "N"
-megaMacro(55, 1) = "Bachelor's Degree": megaMacro(55, 2) = "Bachelor's degree": megaMacro(55, 3) = "Y": megaMacro(55, 4) = "N"
-megaMacro(56, 1) = "Master's Degree": megaMacro(56, 2) = "Master's degree": megaMacro(56, 3) = "Y": megaMacro(56, 4) = "N"
-megaMacro(57, 1) = "APl": megaMacro(57, 2) = "API": megaMacro(57, 3) = "N": megaMacro(57, 4) = "Y"
-megaMacro(58, 1) = "etc": megaMacro(58, 2) = "etc.": megaMacro(58, 3) = "N": megaMacro(58, 4) = "Y"
-megaMacro(59, 1) = "i.e": megaMacro(59, 2) = "i.e.": megaMacro(59, 3) = "N": megaMacro(59, 4) = "Y"
-megaMacro(60, 1) = "ie": megaMacro(60, 2) = "i.e.": megaMacro(60, 3) = "N": megaMacro(60, 4) = "Y"
-megaMacro(61, 1) = "java": megaMacro(61, 2) = "Java": megaMacro(61, 3) = "Y": megaMacro(61, 4) = "Y"
-megaMacro(62, 1) = "Jquery": megaMacro(62, 2) = "jQuery": megaMacro(62, 3) = "Y": megaMacro(62, 4) = "Y"
-megaMacro(63, 1) = "KPl": megaMacro(63, 2) = "KPI": megaMacro(63, 3) = "N": megaMacro(63, 4) = "Y"
-megaMacro(64, 1) = "VOiP": megaMacro(64, 2) = "VOIP": megaMacro(64, 3) = "Y": megaMacro(64, 4) = "Y"
-megaMacro(65, 1) = "Location of Training:" & vbTab & "XXXX" & vbCr: megaMacro(65, 2) = "": megaMacro(65, 3) = "N": megaMacro(65, 4) = "N"
-megaMacro(66, 1) = "": megaMacro(66, 2) = "": megaMacro(66, 3) = "N": megaMacro(66, 4) = "N"
-
-For x = 1 To 200
-
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = megaMacro(x, 1)
-        .Replacement.Text = megaMacro(x, 2)
+        .Text = "The skills Mr. LastName possesses"
+        .Replacement.Text = "The skills CompanyOne necessitates"
         .Forward = True
         .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Candidate's Last Name:" & vbTab & "LASTNAME" & vbCr
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "LastName "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "Candidate's First Name:" & vbTab & "FIRSTNAME" & vbCr
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "FirstName "
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+End Sub
+
+Sub PublishPDF()
+'
+' PublishPDF Macro
+'
+'
+pdfFileName = ActiveDocument.FullName ' get the current file name
+lengthFileName = Len(pdfFileName) ' get the length of the current file name (includes the path)
+If Right(lengthFileName, 3) = "doc" Then
+pdfFileName = Left(pdfFileName, lengthFileName - 3) + "pdf" ' changes the extension (shave off last three characters - DOC - and add three new ones.)
+Else: pdfFileName = Left(pdfFileName, lengthFileName - 4) + "pdf" ' changes the extension (shave off last four characters - DOCX - and add three new ones.)
+End If
+ 
+ActiveDocument.ExportAsFixedFormat OutputFileName:=pdfFileName, ExportFormat:=wdExportFormatPDF, OpenAfterExport:=True, OptimizeFor:= _
+wdExportOptimizeForPrint, Range:=wdExportAllDocument, From:=1, To:=1, _
+Item:=wdExportDocumentContent, IncludeDocProps:=False, KeepIRM:=True, _
+CreateBookmarks:=wdExportCreateNoBookmarks, DocStructureTags:=True, _
+BitmapMissingFonts:=True, UseISO19005_1:=False
+
+If ActiveDocument.Saved = False Then ActiveDocument.Save
+
+End Sub
+
+Sub ReplaceFNUandPublishPDF()
+'
+' ReplaceFNUandPublishPDF Macro
+'
+'
+     Call ReplaceFNU
+     Call PublishPDF
+
+End Sub
+
+Sub posWevReplace()
+
+    poswevreplaceForm.Show
+
+End Sub
+
+Sub wevReplace()
+
+    wevreplaceForm.Show
+
+End Sub
+
+
+Sub posSpecReplace()
+
+    pospecreplaceForm.Show
+
+End Sub
+
+Sub posRelReplace()
+
+    posrelreplaceForm.Show
+
+End Sub
+
+Sub posSpecRelReplace()
+
+    pospecrelreplaceForm.Show
+
+End Sub
+
+Sub TemplateCheckV1()
+
+Set myRange = ActiveDocument.Content
+
+Dim x As Integer
+Dim phrase(70, 2) As String
+Dim y As Integer
+Dim a As Integer
+
+x = 0
+
+''Template Prepass to Protect Phrases
+Dim protectedPhrase(5) As String
+Dim z As Integer
+protectedPhrase(1) = "we hereby affirm"
+protectedPhrase(2) = "Our conversation"
+protectedPhrase(3) = "We represent the foregoing"
+protectedPhrase(4) = "best of our knowledge"
+protectedPhrase(5) = "apparent grounds for us"
+
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = protectedPhrase(z)
+        .Replacement.Text = "z" + protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+''Template Check
+'Column 1 = Phrase
+'Column 2 = MatchCase True or False
+
+''Templated Language
+phrase(1, 1) = "FirstName"
+phrase(2, 1) = "LastName"
+phrase(3, 1) = "PositionOne"
+phrase(4, 1) = "CompanyOne"
+phrase(5, 1) = "CaseNumber"
+phrase(6, 1) = "DegreeIn"
+phrase(7, 1) = "FieldOne"
+phrase(8, 1) = "INSERT DATE"
+phrase(9, 1) = "INSERT COMPANY INFORMATION"
+phrase(10, 1) = "INSERT RELEVANT JOB DUTIES HERE"
+phrase(11, 1) = "INSERT RELATED COURSEWORK"
+phrase(12, 1) = "ADD PARAGRAPH"
+phrase(13, 1) = "INCLUDE SOMETHING FROM THE OOH?????"
+phrase(14, 1) = "FIELDTWO"
+phrase(15, 1) = "EXPLAIN HOW…..the degree is relevant…….."
+phrase(16, 1) = "year(S)"
+phrase(17, 1) = "INSERT SIMILAR JOB DUTIES TO THE O*Net DUTIES"
+phrase(18, 1) = "ListCourses"
+phrase(19, 1) = "DegreeTitle"
+phrase(20, 1) = "numberOfYears"
+phrase(21, 1) = "InForeignDegree"
+phrase(22, 1) = "TitleForeignDegree"
+phrase(23, 1) = "MajorThree"
+phrase(24, 1) = "MajorTwo"
+phrase(25, 1) = "MajorOne"
+phrase(26, 1) = "YearThree"
+phrase(27, 1) = "YearTwo"
+phrase(28, 1) = "YearOne"
+phrase(29, 1) = "DegreeReceivedThree"
+phrase(30, 1) = "DegreeReceivedTwo"
+phrase(31, 1) = "DegreeReceivedOne"
+phrase(32, 1) = "DegreeRecievedOne"
+phrase(33, 1) = "theCountryThree"
+phrase(34, 1) = "theCountryTwo"
+phrase(35, 1) = "theCountryOne"
+phrase(36, 1) = "SchoolNameThree"
+phrase(37, 1) = "SchoolNameTwo"
+phrase(38, 1) = "SchoolNameOne"
+phrase(39, 1) = "yearsofCourseworkThree"
+phrase(40, 1) = "yearsofCourseworkTwo"
+phrase(41, 1) = "yearsofCourseworkOne"
+phrase(42, 1) = "SpokenWith"
+
+''Preposition Mistakes
+phrase(43, 1) = "at University of"
+phrase(44, 1) = "at Institute of"
+phrase(45, 1) = "from University of"
+phrase(46, 1) = "from Institute of"
+phrase(47, 1) = "in University of"
+phrase(48, 1) = "in Institute of"
+phrase(49, 1) = "hereinafter"
+
+''Vowel Mistakes
+phrase(50, 1) = "to employ a A"
+phrase(51, 1) = "to hire a A"
+phrase(52, 1) = "that a A"
+phrase(53, 1) = "to employ a E"
+phrase(54, 1) = "to hire a E"
+phrase(55, 1) = "that a E"
+phrase(56, 1) = "to employ a I"
+phrase(57, 1) = "to hire a I"
+phrase(58, 1) = "that a I"
+phrase(59, 1) = "to employ a O"
+phrase(60, 1) = "to hire a O"
+phrase(61, 1) = "that a O"
+phrase(62, 1) = "to employ a U"
+phrase(63, 1) = "to hire a U"
+phrase(64, 1) = "that a U"
+
+''Punctuation and Blank Spots
+phrase(64, 1) = ".."
+phrase(65, 1) = "XXX"
+phrase(66, 1) = "INSERT"
+phrase(66, 2) = "Y"
+
+''First Person Language
+phrase(67, 1) = "we"
+phrase(68, 1) = "our"
+phrase(69, 1) = "ours"
+phrase(70, 1) = "us"
+phrase(70, 2) = "Y"
+
+For y = 1 To 70
+
+    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True, Wrap:=wdFindContinue, MatchWholeWord:=True, MatchCase:=(phrase(y, 2) = "Y")
+    If myRange.Find.Found = True Then
+    x = x + 1
+    End If
+    
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = phrase(y, 1)
+        .Replacement.Text = phrase(y, 1)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
         .MatchWholeWord = True
-        If megaMacro(x, 3) = "Y" Then
+        If phrase(y, 2) = "Y" Then
             .MatchCase = True
         Else
             .MatchCase = False
         End If
-        If megaMacro(x, 4) = "Y" Then
-            .MatchWholeWord = True
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+Next
+
+    If x > 0 Then
+    MsgBox ("Check for templated language!")
+    
+    Else
+    MsgBox ("All good!")
+    
+    End If
+
+''Restore Find and Replace formatting
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+'PostPass
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "z" + protectedPhrase(z)
+        .Replacement.Text = protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+End Sub
+
+Public Sub TemplateCheckV2()
+
+'Declarations
+Set myRange = ActiveDocument.Content
+Dim x As Integer
+x = 0
+Dim phrase(200, 2) As String
+Dim y As Integer
+Dim TemplateErrors(100) As String
+Dim ErrorMessage As String
+Dim protectedPhrase(5) As String
+Dim z As Integer
+
+''Template Check
+'Column 1 = Phrase
+'Column 2 = MatchCase True or False
+
+''Templated Language
+phrase(1, 1) = "FirstName": phrase(1, 2) = "N"
+phrase(2, 1) = "LastName": phrase(2, 2) = "N"
+phrase(3, 1) = "PositionOne": phrase(3, 2) = "N"
+phrase(4, 1) = "CompanyOne": phrase(4, 2) = "N"
+phrase(5, 1) = "CaseNumber": phrase(5, 2) = "N"
+phrase(6, 1) = "DegreeIn": phrase(6, 2) = "N"
+phrase(7, 1) = "FieldOne": phrase(7, 2) = "N"
+phrase(8, 1) = "INSERT DATE": phrase(8, 2) = "N"
+phrase(9, 1) = "INSERT COMPANY INFORMATION": phrase(9, 2) = "N"
+phrase(10, 1) = "INSERT RELEVANT JOB DUTIES HERE": phrase(10, 2) = "N"
+phrase(11, 1) = "INSERT RELATED COURSEWORK": phrase(11, 2) = "N"
+phrase(12, 1) = "ADD PARAGRAPH": phrase(12, 2) = "N"
+phrase(13, 1) = "INCLUDE SOMETHING FROM THE OOH?????": phrase(13, 2) = "N"
+phrase(14, 1) = "FIELDTWO": phrase(14, 2) = "N"
+phrase(15, 1) = "EXPLAIN HOW…..the degree is relevant……..": phrase(15, 2) = "N"
+phrase(16, 1) = "year(S)": phrase(16, 2) = "N"
+phrase(17, 1) = "INSERT SIMILAR JOB DUTIES TO THE O*Net DUTIES": phrase(17, 2) = "N"
+phrase(18, 1) = "ListCourses": phrase(18, 2) = "N"
+phrase(19, 1) = "DegreeTitle": phrase(19, 2) = "N"
+phrase(20, 1) = "numberOfYears": phrase(20, 2) = "N"
+phrase(21, 1) = "InForeignDegree": phrase(21, 2) = "N"
+phrase(22, 1) = "TitleForeignDegree": phrase(22, 2) = "N"
+phrase(23, 1) = "MajorThree": phrase(23, 2) = "N"
+phrase(24, 1) = "MajorTwo": phrase(24, 2) = "N"
+phrase(25, 1) = "MajorOne": phrase(25, 2) = "N"
+phrase(26, 1) = "YearThree": phrase(26, 2) = "N"
+phrase(27, 1) = "YearTwo": phrase(27, 2) = "N"
+phrase(28, 1) = "YearOne": phrase(28, 2) = "N"
+phrase(29, 1) = "DegreeReceivedThree": phrase(29, 2) = "N"
+phrase(30, 1) = "DegreeReceivedTwo": phrase(30, 2) = "N"
+phrase(31, 1) = "DegreeReceivedOne": phrase(31, 2) = "N"
+phrase(32, 1) = "DegreeRecievedOne": phrase(32, 2) = "N"
+phrase(33, 1) = "theCountryThree": phrase(33, 2) = "N"
+phrase(34, 1) = "theCountryTwo": phrase(34, 2) = "N"
+phrase(35, 1) = "theCountryOne": phrase(35, 2) = "N"
+phrase(36, 1) = "SchoolNameThree": phrase(36, 2) = "N"
+phrase(37, 1) = "SchoolNameTwo": phrase(37, 2) = "N"
+phrase(38, 1) = "SchoolNameOne": phrase(38, 2) = "N"
+phrase(39, 1) = "yearsofCourseworkThree": phrase(39, 2) = "N"
+phrase(40, 1) = "yearsofCourseworkTwo": phrase(40, 2) = "N"
+phrase(41, 1) = "yearsofCourseworkOne": phrase(41, 2) = "N"
+phrase(42, 1) = "SpokenWith": phrase(42, 2) = "N"
+
+''Preposition Mistakes
+phrase(43, 1) = "at University of": phrase(43, 2) = "N"
+phrase(44, 1) = "at Institute of": phrase(44, 2) = "N"
+phrase(45, 1) = "from University of": phrase(45, 2) = "N"
+phrase(46, 1) = "from Institute of": phrase(46, 2) = "N"
+phrase(47, 1) = "in University of": phrase(47, 2) = "N"
+''This has to match whole word!!! or Else Tai Solarin University of Education
+phrase(48, 1) = "in Institute of": phrase(48, 2) = "N"
+phrase(49, 1) = "to employ a A": phrase(49, 2) = "N"
+
+''Vowel Mistakes
+phrase(50, 1) = "to hire a A": phrase(50, 2) = "N"
+phrase(51, 1) = "that a A": phrase(51, 2) = "N"
+phrase(52, 1) = "to employ a E": phrase(52, 2) = "N"
+phrase(53, 1) = "to hire a E": phrase(53, 2) = "N"
+phrase(54, 1) = "that a E": phrase(54, 2) = "N"
+phrase(55, 1) = "to employ a I": phrase(55, 2) = "N"
+phrase(56, 1) = "to hire a I": phrase(56, 2) = "N"
+phrase(57, 1) = "that a I": phrase(57, 2) = "N"
+phrase(58, 1) = "to employ a O": phrase(58, 2) = "N"
+phrase(59, 1) = "to hire a O": phrase(59, 2) = "N"
+phrase(60, 1) = "that a O": phrase(60, 2) = "N"
+phrase(61, 1) = "to employ a U": phrase(61, 2) = "N"
+phrase(62, 1) = "to hire a U": phrase(62, 2) = "N"
+phrase(63, 1) = "that a U": phrase(63, 2) = "N"
+
+''Punctuation and Blank Spots
+phrase(64, 1) = "..": phrase(64, 2) = "N"
+phrase(65, 1) = "XXX": phrase(65, 2) = "N"
+phrase(66, 1) = "INSERT": phrase(66, 2) = "Y"
+
+''First Person Language
+phrase(67, 1) = "we": phrase(67, 2) = "N"
+phrase(68, 1) = "our": phrase(68, 2) = "N"
+phrase(69, 1) = "ours": phrase(69, 2) = "N"
+phrase(70, 1) = "us": phrase(70, 2) = "Y"
+
+
+
+'Template Prepass to Protect Phrases
+protectedPhrase(1) = "we hereby affirm"
+protectedPhrase(2) = "Our conversation"
+protectedPhrase(3) = "We represent the foregoing"
+protectedPhrase(4) = "our knowledge"
+protectedPhrase(5) = "us to disbelieve"
+
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = protectedPhrase(z)
+        .Replacement.Text = "z" + protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+'Template Check
+For y = 1 To 70
+
+    myRange.Find.Execute FindText:=phrase(y, 1), Forward:=True, Wrap:=wdFindContinue, MatchWholeWord:=True, MatchCase:=(phrase(y, 2) = "Y")
+    If myRange.Find.Found = True Then
+    x = x + 1
+    TemplateErrors(x) = phrase(y, 1)
+    ErrorMessage = ErrorMessage & Chr(34) & TemplateErrors(x) & Chr(34) & Chr(13)
+    End If
+    
+    Options.DefaultHighlightColorIndex = wdYellow
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = True
+    With Selection.Find
+        .Text = phrase(y, 1)
+        .Replacement.Text = phrase(y, 1)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = True
+        If phrase(y, 2) = "Y" Then
+            .MatchCase = True
         Else
-            .MatchWholeWord = False
+            .MatchCase = False
         End If
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
     Next
+
+''Message Box
+    If x > 0 Then
+    MsgBox ("Check for templated language!" & Chr(13) & Chr(13) & "Errors:" & Chr(13) & ErrorMessage)
     
+    Else
+    Selection.Find.ClearFormatting
+    Selection.Find.Highlight = True
+    Selection.Find.Replacement.ClearFormatting
+    Selection.Find.Replacement.Highlight = False
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchWholeWord = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+    MsgBox ("All good!")
+    
+    End If
+
+''PostPass to Restore Template
+For z = 1 To 5
+
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "z" + protectedPhrase(z)
+        .Replacement.Text = protectedPhrase(z)
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    Next
+
+''Restore Find and Replace formatting
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+End Sub
+
+
+Sub JanitorMacro()
+
+ Dim cleanUp(150, 2) As String
+     Dim x As Integer
+
+cleanUp(1, 1) = "'": cleanUp(1, 2) = "'"
+cleanUp(2, 1) = """": cleanUp(2, 2) = """"
+cleanUp(3, 1) = " Brooklyn, NY 11210": cleanUp(3, 2) = "x Brooklyn, NY 11210"
+cleanUp(4, 1) = " FAX 718-951-4842": cleanUp(4, 2) = "x FAX 718-951-4842"
+cleanUp(5, 1) = "•" & vbTab: cleanUp(5, 2) = ""
+cleanUp(6, 1) = "• ": cleanUp(6, 2) = ""
+cleanUp(7, 1) = "x Brooklyn, NY 11210": cleanUp(7, 2) = " Brooklyn, NY 11210"
+cleanUp(8, 1) = "x FAX 718-951-4842": cleanUp(8, 2) = " FAX 718-951-4842"
+cleanUp(9, 1) = "-" & vbTab: cleanUp(9, 2) = ""
+cleanUp(10, 1) = "o" & vbTab: cleanUp(10, 2) = ""
+cleanUp(11, 1) = " ,": cleanUp(11, 2) = ","
+cleanUp(12, 1) = "}": cleanUp(12, 2) = ")"
+cleanUp(13, 1) = "{": cleanUp(13, 2) = "("
+cleanUp(14, 1) = " .": cleanUp(14, 2) = "."
+cleanUp(15, 1) = "..": cleanUp(15, 2) = "."
+cleanUp(16, 1) = " :": cleanUp(16, 2) = ":"
+cleanUp(17, 1) = ",,": cleanUp(17, 2) = ","
+cleanUp(18, 1) = " / ": cleanUp(18, 2) = "/"
+cleanUp(19, 1) = " /": cleanUp(19, 2) = "/"
+cleanUp(20, 1) = "/ ": cleanUp(20, 2) = "/"
+cleanUp(21, 1) = "\": cleanUp(21, 2) = "/"
+cleanUp(22, 1) = "$ ": cleanUp(22, 2) = "$"
+cleanUp(23, 1) = " '": cleanUp(23, 2) = "'"
+cleanUp(24, 1) = ",a": cleanUp(24, 2) = ", a"
+cleanUp(25, 1) = ",b": cleanUp(25, 2) = ", b"
+cleanUp(26, 1) = ",c": cleanUp(26, 2) = ", c"
+cleanUp(27, 1) = ",d": cleanUp(27, 2) = ", d"
+cleanUp(28, 1) = ",e": cleanUp(28, 2) = ", e"
+cleanUp(29, 1) = ",f": cleanUp(29, 2) = ", f"
+cleanUp(30, 1) = ",g": cleanUp(30, 2) = ", g"
+cleanUp(31, 1) = ",h": cleanUp(31, 2) = ", h"
+cleanUp(32, 1) = ",i": cleanUp(32, 2) = ", i"
+cleanUp(33, 1) = ",j": cleanUp(33, 2) = ", j"
+cleanUp(34, 1) = ",k": cleanUp(34, 2) = ", k"
+cleanUp(35, 1) = ",l": cleanUp(35, 2) = ", l"
+cleanUp(36, 1) = ",m": cleanUp(36, 2) = ", m"
+cleanUp(37, 1) = ",n": cleanUp(37, 2) = ", n"
+cleanUp(38, 1) = ",o": cleanUp(38, 2) = ", o"
+cleanUp(39, 1) = ",p": cleanUp(39, 2) = ", p"
+cleanUp(40, 1) = ",q": cleanUp(40, 2) = ", q"
+cleanUp(41, 1) = ",r": cleanUp(41, 2) = ", r"
+cleanUp(42, 1) = ",s": cleanUp(42, 2) = ", s"
+cleanUp(43, 1) = ",t": cleanUp(43, 2) = ", t"
+cleanUp(44, 1) = ",u": cleanUp(44, 2) = ", u"
+cleanUp(45, 1) = ",v": cleanUp(45, 2) = ", v"
+cleanUp(46, 1) = ",w": cleanUp(46, 2) = ", w"
+cleanUp(47, 1) = ",x": cleanUp(47, 2) = ", x"
+cleanUp(48, 1) = ",y": cleanUp(48, 2) = ", y"
+cleanUp(49, 1) = ",z": cleanUp(49, 2) = ", z"
+cleanUp(50, 1) = ")a": cleanUp(50, 2) = ") a"
+cleanUp(51, 1) = ")b": cleanUp(51, 2) = ") b"
+cleanUp(52, 1) = ")c": cleanUp(52, 2) = ") c"
+cleanUp(53, 1) = ")d": cleanUp(53, 2) = ") d"
+cleanUp(54, 1) = ")e": cleanUp(54, 2) = ") e"
+cleanUp(55, 1) = ")f": cleanUp(55, 2) = ") f"
+cleanUp(56, 1) = ")g": cleanUp(56, 2) = ") g"
+cleanUp(57, 1) = ")h": cleanUp(57, 2) = ") h"
+cleanUp(58, 1) = ")i": cleanUp(58, 2) = ") i"
+cleanUp(59, 1) = ")j": cleanUp(59, 2) = ") j"
+cleanUp(60, 1) = ")k": cleanUp(60, 2) = ") k"
+cleanUp(61, 1) = ")l": cleanUp(61, 2) = ") l"
+cleanUp(62, 1) = ")m": cleanUp(62, 2) = ") m"
+cleanUp(63, 1) = ")n": cleanUp(63, 2) = ") n"
+cleanUp(64, 1) = ")o": cleanUp(64, 2) = ") o"
+cleanUp(65, 1) = ")p": cleanUp(65, 2) = ") p"
+cleanUp(66, 1) = ")q": cleanUp(66, 2) = ") q"
+cleanUp(67, 1) = ")r": cleanUp(67, 2) = ") r"
+cleanUp(68, 1) = ")s": cleanUp(68, 2) = ") s"
+cleanUp(69, 1) = ")t": cleanUp(69, 2) = ") t"
+cleanUp(70, 1) = ")u": cleanUp(70, 2) = ") u"
+cleanUp(71, 1) = ")v": cleanUp(71, 2) = ") v"
+cleanUp(72, 1) = ")w": cleanUp(72, 2) = ") w"
+cleanUp(73, 1) = ")x": cleanUp(73, 2) = ") x"
+cleanUp(74, 1) = ")y": cleanUp(74, 2) = ") y"
+cleanUp(75, 1) = ")z": cleanUp(75, 2) = ") z"
+cleanUp(76, 1) = "a(": cleanUp(76, 2) = "a ("
+cleanUp(77, 1) = "b(": cleanUp(77, 2) = "b ("
+cleanUp(78, 1) = "c(": cleanUp(78, 2) = "c ("
+cleanUp(79, 1) = "d(": cleanUp(79, 2) = "d ("
+cleanUp(80, 1) = "e(": cleanUp(80, 2) = "e ("
+cleanUp(81, 1) = "f(": cleanUp(81, 2) = "f ("
+cleanUp(82, 1) = "g(": cleanUp(82, 2) = "g ("
+cleanUp(83, 1) = "h(": cleanUp(83, 2) = "h ("
+cleanUp(84, 1) = "i(": cleanUp(84, 2) = "i ("
+cleanUp(85, 1) = "j(": cleanUp(85, 2) = "j ("
+cleanUp(86, 1) = "k(": cleanUp(86, 2) = "k ("
+cleanUp(87, 1) = "l(": cleanUp(87, 2) = "l ("
+cleanUp(88, 1) = "m(": cleanUp(88, 2) = "m ("
+cleanUp(89, 1) = "n(": cleanUp(89, 2) = "n ("
+cleanUp(90, 1) = "o(": cleanUp(90, 2) = "o ("
+cleanUp(91, 1) = "p(": cleanUp(91, 2) = "p ("
+cleanUp(92, 1) = "q(": cleanUp(92, 2) = "q ("
+cleanUp(93, 1) = "r(": cleanUp(93, 2) = "r ("
+cleanUp(94, 1) = "s(": cleanUp(94, 2) = "s ("
+cleanUp(95, 1) = "t(": cleanUp(95, 2) = "t ("
+cleanUp(96, 1) = "u(": cleanUp(96, 2) = "u ("
+cleanUp(97, 1) = "v(": cleanUp(97, 2) = "v ("
+cleanUp(98, 1) = "w(": cleanUp(98, 2) = "w ("
+cleanUp(99, 1) = "x(": cleanUp(99, 2) = "x ("
+cleanUp(100, 1) = "y(": cleanUp(100, 2) = "y ("
+cleanUp(101, 1) = "z(": cleanUp(101, 2) = "z ("
+cleanUp(102, 1) = "  ": cleanUp(102, 2) = " "
+cleanUp(103, 1) = "": cleanUp(103, 2) = ""
+
+For x = 1 To 150
+ 
+      Selection.Find.ClearFormatting
+     Selection.Find.Replacement.ClearFormatting
+     With Selection.Find
+         .Text = cleanUp(x, 1)
+         .Replacement.Text = cleanUp(x, 2)
+         .Forward = True
+         .Wrap = wdFindContinue
+         .MatchCase = False
+         .MatchWholeWord = False
+         .MatchAllWordForms = False
+     End With
+     Selection.Find.Execute Replace:=wdReplaceAll
+     Next
+
+End Sub
+
+Sub FixAcademics()
+
+ Dim cleanUp(10, 2) As String
+     Dim x As Integer
+
+cleanUp(1, 1) = " ,": cleanUp(1, 2) = ","
+cleanUp(2, 1) = " .": cleanUp(2, 2) = "."
+cleanUp(3, 1) = ",,": cleanUp(3, 2) = ","
+cleanUp(4, 1) = "..": cleanUp(4, 2) = "."
+cleanUp(5, 1) = vbCr & vbCr & " " & vbCr: cleanUp(5, 2) = vb
+cleanUp(6, 1) = "  ": cleanUp(6, 2) = " "
+cleanUp(7, 1) = "": cleanUp(7, 2) = ""
+
+
+For x = 1 To 10
+ 
+      Selection.Find.ClearFormatting
+     Selection.Find.Replacement.ClearFormatting
+     With Selection.Find
+         .Text = cleanUp(x, 1)
+         .Replacement.Text = cleanUp(x, 2)
+         .Forward = True
+         .Wrap = wdFindContinue
+         .MatchCase = False
+         .MatchWholeWord = False
+         .MatchAllWordForms = False
+     End With
+     Selection.Find.Execute Replace:=wdReplaceAll
+     Next
+     
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find.Replacement.Font
+        .Bold = False
+        .Italic = False
+    End With
+    With Selection.Find
+        .Text = "."
+        .Replacement.Text = "."
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+        Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find.Replacement.Font
+    End With
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
 End Sub

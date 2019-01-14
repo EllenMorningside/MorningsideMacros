@@ -284,6 +284,7 @@ Set myRange = ActiveDocument.Content
 Dim x As Integer
 Dim phrase(70, 2) As String
 Dim y As Integer
+Dim a As Integer
 
 x = 0
 
@@ -534,6 +535,7 @@ phrase(44, 1) = "at Institute of": phrase(44, 2) = "N"
 phrase(45, 1) = "from University of": phrase(45, 2) = "N"
 phrase(46, 1) = "from Institute of": phrase(46, 2) = "N"
 phrase(47, 1) = "in University of": phrase(47, 2) = "N"
+''This has to match whole word!!! or Else Tai Solarin University of Education
 phrase(48, 1) = "in Institute of": phrase(48, 2) = "N"
 phrase(49, 1) = "to employ a A": phrase(49, 2) = "N"
 
@@ -595,7 +597,7 @@ For y = 1 To 70
     If myRange.Find.Found = True Then
     x = x + 1
     TemplateErrors(x) = phrase(y, 1)
-    ErrorMessage = ErrorMessage & TemplateErrors(x) & Chr(13)
+    ErrorMessage = ErrorMessage & Chr(34) & TemplateErrors(x) & Chr(34) & Chr(13)
     End If
     
     Options.DefaultHighlightColorIndex = wdYellow
@@ -673,13 +675,13 @@ For z = 1 To 5
 
 End Sub
 
+
 Sub JanitorMacro()
 
- Dim cleanUp(50, 2) As String
+ Dim cleanUp(150, 2) As String
      Dim x As Integer
 
 cleanUp(1, 1) = "'": cleanUp(1, 2) = "'"
-''THIS CANT MATCH WHOLE WORD!!!!!!
 cleanUp(2, 1) = """": cleanUp(2, 2) = """"
 cleanUp(3, 1) = " Brooklyn, NY 11210": cleanUp(3, 2) = "x Brooklyn, NY 11210"
 cleanUp(4, 1) = " FAX 718-951-4842": cleanUp(4, 2) = "x FAX 718-951-4842"
@@ -687,7 +689,6 @@ cleanUp(5, 1) = "•" & vbTab: cleanUp(5, 2) = ""
 cleanUp(6, 1) = "• ": cleanUp(6, 2) = ""
 cleanUp(7, 1) = "x Brooklyn, NY 11210": cleanUp(7, 2) = " Brooklyn, NY 11210"
 cleanUp(8, 1) = "x FAX 718-951-4842": cleanUp(8, 2) = " FAX 718-951-4842"
-''FIX FONT COLOR ON YANOFSKY TEMPLATE!!!!
 cleanUp(9, 1) = "-" & vbTab: cleanUp(9, 2) = ""
 cleanUp(10, 1) = "o" & vbTab: cleanUp(10, 2) = ""
 cleanUp(11, 1) = " ,": cleanUp(11, 2) = ","
@@ -696,17 +697,95 @@ cleanUp(13, 1) = "{": cleanUp(13, 2) = "("
 cleanUp(14, 1) = " .": cleanUp(14, 2) = "."
 cleanUp(15, 1) = "..": cleanUp(15, 2) = "."
 cleanUp(16, 1) = " :": cleanUp(16, 2) = ":"
-cleanUp(17, 1) = " / ": cleanUp(17, 2) = "/"
-cleanUp(18, 1) = " /": cleanUp(18, 2) = "/"
-cleanUp(19, 1) = "/ ": cleanUp(19, 2) = "/"
-cleanUp(20, 1) = "\": cleanUp(20, 2) = "/"
-cleanUp(21, 1) = "$ ": cleanUp(21, 2) = "$"
-cleanUp(22, 1) = "(": cleanUp(22, 2) = " ("
-cleanUp(23, 1) = " ”": cleanUp(23, 2) = "”"
-cleanUp(24, 1) = "  ": cleanUp(24, 2) = " "
-cleanUp(25, 1) = "": cleanUp(25, 2) = ""
+cleanUp(17, 1) = ",,": cleanUp(17, 2) = ","
+cleanUp(18, 1) = " / ": cleanUp(18, 2) = "/"
+cleanUp(19, 1) = " /": cleanUp(19, 2) = "/"
+cleanUp(20, 1) = "/ ": cleanUp(20, 2) = "/"
+cleanUp(21, 1) = "\": cleanUp(21, 2) = "/"
+cleanUp(22, 1) = "$ ": cleanUp(22, 2) = "$"
+cleanUp(23, 1) = " '": cleanUp(23, 2) = "'"
+cleanUp(24, 1) = ",a": cleanUp(24, 2) = ", a"
+cleanUp(25, 1) = ",b": cleanUp(25, 2) = ", b"
+cleanUp(26, 1) = ",c": cleanUp(26, 2) = ", c"
+cleanUp(27, 1) = ",d": cleanUp(27, 2) = ", d"
+cleanUp(28, 1) = ",e": cleanUp(28, 2) = ", e"
+cleanUp(29, 1) = ",f": cleanUp(29, 2) = ", f"
+cleanUp(30, 1) = ",g": cleanUp(30, 2) = ", g"
+cleanUp(31, 1) = ",h": cleanUp(31, 2) = ", h"
+cleanUp(32, 1) = ",i": cleanUp(32, 2) = ", i"
+cleanUp(33, 1) = ",j": cleanUp(33, 2) = ", j"
+cleanUp(34, 1) = ",k": cleanUp(34, 2) = ", k"
+cleanUp(35, 1) = ",l": cleanUp(35, 2) = ", l"
+cleanUp(36, 1) = ",m": cleanUp(36, 2) = ", m"
+cleanUp(37, 1) = ",n": cleanUp(37, 2) = ", n"
+cleanUp(38, 1) = ",o": cleanUp(38, 2) = ", o"
+cleanUp(39, 1) = ",p": cleanUp(39, 2) = ", p"
+cleanUp(40, 1) = ",q": cleanUp(40, 2) = ", q"
+cleanUp(41, 1) = ",r": cleanUp(41, 2) = ", r"
+cleanUp(42, 1) = ",s": cleanUp(42, 2) = ", s"
+cleanUp(43, 1) = ",t": cleanUp(43, 2) = ", t"
+cleanUp(44, 1) = ",u": cleanUp(44, 2) = ", u"
+cleanUp(45, 1) = ",v": cleanUp(45, 2) = ", v"
+cleanUp(46, 1) = ",w": cleanUp(46, 2) = ", w"
+cleanUp(47, 1) = ",x": cleanUp(47, 2) = ", x"
+cleanUp(48, 1) = ",y": cleanUp(48, 2) = ", y"
+cleanUp(49, 1) = ",z": cleanUp(49, 2) = ", z"
+cleanUp(50, 1) = ")a": cleanUp(50, 2) = ") a"
+cleanUp(51, 1) = ")b": cleanUp(51, 2) = ") b"
+cleanUp(52, 1) = ")c": cleanUp(52, 2) = ") c"
+cleanUp(53, 1) = ")d": cleanUp(53, 2) = ") d"
+cleanUp(54, 1) = ")e": cleanUp(54, 2) = ") e"
+cleanUp(55, 1) = ")f": cleanUp(55, 2) = ") f"
+cleanUp(56, 1) = ")g": cleanUp(56, 2) = ") g"
+cleanUp(57, 1) = ")h": cleanUp(57, 2) = ") h"
+cleanUp(58, 1) = ")i": cleanUp(58, 2) = ") i"
+cleanUp(59, 1) = ")j": cleanUp(59, 2) = ") j"
+cleanUp(60, 1) = ")k": cleanUp(60, 2) = ") k"
+cleanUp(61, 1) = ")l": cleanUp(61, 2) = ") l"
+cleanUp(62, 1) = ")m": cleanUp(62, 2) = ") m"
+cleanUp(63, 1) = ")n": cleanUp(63, 2) = ") n"
+cleanUp(64, 1) = ")o": cleanUp(64, 2) = ") o"
+cleanUp(65, 1) = ")p": cleanUp(65, 2) = ") p"
+cleanUp(66, 1) = ")q": cleanUp(66, 2) = ") q"
+cleanUp(67, 1) = ")r": cleanUp(67, 2) = ") r"
+cleanUp(68, 1) = ")s": cleanUp(68, 2) = ") s"
+cleanUp(69, 1) = ")t": cleanUp(69, 2) = ") t"
+cleanUp(70, 1) = ")u": cleanUp(70, 2) = ") u"
+cleanUp(71, 1) = ")v": cleanUp(71, 2) = ") v"
+cleanUp(72, 1) = ")w": cleanUp(72, 2) = ") w"
+cleanUp(73, 1) = ")x": cleanUp(73, 2) = ") x"
+cleanUp(74, 1) = ")y": cleanUp(74, 2) = ") y"
+cleanUp(75, 1) = ")z": cleanUp(75, 2) = ") z"
+cleanUp(76, 1) = "a(": cleanUp(76, 2) = "a ("
+cleanUp(77, 1) = "b(": cleanUp(77, 2) = "b ("
+cleanUp(78, 1) = "c(": cleanUp(78, 2) = "c ("
+cleanUp(79, 1) = "d(": cleanUp(79, 2) = "d ("
+cleanUp(80, 1) = "e(": cleanUp(80, 2) = "e ("
+cleanUp(81, 1) = "f(": cleanUp(81, 2) = "f ("
+cleanUp(82, 1) = "g(": cleanUp(82, 2) = "g ("
+cleanUp(83, 1) = "h(": cleanUp(83, 2) = "h ("
+cleanUp(84, 1) = "i(": cleanUp(84, 2) = "i ("
+cleanUp(85, 1) = "j(": cleanUp(85, 2) = "j ("
+cleanUp(86, 1) = "k(": cleanUp(86, 2) = "k ("
+cleanUp(87, 1) = "l(": cleanUp(87, 2) = "l ("
+cleanUp(88, 1) = "m(": cleanUp(88, 2) = "m ("
+cleanUp(89, 1) = "n(": cleanUp(89, 2) = "n ("
+cleanUp(90, 1) = "o(": cleanUp(90, 2) = "o ("
+cleanUp(91, 1) = "p(": cleanUp(91, 2) = "p ("
+cleanUp(92, 1) = "q(": cleanUp(92, 2) = "q ("
+cleanUp(93, 1) = "r(": cleanUp(93, 2) = "r ("
+cleanUp(94, 1) = "s(": cleanUp(94, 2) = "s ("
+cleanUp(95, 1) = "t(": cleanUp(95, 2) = "t ("
+cleanUp(96, 1) = "u(": cleanUp(96, 2) = "u ("
+cleanUp(97, 1) = "v(": cleanUp(97, 2) = "v ("
+cleanUp(98, 1) = "w(": cleanUp(98, 2) = "w ("
+cleanUp(99, 1) = "x(": cleanUp(99, 2) = "x ("
+cleanUp(100, 1) = "y(": cleanUp(100, 2) = "y ("
+cleanUp(101, 1) = "z(": cleanUp(101, 2) = "z ("
+cleanUp(102, 1) = "  ": cleanUp(102, 2) = " "
+cleanUp(103, 1) = "": cleanUp(103, 2) = ""
 
-For x = 1 To 50
+For x = 1 To 150
  
       Selection.Find.ClearFormatting
      Selection.Find.Replacement.ClearFormatting
@@ -716,10 +795,80 @@ For x = 1 To 50
          .Forward = True
          .Wrap = wdFindContinue
          .MatchCase = False
-         .MatchWholeWord = True
+         .MatchWholeWord = False
          .MatchAllWordForms = False
      End With
      Selection.Find.Execute Replace:=wdReplaceAll
      Next
+
+End Sub
+
+Sub FixAcademics()
+
+ Dim cleanUp(10, 2) As String
+     Dim x As Integer
+
+cleanUp(1, 1) = " ,": cleanUp(1, 2) = ","
+cleanUp(2, 1) = " .": cleanUp(2, 2) = "."
+cleanUp(3, 1) = ",,": cleanUp(3, 2) = ","
+cleanUp(4, 1) = "..": cleanUp(4, 2) = "."
+cleanUp(5, 1) = vbCr & vbCr & " " & vbCr: cleanUp(5, 2) = vb
+cleanUp(6, 1) = "  ": cleanUp(6, 2) = " "
+cleanUp(7, 1) = "": cleanUp(7, 2) = ""
+
+
+For x = 1 To 10
+ 
+      Selection.Find.ClearFormatting
+     Selection.Find.Replacement.ClearFormatting
+     With Selection.Find
+         .Text = cleanUp(x, 1)
+         .Replacement.Text = cleanUp(x, 2)
+         .Forward = True
+         .Wrap = wdFindContinue
+         .MatchCase = False
+         .MatchWholeWord = False
+         .MatchAllWordForms = False
+     End With
+     Selection.Find.Execute Replace:=wdReplaceAll
+     Next
+     
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find.Replacement.Font
+        .Bold = False
+        .Italic = False
+    End With
+    With Selection.Find
+        .Text = "."
+        .Replacement.Text = "."
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    
+        Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find.Replacement.Font
+    End With
+    With Selection.Find
+        .Text = ""
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = True
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
 
 End Sub
