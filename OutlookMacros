@@ -64,3 +64,42 @@ Sub EvalsIntake()
  Set objOlApp = Nothing
 
 End Sub
+
+Private Sub RemoveRecipients(Item As Outlook.MailItem)
+  Dim RemoveThis As VBA.Collection
+  Dim Recipients As Outlook.Recipients
+  Dim R As Outlook.Recipient
+  Dim i&, y&
+  Set RemoveThis = New VBA.Collection
+
+  ' add addresses here
+  RemoveThis.Add "ellenrosecooper@gmail.com"
+  RemoveThis.Add "ellencooper815@gmail.com"
+  RemoveThis.Add "intake@mside.com"
+  RemoveThis.Add "RMitchell@mside.com"
+  RemoveThis.Add "KMcGimsey@mside.com"
+  RemoveThis.Add "LRexhaj@mside.com"
+  RemoveThis.Add "jcorgan@mside.com"
+  RemoveThis.Add "ecooper@mside.com"
+  RemoveThis.Add "erc395@nyu.edu"
+  
+  Set Recipients = Item.Recipients
+  For i = Recipients.Count To 1 Step -1
+    Set R = Recipients.Item(i)
+
+    For y = 1 To RemoveThis.Count
+      If LCase$(R.Address) = LCase$(RemoveThis(y)) Then
+        Recipients.Remove i
+        Exit For
+      End If
+    Next
+  Next
+End Sub
+
+Private Sub Application_ItemSend(ByVal Item As Object, Cancel As Boolean)
+    Dim prompt As String
+    prompt = "Delete Morningside Senders?"
+    If MsgBox(prompt, vbYesNo + vbQuestion) = vbYes Then
+  RemoveRecipients Item
+  End If
+ End Sub
