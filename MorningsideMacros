@@ -83,11 +83,12 @@ Sub ReplaceFirstName()
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
         .Text = "Candidate's Last Name:"
-        .Replacement.Text = "Candidate's Name"
+        .Replacement.Text = "Candidate's Name:"
         .Forward = True
         .Wrap = wdFindContinue
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
+    ''Colon was missing oops
     
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -345,25 +346,24 @@ phrase(44, 1) = "at Institute of": phrase(44, 2) = "N"
 phrase(45, 1) = "from University of": phrase(45, 2) = "N"
 phrase(46, 1) = "from Institute of": phrase(46, 2) = "N"
 phrase(47, 1) = "in University of": phrase(47, 2) = "N"
-''This has to match whole word!!! or Else Tai Solarin University of Education
 phrase(48, 1) = "in Institute of": phrase(48, 2) = "N"
-phrase(49, 1) = "to employ a A": phrase(49, 2) = "N"
 
 ''Vowel Mistakes
+phrase(49, 1) = "to employ a A": phrase(49, 2) = "N"
 phrase(50, 1) = "to hire a A": phrase(50, 2) = "N"
-phrase(51, 1) = "that a A": phrase(51, 2) = "N"
+phrase(51, 1) = "It is apparent that a A": phrase(51, 2) = "N"
 phrase(52, 1) = "to employ a E": phrase(52, 2) = "N"
 phrase(53, 1) = "to hire a E": phrase(53, 2) = "N"
-phrase(54, 1) = "that a E": phrase(54, 2) = "N"
+phrase(54, 1) = "It is apparent that a E": phrase(54, 2) = "N"
 phrase(55, 1) = "to employ a I": phrase(55, 2) = "N"
 phrase(56, 1) = "to hire a I": phrase(56, 2) = "N"
-phrase(57, 1) = "that a I": phrase(57, 2) = "N"
+phrase(57, 1) = "It is apparent that a I": phrase(57, 2) = "N"
 phrase(58, 1) = "to employ a O": phrase(58, 2) = "N"
 phrase(59, 1) = "to hire a O": phrase(59, 2) = "N"
-phrase(60, 1) = "that a O": phrase(60, 2) = "N"
+phrase(60, 1) = "It is apparent that a O": phrase(60, 2) = "N"
 phrase(61, 1) = "to employ a U": phrase(61, 2) = "N"
 phrase(62, 1) = "to hire a U": phrase(62, 2) = "N"
-phrase(63, 1) = "that a U": phrase(63, 2) = "N"
+phrase(63, 1) = "It is apparent that a U": phrase(63, 2) = "N"
 
 ''Punctuation and Blank Spots
 phrase(64, 1) = "..": phrase(64, 2) = "N"
